@@ -24,6 +24,6 @@
    $ bower install
    $ node-dev ./bin/wwww
    ```
-   4. Check the project
-   
+   4. Check project
+
    http://localhost:3000
