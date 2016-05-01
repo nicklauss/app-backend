@@ -1,0 +1,8 @@
+<<<<<<< Upstream, based on 4749918cbd4a62c6447b18d1d1bf57cfb396b070
+node_modules
+.git
+git
+=======
+launchConfigurations/
+.git/
+>>>>>>> 2260a24 First commit
