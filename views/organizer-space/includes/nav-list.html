@@ -31,8 +31,11 @@
             </li>
         </ul>
     </li>
-
-    <li class="">
+    {% if program.open %}
+        <li class="active open">
+    {% else %}
+        <li class="">
+    {% endif%}
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-calendar"></i>
             <span class="menu-text">
@@ -45,8 +48,12 @@
         <b class="arrow"></b>
 
         <ul class="submenu">
-            <li class="">
-                <a href="form-elements.html">
+            {% if program.list_experts %}
+                <li class="active">
+            {% else %}
+                <li class="">
+            {% endif %}
+                <a href="/organizer/list-experts">
                     <i class="menu-icon fa fa-users"></i>
                     Reviewers
                 </a>
