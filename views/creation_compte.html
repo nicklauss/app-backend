@@ -1,0 +1,68 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Creation compte</legend>
+<br/>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nom">Nom</label>
+  <div class="col-md-4">
+    <input id="nom" name="nom" placeholder="Nom" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="prenom">Prenom</label>
+  <div class="col-md-4">
+    <input id="prenom" name="prenom" placeholder="Prenom" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email Address</label>  
+  <div class="col-md-4">
+    <input type="email" name="email" id="email" class="form-control input-md" placeholder="Email Address">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="phone">Phone number</label>  
+  <div class="col-md-4">
+    <input type="text" name="phone" id="phone" class="form-control input-md" placeholder="Phone number">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="startDate">Profil</label>  
+  <div class="col-md-4">
+    <select id="typeUser" name="typeUser" class="form-control">
+      <option value="" selected disabled default>Vous etes un</option>
+      <option value="1">Reviewer</option>
+      <option value="2">Membre CO</option>
+      <option value="2">Membre CP</option>
+      <option value="2">President CP</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-2 col-md-offset-5">
+    <button id="soumettre" name="soumettre" class="btn btn-md btn-primary">Creer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}

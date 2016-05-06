@@ -1,0 +1,124 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Publication</legend>
+<br/>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="nom">Nom</label>
+  <div class="col-md-6">
+    <input id="nom" name="nom" placeholder="Nom" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="location">Location</label>  
+  <div class="col-md-6">
+    <textarea id="location" name="location" placeholder="Location" rows="5" class="form-control input-md"></textarea>    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="email">Email Address</label>  
+  <div class="col-md-6">
+    <input type="email" name="email" id="email" class="form-control input-md" placeholder="Email Address">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="phone">Phone number</label>  
+  <div class="col-md-6">
+    <input type="text" name="phone" id="phone" class="form-control input-md" placeholder="Phone number">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="startDate">Start date</label>  
+  <div class="col-md-6">
+    <input id="startDate" name="startDate" placeholder="Start date" class="form-control input-md" required="" type="date">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="endDate">End date</label>  
+  <div class="col-md-6">
+    <input id="endDate" name="endDate" placeholder="End date" class="form-control input-md" required="" type="date">
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="theme">Thématique</label>
+  <div class="col-md-6">
+    <select id="theme" name="theme" class="form-control">
+      <option value="1">Nouvelles technologies</option>
+      <option value="2">Nouvelles technologies</option>
+      <option value="3">Nouvelles technologies</option>
+      <option value="4">Nouvelles technologies</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="description">Description</label>  
+  <div class="col-md-6">
+    <textarea id="description" name="description" placeholder="Description" rows="5" class="form-control input-md"></textarea>    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="startDate">Soumission</label>  
+  <div class="col-md-3">
+    <input id="startDate" name="startDate" placeholder="Start date" class="form-control input-md" required="" type="date">
+  </div>
+  <div class="col-md-3">
+    <input id="endDate" name="endDate" placeholder="End date" class="form-control input-md" required="" type="date">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="startDate">Selection</label>  
+  <div class="col-md-3">
+    <input id="startDate" name="startDate" placeholder="Start date" class="form-control input-md" required="" type="date">
+  </div>
+  <div class="col-md-3">
+    <input id="endDate" name="endDate" placeholder="End date" class="form-control input-md" required="" type="date">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="startDate">Finalisation</label>  
+  <div class="col-md-3">
+    <input id="startDate" name="startDate" placeholder="Start date" class="form-control input-md" required="" type="date">
+  </div>
+  <div class="col-md-3">
+    <input id="endDate" name="endDate" placeholder="End date" class="form-control input-md" required="" type="date">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-2 col-md-offset-5">
+    <button id="soumettre" name="soumettre" class="btn btn-md btn-primary">Soumettre</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}

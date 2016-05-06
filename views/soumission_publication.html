@@ -1,0 +1,69 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Publication</legend>
+<br/>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="title">Titre</label>
+  <div class="col-md-4">
+    <input id="title" name="title" placeholder="Titre" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="abstract">Abstract</label>  
+  <div class="col-md-4">
+    <textarea id="abstract" name="abstract" placeholder="Abstract" rows="5" class="form-control input-md"></textarea>    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="theme">Thématique</label>
+  <div class="col-md-4">
+    <select id="theme" name="theme" class="form-control">
+      <option value="1">Nouvelles technologies</option>
+      <option value="2">Nouvelles technologies</option>
+      <option value="3">Nouvelles technologies</option>
+      <option value="4">Nouvelles technologies</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="num">N°</label>  
+  <div class="col-md-2">
+    <input id="num" name="num" placeholder="N°" class="form-control input-md" required="" type="number">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="abstract">Publication</label>  
+  <div class="col-md-4">
+  <input id="abstract" name="abstract" placeholder="Abstract" class="form-control input-md" required="" type="file">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4 col-md-offset-4">
+    <button id="annuler" name="annuler" class="btn btn-md btn-primary">Annuler</button>
+    <button id="soumettre" name="soumettre" class="btn btn-md btn-primary">Soumettre</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}
