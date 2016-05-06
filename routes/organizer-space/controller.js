@@ -1,7 +1,7 @@
 'use strict';
 
 exports.index = (req, res, next) => {
-    res.render('layouts/index', {
+    res.render('organizer-space/index', {
         title: 'Organizer Space'
     });
 };
