@@ -27,3 +27,6 @@
    4. Check project
 
    http://localhost:3000
+
+## Admin template
+> https://github.com/bopoda/ace
