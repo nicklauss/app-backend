@@ -1,47 +1,139 @@
 <ul class="nav nav-list">
-
+{% if confy.open %}
+    <li class="active open">
+{% else %}
     <li class="">
-        <a href="index.html">
+{% endif %}
+        <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-book"></i>
             <span class="menu-text">
-                Config Congres
+                Config congres
             </span>
+
+            <b class="arrow fa fa-angle-down"></b>
         </a>
 
         <b class="arrow"></b>
-    </li>
 
+        <ul class="submenu">
+        {% if confy.phase %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/program/phases">
+                    <i class="menu-icon fa fa-clock-o"></i>
+                    Phases
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        </ul>
+    </li>
+{% if program.open %}
+    <li class="active open">
+{% else %}
     <li class="">
-        <a href="index.html">
+{% endif%}
+        <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-users"></i>
             <span class="menu-text">
-                Experts
+                program comity
             </span>
+
+            <b class="arrow fa fa-angle-down"></b>
         </a>
 
         <b class="arrow"></b>
-    </li>
 
+        <ul class="submenu">
+        {% if program.experts %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/program/experts">
+                    <i class="menu-icon fa fa-user"></i>
+                    Experts
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+        {% if program.members %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/program/members">
+                    <i class="menu-icon fa fa-user"></i>
+                    Members
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        </ul>
+    </li>
+{% if publication.open %}
+    <li class="active open">
+{% else %}
     <li class="">
-        <a href="index.html">
+{% endif %}
+        <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-files-o"></i>
             <span class="menu-text">
                 Publications
             </span>
+
+            <b class="arrow fa fa-angle-down"></b>
         </a>
 
         <b class="arrow"></b>
-    </li>
 
+        <ul class="submenu">
+        {% if publication.list %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/program/list-publications">
+                    <i class="menu-icon fa fa-list"></i>
+                    liste des publications
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        </ul>
+    </li>
+{% if session.open %}
+    <li class="active open">
+{% else %}
     <li class="">
-        <a href="index.html">
+{% endif%}
+        <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-calendar"></i>
             <span class="menu-text">
                 Sessions
             </span>
+
+            <b class="arrow fa fa-angle-down"></b>
         </a>
 
         <b class="arrow"></b>
-    </li>
 
+        <ul class="submenu">
+        {% if session.schedule %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/program/schedule">
+                    <i class="menu-icon fa fa-calendar-o"></i>
+                    schedule
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        </ul>
+    </li>
 </ul>
