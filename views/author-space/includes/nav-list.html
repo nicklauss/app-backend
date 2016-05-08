@@ -1,0 +1,45 @@
+<ul class="nav nav-list">
+{% if publication.open %}
+    <li class="active open">
+{% else %}
+    <li class="">
+{% endif %}
+        <a href="#" class="dropdown-toggle">
+            <i class="menu-icon fa fa-book"></i>
+            <span class="menu-text">
+                Publication
+            </span>
+
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+
+        <b class="arrow"></b>
+
+        <ul class="submenu">
+        {% if publication.submit %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/author/submit-publication">
+                    <i class="menu-icon fa fa-plus"></i>
+                    Soumettre une publication
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        {% if publication.list %}
+            <li class="active">
+        {% else %}
+            <li class="">
+        {% endif %}
+                <a href="/author/list-publication">
+                    <i class="menu-icon fa fa-list"></i>
+                    Liste publication
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+        </ul>
+    </li>
+</ul>
