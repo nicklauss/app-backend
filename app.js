@@ -1,13 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var swig = require('swig');
+'use strict';
+// Set default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var app = express();
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const swig = require('swig');
+const expressValidator = require('express-validator');
+const mongoose = require('mongoose');
+const app = express();
 
+const config = require('./config');
+
+mongoose.connect(config.mongo.uri);
 // view engine setup
 app.engine('html', swig.renderFile);
 
@@ -22,6 +30,9 @@ swig.setDefaults({ cache: false });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// Express Validator
+app.use(expressValidator());
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
