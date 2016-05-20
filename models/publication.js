@@ -27,6 +27,10 @@ const PublicationSchema = new Schema({
         marks: String,
         evaluation_date: Date
     },
+    author: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     created: {
         type: Date,
         default: Date.now

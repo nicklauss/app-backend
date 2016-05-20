@@ -37,6 +37,18 @@ var UserSchema = new Schema({
     university : String,
     labo: String,
     domaine: String,
+    registrations: [{
+        congreId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Congre'
+        },
+        status: {
+            type: String,
+            enum: ['REGISTERED', 'PENDING', 'APPROVED'],
+            default: 'REGISTERED'
+        },
+        created: Date
+    }],
     deleted: {
         type: Boolean,
         default: false
