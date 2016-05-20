@@ -1,6 +1,8 @@
 'use strict';
 
 const User = require('../../../models/user');
+const Congre = require('../../../models/congre');
+
 
 exports.validateUser = (req, res, next) => {
     req.checkBody('firstName', 'The first name is require').notEmpty();
@@ -43,7 +45,7 @@ exports.create = (req, res, next) => {
             //TODO send activation email
             return res.send({
                 ok: true,
-                message: 'You account has been succeffuly created!'
+                message: 'You account has been succefully created!'
             });
         }
     });
@@ -87,9 +89,76 @@ exports.update = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
+    let currentUserId = req.params.userId;
+    
+    User.findById(currentUserId)
+        .exec((err, user) => {
+        if(err || !user) {
+            return res.send({
+                ok: false,
+                message: 'User not found'
+            });
+        }
+        user.updated = new Date();
+        user.deleted = true;
+        user.save((err) => {
+            if(err) {
+                return res.send({
+                    ok: false,
+                    message: 'Error updating profile, please try later!'
+                });
+            }
+            return res.send({
+                ok: true,
+                data: user
+            });
+        });
+    });
+};
 
+exports.getUsersByRole = (req, res, next) => {
+    let role = req.params.role;
+    
+    User.find({role : role})
+        .exec((err, users) => {
+        if(err || !users) {
+            return res.send({
+                ok: false,
+                message: 'Users not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: users
+        });
+    });
 };
 
 exports.getUsersByCongre = (req, res, next) => {
-
+    let congreId = req.params.congreId;
+    
+    Congre.findById(congreId)
+        .exec((err, congre) => {
+        if(err || !congre) {
+            return res.send({
+                ok: false,
+                message: 'Congre not found'
+            });
+        }
+        let organizerId = congre.organisateur_id;
+    });
+    
+    User.findById(organizerId)
+        .exec((err, user) => {
+        if(err || !user) {
+            return res.send({
+                ok: false,
+                message: 'User not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: user
+        });
+    })
 };

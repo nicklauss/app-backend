@@ -7,8 +7,9 @@ const controller = require('./controller');
 
 route
     .post('/', controller.validateUser, controller.create)
-    .put('/', auth.isAuthenticated(), controller.update);
-    /*.delete('/:userId', controller.delete)
-    .get('/:congreId', controller.getUsersByCongre);*/
+    .put('/', auth.isAuthenticated(), controller.update)
+    .delete('/:userId', auth.isAuthenticated(), controller.delete)
+    .get('/:role', controller.getUsersByRole)
+    .get('/:congreId', controller.getUsersByCongre);
 
 module.exports = route;
