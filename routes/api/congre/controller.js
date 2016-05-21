@@ -8,7 +8,8 @@ exports.validateCongre = (req, res, next) => {
         min: 1,
         max: 16
     });
-    req.checkBody('date_debut', 'Start date is required').notEmpty().isDate();    req.checkBody('date_fin', 'End date is required').notEmpty().isDate();
+    req.checkBody('date_debut', 'Start date is required').notEmpty().isDate();
+    req.checkBody('date_fin', 'End date is required').notEmpty().isDate();
     req.checkBody('email', 'Email is required').notEmpty().isEmail();
     
     let errors = req.validationErrors();
