@@ -1,7 +1,7 @@
 'use strict';
 
 const User = require('../../../models/user');
-const Congre = require('../../../models/congre');
+const Publication = require('../../../models/publication');
 
 
 exports.validateUser = (req, res, next) => {
@@ -39,7 +39,8 @@ exports.create = (req, res, next) => {
         if(err) {
             return res.send({
                 ok: false,
-                message: 'Something went wrong!'
+                message: 'Something went wrong!',
+                err: err
             });
         } else {
             //TODO send activation email
@@ -116,10 +117,11 @@ exports.delete = (req, res, next) => {
     });
 };
 
-exports.getUsersByRole = (req, res, next) => {
+exports.getUsersByRoleAndCongre = (req, res, next) => {
     let role = req.params.role;
+    let congreId = req.params.congreId;
     
-    User.find({role : role})
+    User.find({"role" : role, "registrations.congreId" : congreId})
         .exec((err, users) => {
         if(err || !users) {
             return res.send({
@@ -137,28 +139,48 @@ exports.getUsersByRole = (req, res, next) => {
 exports.getUsersByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
     
-    Congre.findById(congreId)
-        .exec((err, congre) => {
-        if(err || !congre) {
+    User.find({"registrations.congreId" : congreId})
+        .exec((err, users) => {
+        if(err || !users) {
             return res.send({
                 ok: false,
-                message: 'Congre not found'
-            });
-        }
-        let organizerId = congre.organisateur_id;
-    });
-    
-    User.findById(organizerId)
-        .exec((err, user) => {
-        if(err || !user) {
-            return res.send({
-                ok: false,
-                message: 'User not found'
+                message: 'Users not found'
             });
         }
         return res.send({
             ok: true,
-            data: user
+            data: users
         });
-    })
+    });
+};
+
+exports.getReviewersByEvaluation = (req, res, next) => {
+    let evaluation = req.params.evaluation;
+    
+    console.log(evaluation);
+    Publication.distinct("evaluation.reviewer_id",{"evaluation.value" : evaluation})
+        .exec((err, reviewers_id) => {
+        if(err || !reviewers_id) {
+            return res.send({
+                ok: false,
+                message: 'Publications not found'
+            });
+        }
+        
+        console.log(reviewers_id);
+
+        User.find({"_id" : {"$in" : reviewers_id}})
+            .exec((err, reviewers) => {
+            if(err || !reviewers) {
+                return res.send({
+                    ok: false,
+                    message: 'Reviewers not found'
+                });
+            }
+            return res.send({
+                ok: true,
+                data: reviewers
+            });
+        });
+    });
 };
