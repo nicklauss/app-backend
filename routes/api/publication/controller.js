@@ -29,7 +29,8 @@ exports.newPublication = (req, res, next) => {
         abstract: req.body.abstract,
         media: {
             initial_report: req.body.media.initial_report
-        }
+        },
+        created: new Date()
     });
     publication.save((err) => {
         if(err) {
@@ -130,6 +131,7 @@ exports.updatePublication = (req, res, next) => {
         publication.title = req.body.title || publication.title;        publication.numb_pages = req.body.numb_pages || publication.numb_pages;
         publication.abstract = req.body.abstract || publication.abstract;
         publication.media.initial_report = req.body.media.initial_report || publication.media.initial_report;
+        publication.updated = new Date();
         publication.save((err) => {
             if(err) {
                 return res.send({
