@@ -9,8 +9,8 @@ route
     .post('/', controller.validateUser, controller.create)
     .put('/', auth.isAuthenticated(), controller.update)
     .delete('/:userId', auth.isAuthenticated(), controller.delete)
-    .get('/:role/congre/:congreId', controller.getUsersByRoleAndCongre)
-    .get('/congre/:congreId', controller.getUsersByCongre)
-    .get('/publication/:evaluation', controller.getReviewersByEvaluation);
+    .get('/:role/congres/:congreId', controller.getUsersByRoleAndCongre)
+    .get('/congres/:congreId', controller.getUsersByCongre)
+    .get('/publications/:evaluation', controller.getReviewersByEvaluation);
 
 module.exports = route;
