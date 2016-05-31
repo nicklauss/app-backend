@@ -6,7 +6,8 @@ module.exports = (app) => {
         .use('/organizer', require('./organizer-space'))
         .use('/program', require('./programm-space'))
         .use('/expert', require('./expert-space'))
-        .use('/author', require('./author-space'));
+        .use('/author', require('./author-space'))
+        .use('/', require('./statics'));
 
     app
         .use('/auth', require('./core/auth'))
