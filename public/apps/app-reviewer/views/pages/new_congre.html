@@ -1,0 +1,187 @@
+<div class="container-fluid" ng-controller="newCongreCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="page-header">
+	           Congres
+	            <small>
+	                <i class="ace-icon fa fa-angle-double-right"></i>
+	                creer un nouveau congres
+	            </small>
+	        </h2>
+		</div>
+		<!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+			    <div class="panel-heading text-center">
+			        Information sur le congre
+			    </div>
+			    <div class="panel-body">
+			        <div class="row">
+			            <div class="col-md-10">
+                        <form role="form">
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Nom</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                	<input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.nom">
+                            	</div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Edition</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="number" class="form-control" placeholder="Enter text" ng-model="congreObject.edition">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Description</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>                              
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">
+                                    Date debut
+                                </label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar bigger-110"></i>
+                                        </span>
+
+                                        <input class="form-control" type="Date" ng-model="congreObject.date_debut"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">
+                                    Date fin
+                                </label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar bigger-110"></i>
+                                        </span>
+
+                                        <input class="form-control" type="Date" ng-model="congreObject.date_fin"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Thematique</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+	                                <select class="form-control">
+	                                    <option>1</option>
+	                                    <option>2</option>
+	                                    <option>3</option>
+	                                    <option>4</option>
+	                                    <option>5</option>
+	                                </select>
+                                </div>
+                            </div>  
+                            <hr>
+                            {{testy}}
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse email</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="email" class="form-control" placeholder="Email" ng-model="congreObject.email">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" placeholder="Enter text">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Site</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" placeholder="Enter text">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Telephone</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="phone" class="form-control" placeholder="Enter text">
+                                </div>
+                            </div>                            
+                            <hr>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">
+                                    Soumission
+                                </label>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            
+                                        </span>
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">
+                                    Selection
+                                </label>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            
+                                        </span>
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">
+                                    Finalisation
+                                </label>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-9 col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            
+                                        </span>
+
+                                        <input class="form-control" type="Date"/>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </form>
+                    </div>
+			      </div>
+			        <!-- /.row (nested) -->
+			    </div>
+			    <!-- /.panel-body -->
+                <div class="panel-footer">
+	                <div class="row">
+		                <div class="col-md-6 col-md-offset-3">
+		                    <button type="submit" class="btn btn-default col-md-6" ng-click="newCongre(congreObject)">Submit Button</button>
+		                    <button type="reset" class="btn btn-default col-md-6">Reset Button</button>
+		                </div>
+	                </div>                   
+                </div>
+			</div>
+        </div>
+	</div>
+	<!-- /.row -->
+</div>
