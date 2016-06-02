@@ -163,7 +163,7 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/newCongreController.js',
-                '/apps/app-organizer/scripts/services/data-store.js'
+                '/apps/app-organizer/scripts/services/data-store-congre.js'
                 ]
             });
           }
@@ -195,7 +195,8 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/expertsController.js',
-                '/apps/app-organizer/scripts/services/data-store-user.js'
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css'
                 ]
             });
           }
@@ -211,7 +212,8 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/auteursController.js',
-                '/apps/app-organizer/scripts/services/data-store-user.js'
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css'
                 ]
             });
           }
@@ -227,7 +229,8 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/participantsController.js',
-                '/apps/app-organizer/scripts/services/data-store-user.js'
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css'
                 ]
             });
           }
@@ -243,7 +246,8 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/programsController.js',
-                '/apps/app-organizer/scripts/services/data-store-user.js'
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css'
                 ]
             });
           }

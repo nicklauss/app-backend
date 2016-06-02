@@ -9,10 +9,27 @@
 
     function expertsCtrl($scope, $q, DataStoreUser) {
 
-        $scope.experts = [];
-        $scope.congresLoading = true;
+        $scope.testCongreId = "574f5adf4aeb629f22ee8ca8";
 
-        init("574f5adf4aeb629f22ee8ca8", "reviewer");
+
+        $scope.experts = [];
+        $scope.userObject = {};
+        $scope.newExpert = newExpert;
+        $scope.congresLoading = true;
+        $scope.modalType = modalType;
+        $scope.deleteExpert = deleteExpert;
+        $scope.updateExpert = updateExpert;
+
+        function modalType(index, obj) {
+            if(index == 0)
+                $scope.modalTyper = true;
+            else {
+                $scope.modalTyper = false;
+                $scope.userObject = obj;     
+            }
+        }
+
+        init($scope.testCongreId, "reviewer");
 // Share organizerId of logged in user
         function init(congreId, role) {
             var promises = [getExperts(congreId, role)];
@@ -21,11 +38,56 @@
             });
         }
 
+        function newExpert(userObject) {
+            userObject.role = 'reviewer';
+            userObject.password = "azerty";
+            var reg = {congreId: $scope.testCongreId, status: "REGISTERED", created: new Date()};
+            userObject.registrations = [];
+            userObject.registrations.push(reg);
+            console.log(userObject);
+            DataStoreUser.newUser(userObject)
+            .then(function(expert) {
+
+                console.log('Expert cree');
+                console.log(expert);
+                init($scope.testCongreId, "reviewer");
+
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
         function getExperts(congreId, role) {
             DataStoreUser.getUsersByRoleAndCongre(congreId, role)
             .then(function(experts) {
-                $scope.experts = experts.data;
+                $scope.experts = experts.data;        
                 $scope.congresLoading = false;
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function deleteExpert(id) {
+            console.log(id);
+            DataStoreUser.deleteUser(id)
+            .then(function(expert) {
+                console.log(expert);
+                init($scope.testCongreId, "reviewer");
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function updateExpert(userObject) {
+            console.log(userObject);
+            DataStoreUser.updateUser(userObject)
+            .then(function(expert) {
+                console.log(expert);
+                $scope.userObject = {};
+                init($scope.testCongreId, "reviewer");
             })
             .catch(function(err) {
                 console.error(err);
