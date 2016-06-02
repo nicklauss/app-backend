@@ -6,6 +6,18 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp')
-  .controller('MainCtrl', function($scope,$position) {
-  });
+
+(function() {
+    'use strict';
+
+    angular
+        .module('sbAdminApp')
+        .controller('MainCtrl', MainCtrl);
+
+    MainCtrl.$inject = ['$scope', '$position'];
+
+    function MainCtrl($scope, $position) {
+
+    }
+
+})();

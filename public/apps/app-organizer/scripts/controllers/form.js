@@ -6,7 +6,17 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp')
-  .controller('FormCtrl', function($scope) {
+
+(function() {
+	'use strict';
+	
+	angular
+		.module('sbAdminApp')
+	  	.controller('FormCtrl', FormCtrl);
+
+  	FormCtrl.$inject = ['$scope'];
+
+  	function FormCtrl($scope) {
     
-});
+	}
+})();

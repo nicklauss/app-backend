@@ -153,4 +153,100 @@ angular
        templateUrl:'/apps/app-organizer/views/ui-elements/grid.html',
        url:'/grid'
    })
+      .state('dashboard.newCongre', {
+        templateUrl:'/apps/app-organizer/views/pages/new_congre.html',
+        url:'/new-congre',
+        controller:'newCongreCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/newCongreController.js',
+                '/apps/app-organizer/scripts/services/data-store.js'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.listCongres', {
+        templateUrl:'/apps/app-organizer/views/pages/list_congres.html',
+        url:'/list-congres',
+        controller:'listCongresCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/listCongresController.js',
+                '/apps/app-organizer/scripts/services/data-store-congre.js'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.experts', {
+        templateUrl:'/apps/app-organizer/views/pages/experts.html',
+        url:'/experts',
+        controller:'expertsCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/expertsController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.auteurs', {
+        templateUrl:'/apps/app-organizer/views/pages/auteurs.html',
+        url:'/auteurs',
+        controller:'auteursCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/auteursController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.participants', {
+        templateUrl:'/apps/app-organizer/views/pages/participants.html',
+        url:'/participants',
+        controller:'participantsCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/participantsController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.programs', {
+        templateUrl:'/apps/app-organizer/views/pages/programs.html',
+        url:'/programs',
+        controller:'programsCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/programsController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js'
+                ]
+            });
+          }
+        }
+      })
   }]);

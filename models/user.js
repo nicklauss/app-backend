@@ -11,7 +11,7 @@ var UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'oganizer', 'programme', 'reviewer', 'author', 'speaker'],
+        enum: ['user', 'oganizer', 'program', 'reviewer', 'author', 'speaker'],
         default: 'user'
     },
     active: {

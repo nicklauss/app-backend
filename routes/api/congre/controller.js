@@ -28,7 +28,7 @@ exports.validateCongre = (req, res, next) => {
 exports.getCongreById = (req, res, next) => {
     let congreId = req.params.congreId;
     
-    congre.findById(congreId)
+    Congre.findById(congreId)
         .exec((err, congre) => {
         if(err || !congre) {
             return res.send({
@@ -39,6 +39,23 @@ exports.getCongreById = (req, res, next) => {
         return res.send({
             ok: true,
             data: congre
+        });
+    });
+};
+
+exports.getCongresByOrganizerId = (req, res, next) => {
+    let organizerId = req.params.organizerId;
+    Congre.find({"organisateur_id" : organizerId})
+        .exec((err, congres) => {
+        if(err || !congres) {
+            return res.send({
+                ok: false,
+                message: 'Congres not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: congres
         });
     });
 };
