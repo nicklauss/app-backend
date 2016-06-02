@@ -35,6 +35,9 @@ exports.create = (req, res, next) => {
         email: req.body.email,
         gender: req.body.gender,
         password: req.body.password,
+        role: req.body.role,
+        registrations: req.body.registrations,
+        domaine: req.body.domaine,
         created: new Date()
     });
     user.save((err) => {
@@ -55,8 +58,9 @@ exports.create = (req, res, next) => {
 };
 
 exports.update = (req, res, next) => {
-    let currentUserId = req.user._id;
-
+    let currentUserId = req.params.userId;
+    // let currentUserId = req.user._id;
+    console.log(req.body);
     User.findById(currentUserId)
         .select('-hashedPassword -salt -__v -deleted -location -created')
         .exec((err, user) => {
@@ -68,6 +72,7 @@ exports.update = (req, res, next) => {
         }
         user.firstName = req.body.firstName || user.firstName;
         user.lastName = req.body.lastName || user.lastName;
+        user.email = req.body.email || user.email;
         user.gender = req.body.gender || user.gender;
         user.location = req.body.location || user.location;
         user.phone = req.body.phone || user.phone;
@@ -123,7 +128,7 @@ exports.getUsersByRoleAndCongre = (req, res, next) => {
     let role = req.params.role;
     let congreId = req.params.congreId;
     
-    User.find({"role" : role, "registrations.congreId" : congreId})
+    User.find({"role" : role, "registrations.congreId" : congreId, "deleted" : false})
         .exec((err, users) => {
         if(err || !users) {
             return res.send({
