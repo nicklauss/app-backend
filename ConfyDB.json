@@ -1,0 +1,621 @@
+// Collection congres
+
+/* 0 */
+{
+    "_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "nom" : "IBM Confy",
+    "edition" : 10,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "location" : {
+        "address" : "avenue mohamed 6",
+        "country" : "maroc",
+        "city" : "marrakech",
+        "geo" : []
+    },
+    "description" : "Conference par IBM",
+    "date_debut" : ISODate("2016-08-02T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-08-04T00:00:00.000Z"),
+    "thematique" : "JavaScript",
+    "site" : "www.IBM.com",
+    "email" : "IBM@gmail.com",
+    "phone" : "+212634152486",
+    "soumission" : {
+        "start" : ISODate("2016-04-10T00:00:00.000Z"),
+        "end" : ISODate("2016-04-30T00:00:00.000Z")
+    },
+    "evaluation" : {
+        "start" : ISODate("2016-05-01T00:00:00.000Z"),
+        "end" : ISODate("2016-05-10T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-05-12T00:00:00.000Z"),
+        "end" : ISODate("2016-05-20T00:00:00.000Z")
+    },
+    "created" : ISODate("2016-03-30T00:00:00.000Z"),
+    "updated" : ISODate("2016-03-30T00:00:00.000Z"),
+    "deleted" : false
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515a168fdcdf4fbcba2272"),
+    "nom" : "TechnoConf",
+    "edition" : 2,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "location" : {
+        "address" : "rue rimy",
+        "country" : "france",
+        "city" : "paris",
+        "geo" : []
+    },
+    "description" : "congre des nouvelles technologies",
+    "date_debut" : ISODate("2016-06-01T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-06-05T00:00:00.000Z"),
+    "thematique" : "nouvelle technologies",
+    "site" : "www.technoConf.com",
+    "email" : "technoConf@gmail.com",
+    "phone" : "+32625312894",
+    "soumission" : {
+        "start" : ISODate("2016-03-01T00:00:00.000Z"),
+        "end" : ISODate("2016-03-31T00:00:00.000Z")
+    },
+    "evaluation" : {
+        "start" : ISODate("2016-04-01T00:00:00.000Z"),
+        "end" : ISODate("2016-04-15T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-04-16T00:00:00.000Z"),
+        "end" : ISODate("2016-05-10T00:00:00.000Z")
+    },
+    "created" : ISODate("2016-02-20T00:00:00.000Z"),
+    "updated" : ISODate("2016-02-20T00:00:00.000Z"),
+    "deleted" : false
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515a248fdcdf4fbcba2273"),
+    "nom" : "confy",
+    "edition" : 10,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "location" : {
+        "address" : "confy street",
+        "country" : "england",
+        "city" : "london",
+        "geo" : []
+    },
+    "description" : "congre Confy",
+    "date_debut" : ISODate("2016-07-03T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-07-06T00:00:00.000Z"),
+    "thematique" : "Linux",
+    "site" : "www.confy.com",
+    "email" : "confy@gmail.com",
+    "phone" : "+212524869576",
+    "soumission" : {
+        "start" : ISODate("2016-04-15T00:00:00.000Z"),
+        "end" : ISODate("2016-04-30T00:00:00.000Z")
+    },
+    "evaluation" : {
+        "start" : ISODate("2016-05-01T00:00:00.000Z"),
+        "end" : ISODate("2016-05-30T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-06-01T00:00:00.000Z"),
+        "end" : ISODate("2016-06-10T00:00:00.000Z")
+    },
+    "created" : ISODate("2016-04-12T00:00:00.000Z"),
+    "updated" : ISODate("2016-04-12T00:00:00.000Z"),
+    "deleted" : false
+}
+
+// Collection users
+
+/* 0 */
+{
+    "_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "firstName" : "Anas",
+    "lastName" : "DEMNATI",
+    "email" : "anas.demnati2@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }, 
+        {
+            "congreId" : ObjectId("57515a168fdcdf4fbcba2272"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }, 
+        {
+            "congreId" : ObjectId("57515a248fdcdf4fbcba2273"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "organizer",
+    "__v" : 0
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515ba18fdcdf4fbcba2274"),
+    "firstName" : "konan",
+    "lastName" : "karin",
+    "email" : "konan@gmail.com",
+    "gender" : "female",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "author",
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515baf8fdcdf4fbcba2275"),
+    "firstName" : "tendo",
+    "lastName" : "chiyo",
+    "email" : "tendo@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "author",
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("57515bba8fdcdf4fbcba2276"),
+    "firstName" : "renbo",
+    "lastName" : "gakurei",
+    "email" : "renbo@gmail.com",
+    "gender" : "female",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "user",
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("57515bf88fdcdf4fbcba2277"),
+    "firstName" : "minato",
+    "lastName" : "yondaime",
+    "email" : "minato@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "speaker",
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("57515c018fdcdf4fbcba2278"),
+    "firstName" : "hiruzen",
+    "lastName" : "third",
+    "email" : "hiruzen@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "speaker",
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("57515c0a8fdcdf4fbcba2279"),
+    "firstName" : "hidan",
+    "lastName" : "hakurai",
+    "email" : "hidan@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "author",
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("57515c128fdcdf4fbcba227a"),
+    "firstName" : "kamal",
+    "lastName" : "BOUSKRAOUI",
+    "email" : "kamal.bouskraoui@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "Linux",
+    "phone" : "+212615426895",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue najed",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "reviewer",
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("57515c1d8fdcdf4fbcba227b"),
+    "firstName" : "ouki",
+    "lastName" : "ousen",
+    "email" : "ouki@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "Linux",
+    "phone" : "+212615426895",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue najed",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "reviewer",
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("57515c348fdcdf4fbcba227c"),
+    "firstName" : "shin",
+    "lastName" : "shino",
+    "email" : "shin@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "Linux",
+    "phone" : "+212615426895",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue najed",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "reviewer",
+    "__v" : 0
+}
+
+// Collection publications
+
+/* 0 */
+{
+    "_id" : ObjectId("57515d8a8fdcdf4fbcba227d"),
+    "title" : "NodeJS",
+    "numb_pages" : 20,
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z"),
+    "author" : [ 
+        ObjectId("57515c0a8fdcdf4fbcba2279")
+    ],
+    "media" : {
+        "initial_report" : "initial report file",
+        "final_report" : "final report file"
+    },
+    "evaluation" : {},
+    "abstract" : {
+        "content" : "description of abstract",
+        "file" : "abstract file"
+    },
+    "__v" : 0
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515d908fdcdf4fbcba227e"),
+    "title" : "JavaScript",
+    "numb_pages" : 25,
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z"),
+    "author" : [ 
+        ObjectId("57515ba18fdcdf4fbcba2274")
+    ],
+    "media" : {
+        "initial_report" : "initial report file",
+        "final_report" : "final report file"
+    },
+    "evaluation" : {},
+    "abstract" : {
+        "content" : "description of abstract",
+        "file" : "abstract file"
+    },
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515da58fdcdf4fbcba227f"),
+    "title" : "AngularJS",
+    "numb_pages" : 10,
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z"),
+    "author" : [ 
+        ObjectId("57515baf8fdcdf4fbcba2275")
+    ],
+    "media" : {
+        "initial_report" : "initial report file",
+        "final_report" : "final report file"
+    },
+    "evaluation" : {},
+    "abstract" : {
+        "content" : "description of abstract",
+        "file" : "abstract file"
+    },
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("57515db68fdcdf4fbcba2280"),
+    "title" : "ExpressJS",
+    "numb_pages" : 16,
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z"),
+    "author" : [ 
+        ObjectId("57515baf8fdcdf4fbcba2275")
+    ],
+    "media" : {
+        "initial_report" : "initial report file",
+        "final_report" : "final report file"
+    },
+    "evaluation" : {},
+    "abstract" : {
+        "content" : "description of abstract",
+        "file" : "abstract file"
+    },
+    "__v" : 0
+}
+
+// Collection sessions
+/* 0 */
+{
+    "_id" : ObjectId("57515f248fdcdf4fbcba2281"),
+    "title" : "Session1",
+    "description" : "description session1",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [ 
+        {
+            "publication_id" : ObjectId("57515d8a8fdcdf4fbcba227d"),
+            "title" : "Session1_Presentation1",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515c018fdcdf4fbcba2278")
+        }, 
+        {
+            "publication_id" : ObjectId("57515d908fdcdf4fbcba227e"),
+            "title" : "Session1_Presentation2",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515bf88fdcdf4fbcba2277")
+        }
+    ],
+    "congre_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515f408fdcdf4fbcba2282"),
+    "title" : "Session2",
+    "description" : "description session2",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [ 
+        {
+            "publication_id" : ObjectId("57515da58fdcdf4fbcba227f"),
+            "title" : "Session2_Presentation1",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515bf88fdcdf4fbcba2277")
+        }, 
+        {
+            "publication_id" : ObjectId("57515db68fdcdf4fbcba2280"),
+            "title" : "Session2_Presentation2",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515c018fdcdf4fbcba2278")
+        }
+    ],
+    "congre_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515f648fdcdf4fbcba2283"),
+    "title" : "Session3",
+    "description" : "description session3",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [],
+    "congre_id" : ObjectId("57515a168fdcdf4fbcba2272"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}

@@ -9,7 +9,7 @@
 
     function expertsCtrl($scope, $q, DataStoreUser) {
 
-        $scope.testCongreId = "574f5adf4aeb629f22ee8ca8";
+        $scope.testCongreId = "575159c18fdcdf4fbcba2271";
 
 
         $scope.experts = [];

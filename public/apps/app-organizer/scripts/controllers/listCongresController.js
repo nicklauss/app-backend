@@ -12,7 +12,7 @@
         $scope.congres = [];
         $scope.congresLoading = true;
 
-        init("57409008ee4a72230e8a8e8b");
+        init("575159068fdcdf4fbcba2270");
 // Share organizerId of logged in user
         function init(organizerId) {
             var promises = [getCongres(organizerId)];
