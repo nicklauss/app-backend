@@ -230,7 +230,7 @@ angular
                 name:'programApp',
                 files:[
                 '/apps/app-program/scripts/controllers/publicationsController.js',
-                '/apps/app-program/scripts/services/data-store-congre.js',
+                '/apps/app-program/scripts/services/data-store-publication.js',
                 '/apps/app-program/styles/edit-modal.css'
                 ]
             });

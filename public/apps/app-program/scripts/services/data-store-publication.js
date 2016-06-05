@@ -5,11 +5,12 @@
 		.module('programApp')
 		.factory('DataStorePublication', DataStorePublication);
 
-	DataStoreCongre.$inject = ['$http', '$q'];
+	DataStorePublication.$inject = ['$http', '$q'];
 
 	function DataStorePublication($http, $q) {
 		var services = {
-			getPublicationsByAuthor : getPublicationsByAuthor
+			getPublicationsByAuthor : getPublicationsByAuthor,
+			deletePublicationById : deletePublicationById
 		};
 
 		return services;
@@ -25,6 +26,19 @@
 					deferred.reject(error);
 				});
 			return deferred.promise;
+		}
+
+		function deletePublicationById(publicationId) {
+			var deferred = $q.defer();
+
+			$http.delete('api/v1/publications/' + publicationId)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+		  return deferred.promise;
 		}
 
 	}

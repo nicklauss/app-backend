@@ -9,7 +9,7 @@
 
     function expertsCtrl($scope, $q, DataStoreUser) {
 
-        $scope.testCongreId = "574f5adf4aeb629f22ee8ca8";
+        $scope.testCongreId = "575159c18fdcdf4fbcba2271";
 
 
         $scope.experts = [];
@@ -25,7 +25,7 @@
                 $scope.modalTyper = true;
             else {
                 $scope.modalTyper = false;
-                $scope.userObject = obj;     
+                $scope.userObject = obj;
             }
         }
 
@@ -61,7 +61,7 @@
         function getExperts(congreId, role) {
             DataStoreUser.getUsersByRoleAndCongre(congreId, role)
             .then(function(experts) {
-                $scope.experts = experts.data;        
+                $scope.experts = experts.data;
                 $scope.congresLoading = false;
             })
             .catch(function(err) {

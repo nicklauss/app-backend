@@ -8,9 +8,9 @@ exports.validatePublication = (req, res, next) => {
     req.checkBody('abstract.content', 'abstract is required').notEmpty();
     req.checkBody('abstract.file', 'abstract file is required').notEmpty();
     req.checkBody('media.initial_report', 'initial report is required').notEmpty();
-    
+
     let errors = req.validationErrors();
-    
+
     if(errors) {
         return res.send(500, {
             ok: false,
@@ -48,7 +48,7 @@ exports.newPublication = (req, res, next) => {
 };
 
 exports.getPublications = (req, res, next) => {
-    Publication.find()
+    Publication.find({"deleted" : false})
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({
@@ -65,7 +65,7 @@ exports.getPublications = (req, res, next) => {
 
 exports.getPublicationById = (req, res, next) => {
     let publicationId = req.params.publicationId;
-    
+
     Publication.findById(publicationId)
         .exec((err, publication) => {
         if(err || !publication) {
@@ -83,8 +83,9 @@ exports.getPublicationById = (req, res, next) => {
 
 exports.getPublicationsByAuthor = (req, res, next) => {
     let authorId = req.params.authorId;
-    
-    Publication.find({"author" : authorId})
+
+    Publication.find({"author" : authorId, "deleted" : false})
+        .populate('author')
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({
@@ -101,8 +102,8 @@ exports.getPublicationsByAuthor = (req, res, next) => {
 
 exports.getPublicationsByReviewer = (req, res, next) => {
     let reviewerId = req.params.reviewerId;
-    
-    Publication.find({"evaluation.reviewer_id" : reviewerId})
+
+    Publication.find({"evaluation.reviewer_id" : reviewerId, "deleted" : false})
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({
@@ -119,7 +120,7 @@ exports.getPublicationsByReviewer = (req, res, next) => {
 
 exports.updatePublication = (req, res, next) => {
     let publicationId = req.params.publicationId;
-    
+
     Publication.findById(publicationId)
         .exec((err, publication) => {
         if(err || !publication) {
@@ -149,7 +150,7 @@ exports.updatePublication = (req, res, next) => {
 
 exports.deletePublication = (req, res, next) => {
     let publicationId = req.params.publicationId;
-    
+
     Publication.findById(publicationId)
         .exec((err, publication) => {
         if(err || !publication) {
@@ -174,60 +175,3 @@ exports.deletePublication = (req, res, next) => {
         });
     });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

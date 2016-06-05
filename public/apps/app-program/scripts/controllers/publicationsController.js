@@ -11,7 +11,22 @@
 
         $scope.publications = [];
         $scope.publicationsLoading = true;
+        $scope.publicationObject = {};
+        $scope.modalType = modalType;
+        $scope.deletePublication = deletePublication;
+        // $scope.updatePublication = updatePublication;
 
+        function modalType(index, obj) {
+            if(index == 0)
+                $scope.modalTyper = true;
+            else if(index == 2) {
+                $scope.modalTyper = true;
+                $scope.publicationObject = obj;
+            } else {
+                  $scope.modalTyper = false;
+                  $scope.publicationObject = obj;
+            }
+        }
         init();
 // Share authorId of logged in user
         function init() {
@@ -29,6 +44,16 @@
             })
             .catch(function(err) {
                 console.error(err);
+            });
+        }
+
+        function deletePublication(publicationId) {
+            DataStorePublication.deletePublicationById(publicationId)
+            .then(function(publication) {
+              init();
+            })
+            .catch(function(err) {
+              console.error(err);
             });
         }
 
