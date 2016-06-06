@@ -192,3 +192,21 @@ exports.getReviewersByEvaluation = (req, res, next) => {
         });
     });
 };
+
+exports.me = (req, res, next) => {
+    const currentUserId = req.user._id;
+    User.findById(currentUserId)
+      .select('-hashedPassword -salt -deleted')
+      .exec((err, user) => {
+        if(err || !user) {
+            return res.send({
+                ok: false,
+                message: 'User not found!'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: user
+        });
+    })
+};

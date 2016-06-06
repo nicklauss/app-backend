@@ -13,6 +13,7 @@ route
     // .delete('/:userId', auth.isAuthenticated(), controller.delete)
     .get('/:role/congres/:congreId', controller.getUsersByRoleAndCongre)
     .get('/congres/:congreId', controller.getUsersByCongre)
+    .get('/me', auth.isAuthenticated(), controller.me)
     .get('/publications/:evaluation', controller.getReviewersByEvaluation);
 
 module.exports = route;

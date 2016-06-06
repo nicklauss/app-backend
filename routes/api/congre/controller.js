@@ -11,9 +11,9 @@ exports.validateCongre = (req, res, next) => {
     req.checkBody('date_debut', 'Start date is required').notEmpty().isDate();
     req.checkBody('date_fin', 'End date is required').notEmpty().isDate();
     req.checkBody('email', 'Email is required').notEmpty().isEmail();
-    
+
     let errors = req.validationErrors();
-    
+
     if(errors) {
         return res.send(500, {
             ok: false,
@@ -27,7 +27,7 @@ exports.validateCongre = (req, res, next) => {
 
 exports.getCongreById = (req, res, next) => {
     let congreId = req.params.congreId;
-    
+
     Congre.findById(congreId)
         .exec((err, congre) => {
         if(err || !congre) {
@@ -67,9 +67,10 @@ exports.newCongre = (req, res, next) => {
         date_debut: req.body.date_debut,
         date_fin: req.body.date_fin,
         email: req.body.email,
-        created: new Date()
+        created: new Date(),
+        organisateur_id: req.user._id
     });
-    
+
     congre.save((err) => {
         if(err) {
             return res.send({
@@ -88,7 +89,7 @@ exports.newCongre = (req, res, next) => {
 
 exports.updateCongre = (req, res, next) => {
     let congreId = req.params.congreId;
-    
+
     Congre.findById(congreId)
         .exec((err, congre) => {
         if(err || !congre) {
@@ -113,7 +114,7 @@ exports.updateCongre = (req, res, next) => {
         congre.evaluation = req.body.evaluation || congre.evaluation;
         congre.finalisation = req.body.finalisation || congre.finalisation;
         congre.updated = new Date();
-        
+
         congre.save((err) => {
             if(err) {
                 return res.send({
@@ -131,7 +132,7 @@ exports.updateCongre = (req, res, next) => {
 
 exports.deleteCongre = (req, res, next) => {
     let congreId = req.params.congreId;
-    
+
     Congre.findById(congreId)
         .exec((err, congre) => {
         if(err || !congre) {
