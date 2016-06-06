@@ -35,9 +35,9 @@
 	                            <tr class="odd gradeX" ng-repeat="congre in congres">
 	                                <td>{{congre.nom}}</td>
 	                                <td>{{congre.edition}}</td>
-	                                <td>{{congre.email}}</td>
-	                                <td class="center">{{congre.date_debut}}</td>
-	                                <td class="center">{{congre.date_fin}}</td>
+	                                <td>{{congre.thematique}}</td>
+	                                <td class="center">{{congre.date_debut | date:'dd/MM/yyyy'}}</td>
+	                                <td class="center">{{congre.date_fin | date:'dd/MM/yyyy'}}</td>
 	                            </tr>
 
 	                        </tbody>
@@ -51,7 +51,7 @@
 	    </div>
 	</div>
 	<!-- /.row -->
-	<div class="row" ng-if="congresLoading">	    
+	<div class="row" ng-if="congresLoading">
 		<div class="col-md-12 text-center">
 			<div class="spinner">
 				<div class="dot1"></div>

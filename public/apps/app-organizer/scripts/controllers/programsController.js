@@ -25,9 +25,12 @@
         function modalType(index, obj) {
             if(index == 0)
                 $scope.modalTyper = true;
-            else {
+            else if(index == 2) {
+                $scope.modalTyper = true;
+                $scope.userObject = obj;
+            } else {
                 $scope.modalTyper = false;
-                $scope.userObject = obj;     
+                $scope.userObject = obj;
             }
         }
 

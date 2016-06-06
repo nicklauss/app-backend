@@ -23,9 +23,12 @@
         function modalType(index, obj) {
             if(index == 0)
                 $scope.modalTyper = true;
-            else {
+            else if(index == 2) {
+                $scope.modalTyper = true;
+                $scope.userObject = obj;
+            } else {
                 $scope.modalTyper = false;
-                $scope.userObject = obj;     
+                $scope.userObject = obj;
             }
         }
 
@@ -61,7 +64,7 @@
         function getExperts(congreId, role) {
             DataStoreUser.getUsersByRoleAndCongre(congreId, role)
             .then(function(experts) {
-                $scope.experts = experts.data;        
+                $scope.experts = experts.data;
                 $scope.congresLoading = false;
             })
             .catch(function(err) {
