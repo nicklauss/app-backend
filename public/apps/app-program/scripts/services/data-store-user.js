@@ -36,6 +36,8 @@
 			$http.get('api/v1/users/'+ role +'/congres/' + congreId )
 				.success(function(resp, status) {
 					deferred.resolve(resp);
+					console.log(resp);
+
 				})
 				.error(function(error, status) {
 					deferred.reject(error);
@@ -67,7 +69,7 @@
 					deferred.reject(error);
 				});
 			return deferred.promise;
-        }		
+        }
 
 	}
 

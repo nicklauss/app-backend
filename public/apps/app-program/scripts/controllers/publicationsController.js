@@ -13,7 +13,7 @@
         $scope.publicationsLoading = true;
         $scope.publicationObject = {};
         $scope.modalType = modalType;
-        $scope.deletePublication = deletePublication;
+        // $scope.deletePublication = deletePublication;
         // $scope.updatePublication = updatePublication;
 
         function modalType(index, obj) {
@@ -30,14 +30,14 @@
         init();
 // Share authorId of logged in user
         function init() {
-            var promises = [getPublicationsByAuthor("57515baf8fdcdf4fbcba2275")];
+            var promises = [getPublications()];
             $q.all(promises).then(function() {
                 console.log('The publications are ready');
             });
         }
 
-        function getPublicationsByAuthor(authorId) {
-            DataStorePublication.getPublicationsByAuthor(authorId)
+        function getPublications() {
+            DataStorePublication.getPublications()
             .then(function(publications) {
                 $scope.publications = publications.data;
                 $scope.publicationsLoading = false;
@@ -47,15 +47,15 @@
             });
         }
 
-        function deletePublication(publicationId) {
-            DataStorePublication.deletePublicationById(publicationId)
-            .then(function(publication) {
-              init();
-            })
-            .catch(function(err) {
-              console.error(err);
-            });
-        }
+        // function deletePublication(publicationId) {
+        //     DataStorePublication.deletePublicationById(publicationId)
+        //     .then(function(publication) {
+        //       init();
+        //     })
+        //     .catch(function(err) {
+        //       console.error(err);
+        //     });
+        // }
 
     }
 

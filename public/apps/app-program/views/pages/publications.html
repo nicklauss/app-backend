@@ -55,7 +55,7 @@
 						                            		</span>
 						                        		</a>
 																			</div>
-																			<div class="col-md-4">
+																			<!-- <div class="col-md-4">
 		                                		<a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
 	                           							<span class="glyphicon glyphicon-edit">
 	                            						</span>
@@ -66,7 +66,7 @@
 						                            		<span class="glyphicon glyphicon-remove">
 						                            		</span>
 						                        		</a>
-																			</div>
+																			</div> -->
 																		</div>
 	                                </td>
 	                            </tr>
@@ -135,10 +135,10 @@
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-																<input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper">
-                                <label ng-repeat="author in publicationObject.author" style="float: left;font-weight: 500;" ng-show="!modalTyper">
+																<!-- <input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper"> -->
+                                <label ng-repeat="aut in publicationObject.author" style="float: left;font-weight: 500;">
 																	<p>
-																		{{author.lastName}} {{author.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
+																		{{aut.lastName}} {{aut.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
 																	</p>
 
 																</label>

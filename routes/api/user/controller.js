@@ -98,7 +98,7 @@ exports.update = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
     let currentUserId = req.params.userId;
-    
+
     User.findById(currentUserId)
         .exec((err, user) => {
         if(err || !user) {
@@ -127,7 +127,7 @@ exports.delete = (req, res, next) => {
 exports.getUsersByRoleAndCongre = (req, res, next) => {
     let role = req.params.role;
     let congreId = req.params.congreId;
-    
+    console.log(role + congreId);
     User.find({"role" : role, "registrations.congreId" : congreId, "deleted" : false})
         .exec((err, users) => {
         if(err || !users) {
@@ -136,6 +136,7 @@ exports.getUsersByRoleAndCongre = (req, res, next) => {
                 message: 'Users not found'
             });
         }
+        console.log(users);
         return res.send({
             ok: true,
             data: users
@@ -145,7 +146,7 @@ exports.getUsersByRoleAndCongre = (req, res, next) => {
 
 exports.getUsersByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
-    
+
     User.find({"registrations.congreId" : congreId})
         .exec((err, users) => {
         if(err || !users) {
@@ -163,7 +164,7 @@ exports.getUsersByCongre = (req, res, next) => {
 
 exports.getReviewersByEvaluation = (req, res, next) => {
     let evaluation = req.params.evaluation;
-    
+
     console.log(evaluation);
     Publication.distinct("evaluation.reviewer_id",{"evaluation.value" : evaluation})
         .exec((err, reviewers_id) => {
@@ -173,7 +174,7 @@ exports.getReviewersByEvaluation = (req, res, next) => {
                 message: 'Publications not found'
             });
         }
-        
+
         console.log(reviewers_id);
 
         User.find({"_id" : {"$in" : reviewers_id}})
