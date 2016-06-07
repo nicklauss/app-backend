@@ -93,161 +93,17 @@ angular
           }
         }
       })
-      .state('dashboard.form',{
-        templateUrl:'/apps/app-reviewer/views/form.html',
-        url:'/form'
-    })
-      .state('dashboard.blank',{
-        templateUrl:'/apps/app-reviewer/views/pages/blank.html',
-        url:'/blank'
-    })
-      .state('login',{
-        templateUrl:'/apps/app-reviewer/views/pages/login.html',
-        url:'/login'
-    })
-      .state('dashboard.chart',{
-        templateUrl:'/apps/app-reviewer/views/chart.html',
-        url:'/chart',
-        controller:'ChartCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              name:'chart.js',
-              files:[
-                '/vendor/angular-chart.js/dist/angular-chart.min.js',
-                '/vendor/angular-chart.js/dist/angular-chart.css'
-              ]
-            }),
-            $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:['/apps/app-reviewer/scripts/controllers/chartContoller.js']
-            });
-          }
-        }
-    })
-      .state('dashboard.table',{
-        templateUrl:'/apps/app-reviewer/views/table.html',
-        url:'/table'
-    })
-      .state('dashboard.panels-wells',{
-          templateUrl:'/apps/app-reviewer/views/ui-elements/panels-wells.html',
-          url:'/panels-wells'
-      })
-      .state('dashboard.buttons',{
-        templateUrl:'/apps/app-reviewer/views/ui-elements/buttons.html',
-        url:'/buttons'
-    })
-      .state('dashboard.notifications',{
-        templateUrl:'/apps/app-reviewer/views/ui-elements/notifications.html',
-        url:'/notifications'
-    })
-      .state('dashboard.typography',{
-       templateUrl:'/apps/app-reviewer/views/ui-elements/typography.html',
-       url:'/typography'
-   })
-      .state('dashboard.icons',{
-       templateUrl:'/apps/app-reviewer/views/ui-elements/icons.html',
-       url:'/icons'
-   })
-      .state('dashboard.grid',{
-       templateUrl:'/apps/app-reviewer/views/ui-elements/grid.html',
-       url:'/grid'
-   })
-      .state('dashboard.newCongre', {
-        templateUrl:'/apps/app-reviewer/views/pages/new_congre.html',
-        url:'/new-congre',
-        controller:'newCongreCtrl',
+      .state('dashboard.publications', {
+        templateUrl:'/apps/app-reviewer/views/pages/publications.html',
+        url:'/publications',
+        controller:'publicationsCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
                 name:'reviewerApp',
                 files:[
-                '/apps/app-reviewer/scripts/controllers/newCongreController.js',
-                '/apps/app-reviewer/scripts/services/data-store-congre.js'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.listCongres', {
-        templateUrl:'/apps/app-reviewer/views/pages/list_congres.html',
-        url:'/list-congres',
-        controller:'listCongresCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:[
-                '/apps/app-reviewer/scripts/controllers/listCongresController.js',
-                '/apps/app-reviewer/scripts/services/data-store-congre.js'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.experts', {
-        templateUrl:'/apps/app-reviewer/views/pages/experts.html',
-        url:'/experts',
-        controller:'expertsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:[
-                '/apps/app-reviewer/scripts/controllers/expertsController.js',
-                '/apps/app-reviewer/scripts/services/data-store-user.js',
-                '/apps/app-reviewer/styles/edit-modal.css'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.auteurs', {
-        templateUrl:'/apps/app-reviewer/views/pages/auteurs.html',
-        url:'/auteurs',
-        controller:'auteursCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:[
-                '/apps/app-reviewer/scripts/controllers/auteursController.js',
-                '/apps/app-reviewer/scripts/services/data-store-user.js',
-                '/apps/app-reviewer/styles/edit-modal.css'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.participants', {
-        templateUrl:'/apps/app-reviewer/views/pages/participants.html',
-        url:'/participants',
-        controller:'participantsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:[
-                '/apps/app-reviewer/scripts/controllers/participantsController.js',
-                '/apps/app-reviewer/scripts/services/data-store-user.js',
-                '/apps/app-reviewer/styles/edit-modal.css'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.programs', {
-        templateUrl:'/apps/app-reviewer/views/pages/programs.html',
-        url:'/programs',
-        controller:'programsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'reviewerApp',
-                files:[
-                '/apps/app-reviewer/scripts/controllers/programsController.js',
-                '/apps/app-reviewer/scripts/services/data-store-user.js',
-                '/apps/app-reviewer/styles/edit-modal.css'
+                '/apps/app-reviewer/scripts/controllers/publicationsController.js',
+                '/apps/app-reviewer/scripts/services/data-store-publication.js'
                 ]
             });
           }

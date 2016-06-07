@@ -2,24 +2,24 @@
 	'use strict';
 
 	angular
-		.module('authorApp')
+		.module('reviewerApp')
 		.factory('DataStorePublication', DataStorePublication);
 
 	DataStorePublication.$inject = ['$http', '$q'];
 
 	function DataStorePublication($http, $q) {
 		var services = {
-			getPublicationsByAuthor : getPublicationsByAuthor,
+			getPublicationsByReviewer : getPublicationsByReviewer,
 			deletePublicationById : deletePublicationById,
 			updatePublicationById : updatePublicationById
 		};
 
 		return services;
 
-		function getPublicationsByAuthor(authorId) {
+		function getPublicationsByReviewer(authorId) {
 			var deferred = $q.defer();
 
-			$http.get('api/v1/publications/authors/' + authorId)
+			$http.get('api/v1/publications/reviewers/' + authorId)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})

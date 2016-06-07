@@ -75,9 +75,9 @@
 			$http.post('/api/v1/auth', emailPw)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
-					$http({method: 'GET', url: '/organizer-app', headers: {'Authorization': 'Bearer '+resp.token}})
+					$http({method: 'GET', url: '/', headers: {'Authorization': 'Bearer '+resp.token}})
 						.success(function(respp, statuss) {
-							document.location = 'organizer-app/#/dashboard/home';
+							document.location = '/';
 						})
 						.error(function(error, statuss) {
 						});

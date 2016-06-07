@@ -93,160 +93,34 @@ angular
           }
         }
       })
-      .state('dashboard.form',{
-        templateUrl:'/apps/app-author/views/form.html',
-        url:'/form'
-    })
-      .state('dashboard.blank',{
-        templateUrl:'/apps/app-author/views/pages/blank.html',
-        url:'/blank'
-    })
-      .state('login',{
-        templateUrl:'/apps/app-author/views/pages/login.html',
-        url:'/login'
-    })
-      .state('dashboard.chart',{
-        templateUrl:'/apps/app-author/views/chart.html',
-        url:'/chart',
-        controller:'ChartCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              name:'chart.js',
-              files:[
-                '/vendor/angular-chart.js/dist/angular-chart.min.js',
-                '/vendor/angular-chart.js/dist/angular-chart.css'
-              ]
-            }),
-            $ocLazyLoad.load({
-                name:'authorApp',
-                files:['/apps/app-author/scripts/controllers/chartContoller.js']
-            });
-          }
-        }
-    })
-      .state('dashboard.table',{
-        templateUrl:'/apps/app-author/views/table.html',
-        url:'/table'
-    })
-      .state('dashboard.panels-wells',{
-          templateUrl:'/apps/app-author/views/ui-elements/panels-wells.html',
-          url:'/panels-wells'
-      })
-      .state('dashboard.buttons',{
-        templateUrl:'/apps/app-author/views/ui-elements/buttons.html',
-        url:'/buttons'
-    })
-      .state('dashboard.notifications',{
-        templateUrl:'/apps/app-author/views/ui-elements/notifications.html',
-        url:'/notifications'
-    })
-      .state('dashboard.typography',{
-       templateUrl:'/apps/app-author/views/ui-elements/typography.html',
-       url:'/typography'
-   })
-      .state('dashboard.icons',{
-       templateUrl:'/apps/app-author/views/ui-elements/icons.html',
-       url:'/icons'
-   })
-      .state('dashboard.grid',{
-       templateUrl:'/apps/app-author/views/ui-elements/grid.html',
-       url:'/grid'
-   })
-      .state('dashboard.newCongre', {
-        templateUrl:'/apps/app-author/views/pages/new_congre.html',
-        url:'/new-congre',
-        controller:'newCongreCtrl',
+      .state('dashboard.publications', {
+        templateUrl:'/apps/app-author/views/pages/publications.html',
+        url:'/publications',
+        controller:'publicationsCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
                 name:'authorApp',
                 files:[
-                '/apps/app-author/scripts/controllers/newCongreController.js',
-                '/apps/app-author/scripts/services/data-store-congre.js'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.listCongres', {
-        templateUrl:'/apps/app-author/views/pages/list_congres.html',
-        url:'/list-congres',
-        controller:'listCongresCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'authorApp',
-                files:[
-                '/apps/app-author/scripts/controllers/listCongresController.js',
-                '/apps/app-author/scripts/services/data-store-congre.js'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.experts', {
-        templateUrl:'/apps/app-author/views/pages/experts.html',
-        url:'/experts',
-        controller:'expertsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'authorApp',
-                files:[
-                '/apps/app-author/scripts/controllers/expertsController.js',
-                '/apps/app-author/scripts/services/data-store-user.js',
+                '/apps/app-author/scripts/controllers/publicationsController.js',
+                '/apps/app-author/scripts/services/data-store-publication.js',
                 '/apps/app-author/styles/edit-modal.css'
                 ]
             });
           }
         }
       })
-      .state('dashboard.auteurs', {
-        templateUrl:'/apps/app-author/views/pages/auteurs.html',
-        url:'/auteurs',
-        controller:'auteursCtrl',
+      .state('dashboard.session', {
+        templateUrl:'/apps/app-author/views/pages/sessions.html',
+        url:'/session',
+        controller:'sessionCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
                 name:'authorApp',
                 files:[
-                '/apps/app-author/scripts/controllers/auteursController.js',
-                '/apps/app-author/scripts/services/data-store-user.js',
-                '/apps/app-author/styles/edit-modal.css'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.participants', {
-        templateUrl:'/apps/app-author/views/pages/participants.html',
-        url:'/participants',
-        controller:'participantsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'authorApp',
-                files:[
-                '/apps/app-author/scripts/controllers/participantsController.js',
-                '/apps/app-author/scripts/services/data-store-user.js',
-                '/apps/app-author/styles/edit-modal.css'
-                ]
-            });
-          }
-        }
-      })
-      .state('dashboard.programs', {
-        templateUrl:'/apps/app-author/views/pages/programs.html',
-        url:'/programs',
-        controller:'programsCtrl',
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'authorApp',
-                files:[
-                '/apps/app-author/scripts/controllers/programsController.js',
-                '/apps/app-author/scripts/services/data-store-user.js',
+                '/apps/app-author/scripts/controllers/sessionsController.js',
+                '/apps/app-author/scripts/services/data-store-session.js',
                 '/apps/app-author/styles/edit-modal.css'
                 ]
             });

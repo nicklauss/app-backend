@@ -2,56 +2,18 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav in" id="side-menu">
             <sidebar-search></sidebar-search>
-
-            <li ng-class="{active: collapseVar==1}">{{dropDown}}
-                <a href="" ng-click="check(1)">
-                <i class="fa fa-wrench fa-fw"></i> Congres
-                <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level" collapse="collapseVar!=1">
-                    <li ui-sref-active="active">
-                        <a ui-sref="dashboard.newCongre">Nouveau</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="dashboard.listCongres">Liste</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-            <li ng-class="{active: collapseVar==3}">{{dropDown}}
-                <a href="" ng-click="check(3)">
-                <i class="fa fa-wrench fa-fw"></i> Programme
-                <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level" collapse="collapseVar!=3">
-                    <li ui-sref-active="active">
-                        <a ui-sref="dashboard.experts">Experts</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="dashboard.programs">Membres</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>            
+         
             <li ui-sref-active="active">
-                <a ui-sref="dashboard.auteurs"><i class="fa fa-dashboard fa-fw"></i>
-                 Auteurs
+                <a ui-sref="dashboard.publications"><i class="fa fa-dashboard fa-fw"></i>
+                 Publications
                 </a>
             </li>
             <li ui-sref-active="active">
 
-                <a ui-sref="dashboard.participants"><i class="fa fa-bar-chart-o fa-fw"></i>
-                 Participants
+                <a ui-sref="dashboard.sessions"><i class="fa fa-bar-chart-o fa-fw"></i>
+                 Sessions
                 </a>
 
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="dashboard.table"><i class="fa fa-table fa-fw"></i>
-                 Badges
-                </a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="dashboard.table"><i class="fa fa-table fa-fw"></i>
-                 mailing
-                </a>
             </li>
 
 <!--             <li ng-class="{active: collapseVar==1}">{{dropDown}}

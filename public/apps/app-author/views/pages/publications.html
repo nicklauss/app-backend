@@ -15,7 +15,7 @@
 	<div id="wrap" class="row" ng-if="!congresLoading">
 	    <div class="col-md-12">
 	        <div class="panel panel-default">
-<!-- 	            <div class="panel-heading">
+	            <div class="panel-heading">
 	            	<div class="row">
 	            	<div class="col-md-3 col-md-offset-9">
                      	<button type="button" class="btn btn-success pull-right" ng-click="modalType(0, null);" data-toggle="modal" data-target="#myModal">
@@ -23,7 +23,7 @@
 	                	</button>
 	            	</div>
 	                </div>
-	            </div> -->
+	            </div>
 	            <!-- /.panel-heading -->
 	            <div class="panel-body">
 	                <div class="dataTable_wrapper">
@@ -110,7 +110,7 @@
                     <form role="form" style="padding-top: 20px;">
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                            	<input type="text" class="form-control" placeholder="Titre" ng-model="publicationObject.title">
+                            	<input type="text" class="form-control" placeholder="Titre" ng-model="publicationObject.title	">
                         	</div>
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
@@ -120,7 +120,7 @@
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="email" class="form-control" placeholder="fichier" ng-model="publicationObject.abstract.file">
+                                <input type="text" class="form-control" placeholder="fichier" ng-model="publicationObject.abstract.file">
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
@@ -135,10 +135,10 @@
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-																<input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper">
-                                <label ng-repeat="author in publicationObject.author" style="float: left;font-weight: 500;" ng-show="!modalTyper">
+																<!-- <input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper"> -->
+                                <label ng-repeat="aut in publicationObject.author" style="float: left;font-weight: 500;">
 																	<p>
-																		{{author.lastName}} {{author.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
+																		{{aut.lastName}} {{aut.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
 																	</p>
 
 																</label>
@@ -167,7 +167,7 @@
                     </form>
                     <hr>
                     <div class="form-group" ng-show="!modalTyper">
-                        <button ng-click="updatePublication(userObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
+                        <button ng-click="updatePublication(publicationObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
                             Edit
                         </button>
                     </div>

@@ -21,12 +21,12 @@ angular
       events:true,
     });
 
-    // $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
       .state('login',{
         templateUrl:'/apps/app-login/views/pages/login.html',
-        url:'/login',
+        url:'/',
         controller:'loginCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {

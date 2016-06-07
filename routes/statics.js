@@ -9,11 +9,11 @@ const auth = require('./core/auth/auth.service');
 // To change !
 
 route
-	.get('/', (req, res) => {
+	.get('/login', (req, res) => {
 	    console.log(path.join(config.root,'public/apps/app-login/index.html'));
 	    res.sendFile(path.join(config.root,'public/apps/app-login/index.html'));
 	})
-	.get('/organizer-app', (req, res) => {
+	.get('/', (req, res) => {
 	    // console.log(path.join(config.root,'public/apps/app-organizer/index.html'));
 	    res.sendFile(path.join(config.root,'public/apps/app-organizer/index.html'));
 	})
