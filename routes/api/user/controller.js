@@ -208,5 +208,5 @@ exports.me = (req, res, next) => {
             ok: true,
             data: user
         });
-    })
+    });
 };

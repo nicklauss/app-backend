@@ -64,11 +64,19 @@ exports.newCongre = (req, res, next) => {
     let congre = new Congre({
         nom: req.body.nom,
         edition: req.body.edition,
+        organisateur_id: req.user._id,
+        location: req.body.location,
+        description: req.body.description,
         date_debut: req.body.date_debut,
         date_fin: req.body.date_fin,
+        thematique: req.body.thematique,
+        site: req.body.site,
         email: req.body.email,
-        created: new Date(),
-        organisateur_id: req.user._id
+        phone: req.body.phone,
+        soumission: req.body.soumission,
+        selection: req.body.selection,
+        finalisation: req.body.finalisation,
+        created: new Date()
     });
 
     congre.save((err) => {
