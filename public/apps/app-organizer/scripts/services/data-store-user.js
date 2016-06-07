@@ -12,7 +12,8 @@
 			getUsersByRoleAndCongre : getUsersByRoleAndCongre,
 			newUser : newUser,
 			updateUser : updateUser,
-			deleteUser : deleteUser
+			deleteUser : deleteUser,
+			login : login
 		};
 
 		return services;
@@ -62,6 +63,49 @@
 					console.log('resp01' + JSON.stringify(resp));
 					deferred.resolve(resp);
 					console.log('resp02' + JSON.stringify(resp));
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+        }
+
+        function login(emailPw) {
+			var deferred = $q.defer();
+			$http.post('/api/v1/auth', emailPw)
+				.success(function(resp, status) {
+					console.log('resp01');
+					console.log(JSON.stringify(resp));
+					deferred.resolve(resp);
+					console.log('resp02');
+					console.log(JSON.stringify(resp));
+					$http({method: 'GET', url: '/organizer-app', headers: {'Authorization': 'Bearer '+resp.token}})
+						.success(function(respp, statuss) {
+							console.log('resp03');
+							console.log(JSON.stringify(respp));
+							deferred.resolve(respp);
+							console.log('resp04');
+							console.log(JSON.stringify(respp));
+						})
+						.error(function(error, statuss) {
+							deferred.reject(error);
+						});
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+        }		
+
+        function redirection(emailPw) {
+			var deferred = $q.defer();
+			$http.post('/api/v1/auth', emailPw)
+				.success(function(resp, status) {
+					console.log('resp01');
+					console.log(JSON.stringify(resp));
+					deferred.resolve(resp);
+					console.log('resp02');
+					console.log(JSON.stringify(resp));
 				})
 				.error(function(error, status) {
 					deferred.reject(error);

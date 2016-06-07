@@ -36,7 +36,7 @@
                             <div class="row" style="margin-bottom: 10px;">
                                 <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Description</label>
                                 <div class="col-xs-12 col-sm-9 col-md-8">
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" ng-model="congreObject.description"></textarea>
                                 </div>
                             </div>                              
                             <div class="row" style="margin-bottom: 10px;">
@@ -70,7 +70,7 @@
                             <div class="row" style="margin-bottom: 10px;">
                                 <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Thematique</label>
                                 <div class="col-xs-12 col-sm-9 col-md-8">
-	                                <select class="form-control">
+	                                <select class="form-control" ng-model="congreObject.thematique">
 	                                    <option>1</option>
 	                                    <option>2</option>
 	                                    <option>3</option>
@@ -88,21 +88,33 @@
                                 </div>
                             </div>                            
                             <div class="row" style="margin-bottom: 10px;">
-                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse</label>
-                                <div class="col-xs-12 col-sm-9 col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter text">
-                                </div>
-                            </div>                            
-                            <div class="row" style="margin-bottom: 10px;">
                                 <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Site</label>
                                 <div class="col-xs-12 col-sm-9 col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter text">
+                                    <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.site">
                                 </div>
                             </div>                            
                             <div class="row" style="margin-bottom: 10px;">
                                 <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Telephone</label>
                                 <div class="col-xs-12 col-sm-9 col-md-8">
-                                    <input type="phone" class="form-control" placeholder="Enter text">
+                                    <input type="phone" class="form-control" placeholder="Enter text" ng-model="congreObject.phone">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.address">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Ville</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.city">
+                                </div>
+                            </div>                            
+                            <div class="row" style="margin-bottom: 10px;">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Pays</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.country">
                                 </div>
                             </div>                            
                             <hr>
@@ -113,7 +125,7 @@
                                 <div class="col-xs-12 col-sm-9 col-md-4">
                                     <div class="input-group">
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.soumission.start"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-9 col-md-4">
@@ -122,7 +134,7 @@
                                             
                                         </span>
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.soumission.end"/>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +145,7 @@
                                 <div class="col-xs-12 col-sm-9 col-md-4">
                                     <div class="input-group">
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.selection.start"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-9 col-md-4">
@@ -142,7 +154,7 @@
                                             
                                         </span>
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.selection.end"/>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +165,7 @@
                                 <div class="col-xs-12 col-sm-9 col-md-4">
                                     <div class="input-group">
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.finalisation.start"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-9 col-md-4">
@@ -162,7 +174,7 @@
                                             
                                         </span>
 
-                                        <input class="form-control" type="Date"/>
+                                        <input class="form-control" type="Date" ng-model="congreObject.finalisation.end"/>
                                     </div>
                                 </div>
                             </div>                            
@@ -175,8 +187,8 @@
                 <div class="panel-footer">
 	                <div class="row">
 		                <div class="col-md-6 col-md-offset-3">
-		                    <button type="submit" class="btn btn-default col-md-6" ng-click="newCongre(congreObject)">Submit Button</button>
 		                    <button type="reset" class="btn btn-default col-md-6">Reset Button</button>
+                            <button type="submit" class="btn btn-default col-md-6" ng-click="newCongre(congreObject)">Submit Button</button>
 		                </div>
 	                </div>                   
                 </div>

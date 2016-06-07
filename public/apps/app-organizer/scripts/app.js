@@ -103,7 +103,21 @@ angular
     })
       .state('login',{
         templateUrl:'/apps/app-organizer/views/pages/login.html',
-        url:'/login'
+        url:'/login',
+        controller:'loginCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/loginController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css',
+                '/apps/app-organizer/styles/login-form.css'
+                ]
+            });
+          }
+        }
     })
       .state('dashboard.chart',{
         templateUrl:'/apps/app-organizer/views/chart.html',
