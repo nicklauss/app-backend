@@ -86,7 +86,7 @@ exports.getPublicationsByAuthor = (req, res, next) => {
     let authorId = req.params.authorId;
 
     Publication.find({"author" : authorId, "deleted" : false})
-        .populate('author')
+        .populate('author evaluation.reviewer_id')
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({
@@ -105,6 +105,7 @@ exports.getPublicationsByReviewer = (req, res, next) => {
     let reviewerId = req.params.reviewerId;
 
     Publication.find({"evaluation.reviewer_id" : reviewerId, "deleted" : false})
+        .populate('reviewer_id')
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({

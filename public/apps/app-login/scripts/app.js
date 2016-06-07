@@ -28,6 +28,7 @@ angular
         templateUrl:'/apps/app-login/views/pages/login.html',
         url:'/',
         controller:'loginCtrl',
+        controllerAs: 'vm',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
@@ -40,5 +41,5 @@ angular
             });
           }
         }
-    })
+    });
   }]);

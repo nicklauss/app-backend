@@ -36,8 +36,8 @@
             });
         }
 
-        function getPublicationsByReviewer(authorId) {
-            DataStorePublication.getPublicationsByReviewer(authorId)
+        function getPublicationsByReviewer(reviewerId) {
+            DataStorePublication.getPublicationsByReviewer(reviewerId)
             .then(function(publications) {
                 $scope.publications = publications.data;
                 $scope.publicationsLoading = false;

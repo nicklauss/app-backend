@@ -5,25 +5,35 @@
         .module('loginApp')
         .controller('loginCtrl', loginCtrl);
 
-    loginCtrl.$inject = ['$scope', '$q', 'DataStoreUser', '$location'];
+    loginCtrl.$inject = ['$q', 'DataStoreUser', '$window'];
 
-    function loginCtrl($scope, $q, DataStoreUser, $location) {
-
-    	$scope.emailPw = {};
-    	$scope.message = {};
-    	$scope.login = login;
-		console.log($scope.emailPw);
+    function loginCtrl($q, DataStoreUser, $window) {
+        var vm = this;
+        vm.authenticationCredentiels = {};
+        vm.message = {};
+        vm.login = login;
 
         function login() {
-        	if($scope.emailPw) {
-	            DataStoreUser.login($scope.emailPw)
-	            .then(function(message) {
-	                $scope.message = message;
-	            })
-	            .catch(function(err) {
-	                console.error(err);
-	            });
-        	}
+            DataStoreUser.login(vm.authenticationCredentiels)
+                .then(function(resp) {
+                    switch(resp.role) {
+                      case 'organizer' :
+                        $window.location = '/?access_token=' + resp.token;
+                        break;
+                      case 'author' :
+                        $window.location = '/author-app?access_token=' + resp.token;
+                        break;
+                      case 'reviewer' :
+                        $window.location = '/reviewer-app?access_token=' + resp.token;
+                        break;
+                      case 'program' :
+                        $window.location = '/program-app?access_token=' + resp.token;
+                        break;
+                    }
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
         }
     }
 
