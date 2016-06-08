@@ -9,16 +9,16 @@
 
 	function DataStoreCongre($http, $q) {
 		var services = {
-			getCongres : getCongres,
+			getCongreById : getCongreById,
 			newCongre : newCongre
 		};
 
 		return services;
 
-		function getCongres(organizerId) {
+		function getCongreById(congreId) {
 			var deferred = $q.defer();
 
-			$http.get('api/v1/congres/organizer/' + organizerId)
+			$http.get('api/v1/congres/' + congreId)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})

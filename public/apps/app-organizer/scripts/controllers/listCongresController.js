@@ -9,22 +9,29 @@
 
     function listCongresCtrl($scope, $q, DataStoreCongre) {
 
-        $scope.congres = [];
+        $scope.congreObject = {};
         $scope.congresLoading = true;
+        $scope.transform = transform;
 
-        init("575159068fdcdf4fbcba2270");
+        init("575159c18fdcdf4fbcba2271");
 // Share organizerId of logged in user
-        function init(organizerId) {
-            var promises = [getCongres(organizerId)];
+        function init(congreById) {
+            var promises = [getCongreById(congreById)];
             $q.all(promises).then(function() {
                 console.log('The congres are ready');
             });
         }
 
-        function getCongres(organizerId) {
-            DataStoreCongre.getCongres(organizerId)
+        function transform(atr1, atr2, atr3) {
+            $scope.modalObj = {
+                
+            }
+        }
+
+        function getCongreById(organizerId) {
+            DataStoreCongre.getCongreById(organizerId)
             .then(function(congres) {
-                $scope.congres = congres.data;
+                $scope.congreObject = congres.data;
                 $scope.congresLoading = false;
             })
             .catch(function(err) {
