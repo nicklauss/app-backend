@@ -1,0 +1,148 @@
+<div class="container-fluid" ng-controller="profileCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Profile</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+<!-- 		<div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+			<a href="edit.html" >Edit Profile</a>
+			<a href="edit.html" >Logout</a>
+				<br>
+			<p class=" text-info">May 05,2014,03:00 pm </p>
+		</div>
+-->
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad" >
+            <div class="panel panel-info">
+	            <div class="panel-heading">
+	            <div class="row">
+	            	<div class="col-md-10">
+	            		<h3 class="panel-title" style="font-size: 20px;">{{userObject.firstName}} {{userObject.lastName}}</h3>
+	            	</div>
+	            	<div class="col-md-2 pull-right">
+	            		<a type="button" class="btn btn-sm btn-warning" ng-if="!disable" ng-click="updateUser(userObject);"><i class="glyphicon glyphicon-lock"></i> Modifier</a>
+	            	</div>
+	            </div>
+	        		
+	        		
+	            </div>
+	            <div class="panel-body">
+	              	<div class="row">
+	                	<div class="col-md-3 col-lg-3 " align="center">
+	                		<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+	                	</div>
+		                <!--
+		                <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+		                  <dl>
+		                    <dt>DEPARTMENT:</dt>
+		                    <dd>Administrator</dd>
+		                    <dt>HIRE DATE</dt>
+		                    <dd>11/12/2013</dd>
+		                    <dt>DATE OF BIRTH</dt>
+		                       <dd>11/12/2013</dd>
+		                    <dt>GENDER</dt>
+		                    <dd>Male</dd>
+		                  </dl>
+		                </div>
+		                -->
+		                <div class=" col-md-9 col-lg-9 "> 
+		                  <table class="table table-user-information">
+		                    <tbody>
+		                      <tr>
+		                        <td>Université:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.university" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Domaine:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.domaine" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Statut:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.registrations[0].status" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Gender:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="userObject.gender" value="male"  ng-disabled="disable">Homme
+    			                    	<input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="userObject.gender" value="female"  ng-disabled="disable">femme
+                			    	</div>
+                    			</td>
+		                      </tr>
+                        	  <tr>
+		                        <td>Email:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.email" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Phone:</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.phone" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Adresse</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.location.address" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Ville</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.location.city" ng-disabled="disable">
+                			    	</div>
+                    			</td>
+		                      </tr>
+		                      <tr>
+		                        <td>Pays</td>
+		                        <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-8">
+    			                    	<input type="text" class="form-control" placeholder="Enter text" ng-model="userObject.location.country" ng-disabled="disable">
+                			    	</div>
+								</td>
+		                      </tr>
+		                     
+		                    </tbody>
+		                  </table>
+		                  
+<!-- 		                  <a href="#" class="btn btn-primary">My Sales Performance</a>
+		                  <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+		                </div>
+	              	</div>
+	            </div>
+	         	<div class="panel-footer">
+	                <a type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-lock"></i> Change password</a>
+	                <span class="pull-right">
+	                    <a type="button" class="btn btn-sm btn-warning" ng-click="disable=!disable;"><i class="glyphicon glyphicon-edit"></i></a>
+<!-- 	                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
+	                </span>
+	            </div>
+      		</div>
+    	</div>
+  	</div>
+</div>
+
+
+

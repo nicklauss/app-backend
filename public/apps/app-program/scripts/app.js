@@ -97,10 +97,6 @@ angular
         templateUrl:'/apps/app-program/views/form.html',
         url:'/form'
     })
-      .state('dashboard.blank',{
-        templateUrl:'/apps/app-program/views/pages/blank.html',
-        url:'/blank'
-    })
       .state('login',{
         templateUrl:'/apps/app-program/views/pages/login.html',
         url:'/login'
@@ -254,4 +250,23 @@ angular
           }
         }
       })
+      .state('dashboard.profile',{
+        templateUrl:'/apps/app-program/views/pages/profile.html',
+        url:'/profile',
+        controller:'profileCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'programApp',
+                files:[
+                '/apps/app-program/scripts/controllers/profileController.js',
+                '/apps/app-program/scripts/services/data-store-user.js',
+                '/apps/app-program/scripts/services/data-store-congre.js',
+                '/apps/app-program/styles/edit-modal.css',
+                '/apps/app-program/styles/profile.css'
+                ]
+            });
+          }
+        }
+    })
   }]);

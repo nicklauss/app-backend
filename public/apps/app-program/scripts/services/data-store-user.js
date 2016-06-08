@@ -12,7 +12,8 @@
 			getUsersByRoleAndCongre : getUsersByRoleAndCongre,
 			newUser : newUser,
 			updateUser : updateUser,
-			deleteUser : deleteUser
+			deleteUser : deleteUser,
+			getCurrentUser : getCurrentUser
 		};
 
 		return services;
@@ -62,6 +63,23 @@
 					console.log('resp01' + JSON.stringify(resp));
 					deferred.resolve(resp);
 					console.log('resp02' + JSON.stringify(resp));
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+        }		
+
+        function getCurrentUser() {
+			var deferred = $q.defer();
+			var access_token = window.location.search.split("=");
+			$http.get('/api/v1/users/me',
+			  {
+    			headers: 
+    				{'Authorization': 'Bearer ' + access_token[1]}
+			  })
+				.success(function(resp, status) {
+					deferred.resolve(resp);
 				})
 				.error(function(error, status) {
 					deferred.reject(error);

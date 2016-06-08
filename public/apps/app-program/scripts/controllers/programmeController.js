@@ -3,9 +3,9 @@
 
     angular
         .module('programApp')
-        .controller('programmeCtrl', programsCtrl);
+        .controller('programmeCtrl', programmeCtrl);
 
-    programsCtrl.$inject = ['$scope', '$q', 'DataStoreUser'];
+    programmeCtrl.$inject = ['$scope', '$q', 'DataStoreUser'];
 
     function programmeCtrl($scope, $q, DataStoreUser) {
 
