@@ -21,19 +21,19 @@
         $scope.updateProgram = updateProgram;
 
 
-
         function modalType(index, obj) {
-            if(index == 0)
+            if(index == 0) {
                 $scope.modalTyper = true;
-            else if(index == 2) {
-                $scope.modalTyper = true;
+                $scope.modalTypers = true;                
+            } else if(index == 2) {
+                $scope.modalTypers = false;
                 $scope.userObject = obj;
             } else {
+                $scope.modalTypers = true;
                 $scope.modalTyper = false;
                 $scope.userObject = obj;
             }
         }
-
         init($scope.testCongreId, "program");
 // Share organizerId of logged in user
 

@@ -28,7 +28,7 @@ exports.validateCongre = (req, res, next) => {
 exports.getCongreById = (req, res, next) => {
     let congreId = req.params.congreId;
 
-    Congre.findById(congreId)
+    Congre.find({"_id" : congreId, "deleted" : false})
         .exec((err, congre) => {
         if(err || !congre) {
             return res.send({
@@ -130,7 +130,7 @@ exports.updateCongre = (req, res, next) => {
                     message: 'Error while updating'
                 });
             }
-            return ree.send({
+            return res.send({
                 ok: true,
                 data: congre
             });

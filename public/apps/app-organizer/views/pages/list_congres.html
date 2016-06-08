@@ -1,5 +1,5 @@
 <div class="container-fluid" ng-controller="listCongresCtrl">
-	<div class="row">
+	<div class="row" ng-if="congreObject">
 		<div class="col-md-12">
 			<h2 class="page-header">
 	            {{congreObject.nom}}
@@ -17,7 +17,7 @@
 		<!-- /.col-md-2 -->
 	</div>
 	<!-- /.row -->
-	<div class="row" ng-if="!congresLoading">
+	<div class="row" ng-if="congreObject">
 	    <div class="col-md-5">
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -27,19 +27,19 @@
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Nom</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                        	<input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.nom">
+                        	<input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.nom" disabled>
                     	</div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Edition</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="number" class="form-control" placeholder="Enter text" ng-model="congreObject.edition">
+                            <input type="number" class="form-control" placeholder="Enter text" ng-model="congreObject.edition" disabled>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Description</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <textarea class="form-control" rows="3" ng-model="congreObject.description"></textarea>
+                            <textarea class="form-control" rows="3" ng-model="congreObject.description" disabled></textarea>
                         </div>
                     </div>                              
                 </div>
@@ -63,19 +63,19 @@
 					<div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse email</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="email" class="form-control" placeholder="Email" ng-model="congreObject.email">
+                            <input type="email" class="form-control" placeholder="Email" ng-model="congreObject.email" disabled>
                         </div>
                     </div>                            
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Site</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.site">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.site" disabled>
                         </div>
                     </div>                            
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Telephone</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="phone" class="form-control" placeholder="Enter text" ng-model="congreObject.phone">
+                            <input type="phone" class="form-control" placeholder="Enter text" ng-model="congreObject.phone" disabled>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             </div>
 	    </div>
 	</div>
-	<div class="row" ng-if="!congresLoading">
+	<div class="row" ng-if="congreObject">
 	    <div class="col-md-5">
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -103,7 +103,7 @@
                             Date debut
                         </label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.date_debut | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
@@ -113,7 +113,7 @@
                             Date fin
                         </label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.date_fin | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
@@ -121,7 +121,7 @@
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Thematique</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.thematique">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.thematique" disabled>
                         </div>
                     </div> 
                 </div>
@@ -145,19 +145,19 @@
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Adresse</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.address">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.address" disabled>
                         </div>
                     </div>                            
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Ville</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.city">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.city" disabled>
                         </div>
                     </div>                            
                     <div class="row" style="margin-bottom: 10px;">
                         <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Pays</label>
                         <div class="col-xs-12 col-sm-9 col-md-8">
-                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.country">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="congreObject.location.country" disabled>
                         </div>
                     </div> 
                 </div>
@@ -173,7 +173,7 @@
             </div>
 	    </div>
 	</div>
-	<div class="row" ng-if="!congresLoading">
+	<div class="row" ng-if="congreObject">
 		<div class="col-md-7 col-md-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -185,12 +185,12 @@
 					        Soumission
 					    </label>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.soumission.start | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.soumission.end | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
@@ -200,12 +200,12 @@
 					        Selection
 					    </label>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.evaluation.start | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.evaluation.end | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
@@ -215,12 +215,12 @@
 					        Finalisation
 					    </label>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.finalisation.start | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-4">
-                            <span class="form-control">
+                            <span class="form-control" disabled>
                             	{{congreObject.finalisation.end | date:'dd/MM/yyyy'}}
                             </span>
                         </div>
@@ -239,16 +239,21 @@
 	    </div>
 	</div>
 	<!-- /.row -->
-	<div class="row" ng-if="congresLoading">
-		<div class="col-md-12 text-center">
-			<div class="spinner">
-				<div class="dot1"></div>
-				<div class="dot2"></div>
-			</div>
+	<div class="row" ng-if="!congreObject">
+		<div class="col-md-12">
+			<h2 class="page-header">
+	            <small class="text-center">
+	                Vous n'avez aucun congre
+	            </small>
+	        	<a ui-sref="dashboard.newCongre" class="btn btn-sm btn-success" style="float: right;">
+	            	Nouveau
+	    		</a>
+	        </h2>
 		</div>
 	    <!-- /.col-lg-12 -->
 	</div>
 	<!-- /.row -->
+
     <!-- Modal -->
     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -279,7 +284,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePublication(evalpub);">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateCongre(congreObject);">Save changes</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -317,7 +322,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePublication(evalpub);">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateCongre(congreObject);">Save changes</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -363,7 +368,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePublication(evalpub);">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateCongre(congreObject);">Save changes</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -401,7 +406,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePublication(evalpub);">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateCongre(congreObject);">Save changes</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -464,7 +469,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePublication(evalpub);">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateCongre(congreObject);">Save changes</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -472,4 +477,5 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
 </div>

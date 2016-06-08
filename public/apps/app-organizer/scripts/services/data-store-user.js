@@ -13,7 +13,8 @@
 			newUser : newUser,
 			updateUser : updateUser,
 			deleteUser : deleteUser,
-			login : login
+			login : login,
+			getCurrentUser : getCurrentUser
 		};
 
 		return services;
@@ -97,15 +98,16 @@
 			return deferred.promise;
         }		
 
-        function redirection(emailPw) {
+        function getCurrentUser() {
 			var deferred = $q.defer();
-			$http.post('/api/v1/auth', emailPw)
+			var access_token = window.location.search.split("=");
+			$http.get('/api/v1/users/me',
+			  {
+    			headers: 
+    				{'Authorization': 'Bearer ' + access_token[1]}
+			  })
 				.success(function(resp, status) {
-					console.log('resp01');
-					console.log(JSON.stringify(resp));
 					deferred.resolve(resp);
-					console.log('resp02');
-					console.log(JSON.stringify(resp));
 				})
 				.error(function(error, status) {
 					deferred.reject(error);

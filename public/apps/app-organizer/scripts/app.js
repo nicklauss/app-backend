@@ -193,7 +193,8 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/listCongresController.js',
-                '/apps/app-organizer/scripts/services/data-store-congre.js'
+                '/apps/app-organizer/scripts/services/data-store-congre.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js'
                 ]
             });
           }

@@ -5,9 +5,9 @@
         .module('loginApp')
         .controller('loginCtrl', loginCtrl);
 
-    loginCtrl.$inject = ['$q', 'DataStoreUser', '$window'];
+    loginCtrl.$inject = ['$http', '$q', 'DataStoreUser', '$window'];
 
-    function loginCtrl($q, DataStoreUser, $window) {
+    function loginCtrl($http, $q, DataStoreUser, $window) {
         var vm = this;
         vm.authenticationCredentiels = {};
         vm.message = {};

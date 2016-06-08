@@ -14,12 +14,13 @@ var validateJwt = expressJwt({ secret: config.secrets.session });
  * Otherwise returns 403
  */
 function isAuthenticated() {
+        console.log('begin');
   return compose()
     // Validate jwt
     .use(function(req, res, next) {
-      console.log(req.query);
       // allow access_token to be passed through query parameter as well
       if(req.query && req.query.hasOwnProperty('access_token')) {
+        console.log('begin2');
 
         req.headers.authorization = 'Bearer ' + req.query.access_token;
         console.log('authorization');

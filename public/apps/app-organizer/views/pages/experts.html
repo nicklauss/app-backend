@@ -46,27 +46,27 @@
 	                                <td class="center" ng-if="expert.status">Active</td>
 	                                <td class="center" ng-if="!expert.status">Non active</td>
 	                                <td>{{expert.domaine}}</td>
-																	<td class="col-md-2" style="">
-																		<div class="">
-																			<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
+									<td class="col-md-2" style="">
+										<div class="">
+											<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
 		                                		<a ng-click="modalType(2,expert);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-default">
-		                           						<span class="glyphicon glyphicon-search">
-		                            					</span>
-						                						</a>
-																			</div>
-																			<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
-		                                		<a ng-click="modalType(1,expert);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
-		                           						<span class="glyphicon glyphicon-edit">
-		                            					</span>
-						                						</a>
-																			</div>
-																			<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
-		                                		<a ng-click="deleteExpert(expert._id);" class="btn btn-sm btn-danger">
-					                            		<span class="glyphicon glyphicon-remove">
-					                            		</span>
-				                        				</a>
-																			</div>
-																		</div>
+		                           				<span class="glyphicon glyphicon-search">
+		                            			</span>
+						                		</a>
+											</div>
+											<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
+			                                	<a ng-click="modalType(1,expert);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
+			                           			<span class="glyphicon glyphicon-edit">
+			                            		</span>
+							                	</a>
+											</div>
+											<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
+			                                	<a ng-click="deleteExpert(expert._id);" class="btn btn-sm btn-danger">
+						                        <span class="glyphicon glyphicon-remove">
+						                        </span>
+					                        	</a>
+											</div>
+										</div>
 	                                </td>
 	                            </tr>
 	                        </tbody>
@@ -173,12 +173,12 @@
                         </div>
                     </form>
                     <hr>
-                    <div class="form-group" ng-show="modalTyper">
+                    <div class="form-group" ng-show="modalTyper && modalTypers">
                         <button ng-click="newExpert(userObject)" type="submit" class="btn btn-success btn-lg" data-dismiss="modal">
                             Add
                         </button>
                     </div>
-                    <div class="form-group" ng-show="!modalTyper">
+                    <div class="form-group" ng-show="!modalTyper && modalTypers">
                         <button ng-click="updateExpert(userObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
                             Edit
                         </button>

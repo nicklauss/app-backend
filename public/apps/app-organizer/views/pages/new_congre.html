@@ -1,5 +1,5 @@
 <div class="container-fluid" ng-controller="newCongreCtrl">
-	<div class="row">
+	<div class="row" ng-if="!congreCreated">
 		<div class="col-md-12">
 			<h2 class="page-header">
 	           Congres
@@ -11,7 +11,11 @@
 		</div>
 		<!-- /.col-lg-12 -->
     </div>
-    <div class="row">
+    <div class="alert alert-success alert-dismissable" ng-show="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Congre cree
+    </div>
+    <div class="row" ng-if="!congreCreated">
         <div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-info">
 			    <div class="panel-heading text-center">
@@ -190,4 +194,18 @@
         </div>
 	</div>
 	<!-- /.row -->
+    <div class="row" ng-if="congreCreated">
+        <div class="col-md-12">
+            <h2 class="page-header">
+                <small class="text-center">
+                    Vous avez deja creer votre congre
+                </small>
+                <a ui-sref="dashboard.listCongres" class="btn btn-sm btn-success" style="float: right;">
+                    Gerer congre
+                </a>
+            </h2>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
 </div>
