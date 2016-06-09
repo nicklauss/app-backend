@@ -159,7 +159,8 @@ angular
                 name:'programApp',
                 files:[
                 '/apps/app-program/scripts/controllers/phasesController.js',
-                '/apps/app-program/scripts/services/data-store-congre.js'
+                '/apps/app-program/scripts/services/data-store-congre.js',
+                '/apps/app-program/styles/phases.css'
                 ]
             });
           }
@@ -209,6 +210,8 @@ angular
                 name:'programApp',
                 files:[
                 '/apps/app-program/scripts/controllers/rapportsController.js',
+                '/apps/app-program/scripts/services/data-store-publication.js',
+                '/apps/app-program/scripts/services/data-store-user.js',
                 '/apps/app-program/scripts/services/data-store-congre.js',
                 '/apps/app-program/styles/edit-modal.css'
                 ]
@@ -243,7 +246,7 @@ angular
                 name:'programApp',
                 files:[
                 '/apps/app-program/scripts/controllers/programmeController.js',
-                '/apps/app-program/scripts/services/data-store-congre.js',
+                '/apps/app-program/scripts/services/data-store-user.js',
                 '/apps/app-program/styles/edit-modal.css'
                 ]
             });
