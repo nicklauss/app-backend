@@ -133,7 +133,7 @@
 	              	</div>
 	            </div>
 	         	<div class="panel-footer">
-	                <a type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-lock"></i> Change password</a>
+	                <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-lock"></i> Change password</a>
 	                <span class="pull-right">
 	                    <a type="button" class="btn btn-sm btn-warning" ng-click="disable=!disable;"><i class="glyphicon glyphicon-edit"></i></a>
 <!-- 	                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
@@ -142,6 +142,44 @@
       		</div>
     	</div>
   	</div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modifier mot de passe</h4>
+                </div>
+                <div class="modal-body">
+					<div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Old password</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="password" class="form-control" placeholder="Email">
+                        </div>
+                    </div>                            
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">New password</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="password" class="form-control" placeholder="Enter text" ng-model="userObject.password">
+                        </div>
+                    </div>                            
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Confirm new password</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="password" class="form-control" placeholder="Enter text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateUser(userObject);">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->	
 </div>
 
 

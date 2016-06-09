@@ -13,8 +13,8 @@
         $scope.publicationsLoading = true;
         $scope.publicationObject = {};
         $scope.modalType = modalType;
-        // $scope.deletePublication = deletePublication;
-        // $scope.updatePublication = updatePublication;
+        $scope.deletePublication = deletePublication;
+        $scope.updatePublication = updatePublication;
 
         function modalType(index, obj) {
             if(index == 0)
@@ -25,6 +25,9 @@
             } else {
                   $scope.modalTyper = false;
                   $scope.publicationObject = obj;
+            console.log(obj);
+            console.log($scope.publicationObject);
+                  
             }
         }
         init();
@@ -47,15 +50,26 @@
             });
         }
 
-        // function deletePublication(publicationId) {
-        //     DataStorePublication.deletePublicationById(publicationId)
-        //     .then(function(publication) {
-        //       init();
-        //     })
-        //     .catch(function(err) {
-        //       console.error(err);
-        //     });
-        // }
+        function deletePublication(publicationId) {
+            DataStorePublication.deletePublicationById(publicationId)
+            .then(function(publication) {
+              init();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+
+        function updatePublication(publicationObj) {
+            console.log(publicationObj);
+            DataStorePublication.updatePublicationById(publicationObj)
+            .then(function(publication) {
+              init();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
 
     }
 

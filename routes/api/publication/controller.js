@@ -132,9 +132,13 @@ exports.updatePublication = (req, res, next) => {
             });
         }
         publication.title = req.body.title || publication.title;
-        publication.evaluation.value = req.body.evaluation.value || publication.evaluation.value;
-        publication.evaluation.marks = req.body.evaluation.marks || publication.evaluation.marks;
-        publication.evaluation.evaluation_date = new Date();
+        if(req.body.evaluation) {
+            publication.evaluation.value = req.body.evaluation.value || publication.evaluation.value;
+            publication.evaluation.marks = req.body.evaluation.marks || publication.evaluation.marks;
+            publication.evaluation.evaluation_date = new Date();            
+        } else
+            publication.evaluation = req.body.evaluation;           
+
         publication.numb_pages = req.body.numb_pages || publication.numb_pages;
         publication.abstract = req.body.abstract || publication.abstract;
         publication.media.initial_report = req.body.media.initial_report || publication.media.initial_report;

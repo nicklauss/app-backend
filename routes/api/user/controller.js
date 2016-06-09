@@ -62,7 +62,7 @@ exports.update = (req, res, next) => {
     // let currentUserId = req.user._id;
     console.log(req.body);
     User.findById(currentUserId)
-        .select('-hashedPassword -salt -__v -deleted -location -created')
+        .select('-hashedPassword -salt -__v -deleted -created')
         .exec((err, user) => {
         if(err || !user) {
             return res.send({
@@ -80,6 +80,8 @@ exports.update = (req, res, next) => {
         user.university = req.body.university || user.university;
         user.labo = req.body.labo || user.labo;
         user.domaine = req.body.domaine || user.domaine;
+        if(req.body.password)
+            user.password = req.body.password;
         user.updated = new Date();
         user.save((err) => {
             if(err) {

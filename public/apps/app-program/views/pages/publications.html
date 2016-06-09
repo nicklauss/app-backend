@@ -42,7 +42,7 @@
 	                            <tr class="odd gradeX" ng-repeat="publication in publications">
 	                                <td>{{publication.title}}</td>
 	                                <td>
-																		<p ng-repeat="author in publication.author">{{author.lastName}} {{author.firstName}}</p>
+									<p ng-repeat="aut in publication.author">{{aut.lastName}} {{aut.firstName}}</p>
 																	</td>
 	                                <td>{{publication.abstract.file}}</td>
 	                                <td>{{publication.media.initial_report}}</td>
@@ -55,7 +55,7 @@
 						                            		</span>
 						                        		</a>
 																			</div>
-																			<!-- <div class="col-md-4">
+																			<div class="col-md-4">
 		                                		<a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
 	                           							<span class="glyphicon glyphicon-edit">
 	                            						</span>
@@ -66,7 +66,7 @@
 						                            		<span class="glyphicon glyphicon-remove">
 						                            		</span>
 						                        		</a>
-																			</div> -->
+																			</div>
 																		</div>
 	                                </td>
 	                            </tr>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="email" class="form-control" placeholder="fichier" ng-model="publicationObject.abstract.file">
+                                <input type="text" class="form-control" placeholder="fichier" ng-model="publicationObject.abstract.file">
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
@@ -167,7 +167,7 @@
                     </form>
                     <hr>
                     <div class="form-group" ng-show="!modalTyper">
-                        <button ng-click="updatePublication(userObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
+                        <button ng-click="updatePublication(publicationObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
                             Edit
                         </button>
                     </div>

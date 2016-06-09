@@ -9,7 +9,9 @@
 
 	function DataStorePublication($http, $q) {
 		var services = {
-			getPublications : getPublications
+			getPublications : getPublications,
+			deletePublicationById : deletePublicationById,
+			updatePublicationById : updatePublicationById
 		};
 
 		return services;
@@ -27,18 +29,34 @@
 			return deferred.promise;
 		}
 
-		// function deletePublicationById(publicationId) {
-		// 	var deferred = $q.defer();
-		//
-		// 	$http.delete('api/v1/publications/' + publicationId)
-		// 		.success(function(resp, status) {
-		// 			deferred.resolve(resp);
-		// 		})
-		// 		.error(function(error, status) {
-		// 			deferred.reject(error);
-		// 		});
-		//   return deferred.promise;
-		// }
+		function deletePublicationById(publicationId) {
+			var deferred = $q.defer();
+
+			$http.delete('api/v1/publications/' + publicationId)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+		  return deferred.promise;
+		}
+
+		function updatePublicationById(publicationObj) {
+			var deferred = $q.defer();
+            console.log(publicationObj);
+
+			$http.put('api/v1/publications/' + publicationObj._id, publicationObj)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+					console.log(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+		  return deferred.promise;
+		}
+
 
 	}
 
