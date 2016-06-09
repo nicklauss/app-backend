@@ -49,7 +49,7 @@ exports.newPublication = (req, res, next) => {
 
 exports.getPublications = (req, res, next) => {
     Publication.find({"deleted" : false})
-        .populate('author')
+        .populate('author evaluation.reviewer_id')
         .exec((err, publications) => {
         if(err || !publications) {
             return res.send({

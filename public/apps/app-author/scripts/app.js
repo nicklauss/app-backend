@@ -104,6 +104,7 @@ angular
                 files:[
                 '/apps/app-author/scripts/controllers/publicationsController.js',
                 '/apps/app-author/scripts/services/data-store-publication.js',
+                '/apps/app-author/scripts/services/data-store-user.js',
                 '/apps/app-author/styles/edit-modal.css'
                 ]
             });
@@ -127,4 +128,22 @@ angular
           }
         }
       })
+      .state('dashboard.profile',{
+        templateUrl:'/apps/app-author/views/pages/profile.html',
+        url:'/profile',
+        controller:'profileCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'authorApp',
+                files:[
+                '/apps/app-author/scripts/controllers/profileController.js',
+                '/apps/app-author/scripts/services/data-store-user.js',
+                '/apps/app-author/styles/edit-modal.css',
+                '/apps/app-author/styles/profile.css'
+                ]
+            });
+          }
+        }
+    })
   }]);

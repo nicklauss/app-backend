@@ -5,9 +5,9 @@
         .module('authorApp')
         .controller('publicationsCtrl', publicationsCtrl);
 
-    publicationsCtrl.$inject = ['$scope', '$q', 'DataStorePublication'];
+    publicationsCtrl.$inject = ['$scope', '$q', 'DataStorePublication', 'DataStoreUser'];
 
-    function publicationsCtrl($scope, $q, DataStorePublication) {
+    function publicationsCtrl($scope, $q, DataStorePublication, DataStoreUser) {
 
         $scope.publications = [];
         $scope.publicationsLoading = true;
@@ -30,7 +30,7 @@
         init();
 // Share authorId of logged in user
         function init() {
-            var promises = [getPublicationsByAuthor("57515baf8fdcdf4fbcba2275")];
+            var promises = [getCurrentUser()];
             $q.all(promises).then(function() {
                 console.log('The publications are ready');
             });
@@ -64,6 +64,18 @@
             })
             .catch(function(err) {
               console.error(err);
+            });
+        }
+
+        function getCurrentUser() {
+            DataStoreUser.getCurrentUser()
+            .then(function(currentUser) {
+                $scope.userObject = currentUser.data;
+                console.log($scope.userObject);
+                getPublicationsByAuthor($scope.userObject._id);
+            })
+            .catch(function(err) {
+                console.error(err);
             });
         }
 

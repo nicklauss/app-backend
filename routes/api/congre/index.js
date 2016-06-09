@@ -5,9 +5,9 @@ const auth = require('../../core/auth/auth.service');
 const controller = require('./controller');
 
 route
-    .post('/', controller.validateCongre, controller.newCongre)
-    .put('/:congreId', controller.updateCongre)
-    .delete('/:congreId', controller.deleteCongre)
+    .post('/', auth.hasRole('organizer'), controller.validateCongre, controller.newCongre)
+    .put('/:congreId', auth.hasRole('organizer'), controller.updateCongre)
+    .delete('/:congreId', auth.hasRole('organizer'), controller.deleteCongre)
     .get('/:congreId', controller.getCongreById)
     .get('/organizer/:organizerId', controller.getCongresByOrganizerId);
 
