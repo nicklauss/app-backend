@@ -28,6 +28,10 @@
                 console.log('The publications are ready');
                 $scope.getEvaluations = getEvaluations;
                 $scope.filterByEvaluations = filterByEvaluations;
+                $scope.getStatus = getStatus;
+                $scope.filterByStatus = filterByStatus;
+                $scope.getStatusE = getStatusE;
+                $scope.filterByStatusE = filterByStatusE;
             });
         }
 
@@ -109,8 +113,9 @@
             });
         }
 
-        $scope.filter = {};
         $scope.panel = '';
+        
+        $scope.filter = {};
 
         function getEvaluations() {
             return ($scope.publications || []).map(function (w) {
@@ -132,6 +137,32 @@
             }
             return true;
         }
+
+        $scope.statusFilter = {};
+
+        function getStatus() {
+            return ($scope.auteurs || []).map(function (w) {
+                return w.registrations[0].status;
+            }).filter(function (w, idx, arr) {
+                return arr.indexOf(w) === idx;
+            });
+        };
+        
+        function filterByStatus(auteur) {
+            return $scope.statusFilter[auteur.registrations[0].status] || noFilter($scope.statusFilter);
+        };
+
+        function getStatusE() {
+            return ($scope.experts || []).map(function (w) {
+                return w.registrations[0].status;
+            }).filter(function (w, idx, arr) {
+                return arr.indexOf(w) === idx;
+            });
+        };
+        
+        function filterByStatusE(expert) {
+            return $scope.statusFilter[expert.registrations[0].status] || noFilter($scope.statusFilter);
+        };
 
     }
 
