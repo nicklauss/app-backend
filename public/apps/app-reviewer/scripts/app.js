@@ -109,4 +109,22 @@ angular
           }
         }
       })
+      .state('dashboard.profile',{
+        templateUrl:'/apps/app-reviewer/views/pages/profile.html',
+        url:'/profile',
+        controller:'profileCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'reviewerApp',
+                files:[
+                '/apps/app-reviewer/scripts/controllers/profileController.js',
+                '/apps/app-reviewer/scripts/services/data-store-user.js',
+                '/apps/app-reviewer/styles/edit-modal.css',
+                '/apps/app-reviewer/styles/profile.css'
+                ]
+            });
+          }
+        }
+    })
   }]);

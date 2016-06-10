@@ -29,7 +29,7 @@
                 <div class="panel-footer">
 	                <div class="row">
 	                	<div class="col-md-6">
-		                	<a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-success" style="width: 100%;">
+		                	<a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-success" style="width: 100%;" ng-disabled="publication.evaluation.value != 'PENDING'">
 					            Evaluer
 				        	</a>
 						</div>
@@ -78,6 +78,12 @@
                                 <option value="ACCEPTED">Accepté avec remarques mineurs</option>
                                 <option value="MAJACCEPTED">Accepté avec remarques majeurs</option>
                             </select>
+	                    </div>
+	                </div>
+	                <div class="row" style="margin-bottom: 10px;">
+	                    <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Rapport</label>
+	                    <div class="col-xs-12 col-sm-9 col-md-8">
+	                        <input type="text" class="form-control" ng-model="evalpub.evaluation.report" ng-disabled="disable">
 	                    </div>
 	                </div> 
                 </div>
