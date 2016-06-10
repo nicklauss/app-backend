@@ -11,7 +11,8 @@
 		var services = {
 			getPublications : getPublications,
 			deletePublicationById : deletePublicationById,
-			updatePublicationById : updatePublicationById
+			updatePublicationById : updatePublicationById,
+			getPublicationsCount : getPublicationsCount
 		};
 
 		return services;
@@ -20,6 +21,19 @@
 			var deferred = $q.defer();
 
 			$http.get('api/v1/publications')
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getPublicationsCount() {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/publications/count')
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})

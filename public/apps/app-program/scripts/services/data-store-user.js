@@ -13,7 +13,9 @@
 			newUser : newUser,
 			updateUser : updateUser,
 			deleteUser : deleteUser,
-			getCurrentUser : getCurrentUser
+			getCurrentUser : getCurrentUser,
+			getAuteursCount : getAuteursCount,
+			getExpertsCount : getExpertsCount
 		};
 
 		return services;
@@ -35,6 +37,32 @@
 			var deferred = $q.defer();
 
 			$http.get('api/v1/users/'+ role +'/congres/' + congreId )
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getAuteursCount(role) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/users/role/'+ role)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getExpertsCount(role) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/users/role/'+ role)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})
@@ -71,6 +99,7 @@
         }		
 
         function getCurrentUser() {
+            console.log('DataStoreUser');
 			var deferred = $q.defer();
 			var access_token = window.location.search.split("=");
 			$http.get('/api/v1/users/me',
@@ -80,6 +109,7 @@
 			  })
 				.success(function(resp, status) {
 					deferred.resolve(resp);
+					console.log(resp);
 				})
 				.error(function(error, status) {
 					deferred.reject(error);

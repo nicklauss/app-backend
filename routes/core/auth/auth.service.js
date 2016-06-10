@@ -32,11 +32,14 @@ function isAuthenticated() {
     })
     // Attach user to request
     .use(function(req, res, next) {
+        console.log('req user2');
       User.findById(req.user._id, function (err, user) {
         if (err) return next(err);
         if (!user) return res.send(401);
 
         req.user = user;
+        console.log('req user');
+        console.log(user);
         next();
       });
     });

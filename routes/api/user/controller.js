@@ -146,6 +146,26 @@ exports.getUsersByRoleAndCongre = (req, res, next) => {
     });
 };
 
+exports.getUsersCount = (req, res, next) => {
+    let role = req.params.role;
+    console.log(role);
+    User.find({"role" : role, "deleted" : false})
+        .count()
+        .exec((err, usersCount) => {
+        if(err || !usersCount) {
+            return res.send({
+                ok: false,
+                message: 'Users not found'
+            });
+        }
+        console.log(usersCount);
+        return res.send({
+            ok: true,
+            data: usersCount
+        });
+    });
+};
+
 exports.getUsersByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
 
@@ -196,7 +216,9 @@ exports.getReviewersByEvaluation = (req, res, next) => {
 };
 
 exports.me = (req, res, next) => {
+    console.log('me ctrl');
     const currentUserId = req.user._id;
+    console.log('req id');
     User.findById(currentUserId)
       .select('-hashedPassword -salt -deleted')
       .exec((err, user) => {

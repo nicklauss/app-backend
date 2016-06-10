@@ -64,6 +64,23 @@ exports.getPublications = (req, res, next) => {
     });
 };
 
+exports.getPublicationsCount = (req, res, next) => {
+    Publication.find({"deleted" : false})
+        .count()
+        .exec((err, publicationsCount) => {
+        if(err || !publicationsCount) {
+            return res.send({
+                ok: false,
+                message: 'Publications not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: publicationsCount
+        });
+    });
+};
+
 exports.getPublicationById = (req, res, next) => {
     let publicationId = req.params.publicationId;
 
