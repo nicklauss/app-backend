@@ -19,6 +19,11 @@
     function MainCtrl($scope, $position, $q, DataStorePublication, DataStoreUser) {
 
         $scope.publications = [];
+        $scope.toggleModal = toggleModal;
+
+        function toggleModal(obj) {
+            $scope.modalObj = obj;
+        }
 
         getCurrentUser();
 

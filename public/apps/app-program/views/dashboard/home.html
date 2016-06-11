@@ -74,7 +74,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="auteur in filtered=(auteurs | filter:filterByStatus)">
-                            <div class="offer" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                            <div class="offer" ng-class="{'offer-default':auteur.registrations[0].status=='PENDING', 'offer-success':auteur.registrations[0].status=='APPROVED', 'offer-primary':auteur.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(auteur);">
                                 <div class="shape">
                                     <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
                                         {{auteur.registrations[0].status}}                             
@@ -116,7 +116,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="expert in filtered=(experts | filter:filterByStatusE)">
-                            <div class="offer" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                            <div class="offer" ng-class="{'offer-default':expert.registrations[0].status=='PENDING', 'offer-success':expert.registrations[0].status=='APPROVED', 'offer-primary':expert.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(expert);">
                                 <div class="shape">
                                     <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
                                         {{expert.registrations[0].status}}                             
@@ -158,4 +158,132 @@
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="panel-title" style="font-size: 20px;">{{modalObj.firstName}} {{modalObj.lastName}}</h3>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                </div>
+                    
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+                        </div>
+                        <!--
+                        <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                          <dl>
+                            <dt>DEPARTMENT:</dt>
+                            <dd>Administrator</dd>
+                            <dt>HIRE DATE</dt>
+                            <dd>11/12/2013</dd>
+                            <dt>DATE OF BIRTH</dt>
+                               <dd>11/12/2013</dd>
+                            <dt>GENDER</dt>
+                            <dd>Male</dd>
+                          </dl>
+                        </div>
+                        -->
+                        <div class=" col-md-9 col-lg-9 "> 
+                          <table class="table table-user-information">
+                            <tbody>
+                              <tr>
+                                <td>Université:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.university" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Domaine:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.domaine" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Statut:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.registrations[0].status" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Gender:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="modalObj.gender" value="male"  ng-disabled="true">Homme
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="modalObj.gender" value="female"  ng-disabled="true">femme
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Email:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.email" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Phone:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.phone" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Adresse</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.address" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Ville</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.city" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Pays</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.country" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                          
+<!--                          <a href="#" class="btn btn-primary">My Sales Performance</a>
+                          <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+<!--                         <a type="button" class="btn btn-sm btn-warning" ng-click="disable=!disable;"><i class="glyphicon glyphicon-edit"></i></a>
+                       <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
+                    </span>
+                </div>
+            </div>
+      </div>
 </div>
