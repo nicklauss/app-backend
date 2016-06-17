@@ -12,7 +12,9 @@
 			getPublications : getPublications,
 			deletePublicationById : deletePublicationById,
 			updatePublicationById : updatePublicationById,
-			getPublicationsCount : getPublicationsCount
+			getPublicationsCount : getPublicationsCount,
+			getPublicationsByReviewer : getPublicationsByReviewer,
+			getPublicationsNotAssigned : getPublicationsNotAssigned
 		};
 
 		return services;
@@ -21,6 +23,33 @@
 			var deferred = $q.defer();
 
 			$http.get('api/v1/publications')
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getPublicationsNotAssigned() {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/publications/NotAssigned')
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+					console.log(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getPublicationsByReviewer(reviewerId) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/publications/reviewers/' + reviewerId)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})

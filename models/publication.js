@@ -17,7 +17,7 @@ const PublicationSchema = new Schema({
     evaluation: {
         value: {
             type: String,
-            enum: ['PENDING','REJECTED', 'ACCEPTED', 'MAJACCEPTED']
+            enum: ['NOTASSIGNED','PENDING','REJECTED', 'ACCEPTED', 'MAJACCEPTED']
         },
         report: String,
         reviewer_id: {

@@ -46,19 +46,19 @@
 	                                <td class="center" ng-if="expert.status">Active</td>
 	                                <td class="center" ng-if="!expert.status">Non active</td>
 	                                <td>{{expert.domaine}}</td>
-	                                <td class="row" style="width: 110px;">
-	                                	<div class="col-md-2">
-	                                		<a ng-click="modalType(1,expert);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
-                           						<span class="glyphicon glyphicon-edit">
-                            					</span>
-                    						</a>								
-										</div>
-	                                	<div class="col-md-2">
-	                                		<a ng-click="deleteExpert(expert._id);" class="btn btn-sm btn-danger">
-			                            		<span class="glyphicon glyphicon-remove">
-			                            		</span>
-			                        		</a>								
-										</div>
+	                                <td class="row" style="">
+                                		<a ng-click="modalType(1,expert);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning col-md-4">
+                       						<span class="glyphicon glyphicon-edit">
+                        					</span>
+                						</a>								
+                                		<a ng-click="deleteExpert(expert._id);" class="btn btn-sm btn-danger col-md-4">
+		                            		<span class="glyphicon glyphicon-remove">
+		                            		</span>
+		                        		</a>								
+                                        <a ng-click="getPublications(expert);" data-toggle="modal" data-target="#myModal2" class="btn btn-sm btn-primary col-md-4">
+                                            <span class="glyphicon glyphicon-file">
+                                            </span>
+                                        </a>                                
 	                                </td>
 	                            </tr>
 	                        </tbody>
@@ -179,4 +179,42 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Assigner les publications à <i ng-if="userObject.gender=='male'">Mr</i> <i ng-if="userObject.gender=='female'">Mme</i> <i>{{userObject.lastName}}</i></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Publications assignées</p>                
+                            <div class="form-control" style="height: 100%;">
+                                <p ng-if="!publications.length" style="width: 100%;"> Aucune publication !</p>
+                                <a id="modalBtn" ng-if="publications" class="btn btn-sm" ng-repeat="publication in publications" style="/*border: solid 1px; */width: 100%;" ng-click="updatePublicationMinus(publication, userObject._id);">
+                                    {{publication.title}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Publications pas encore assignées</p>                
+                            <div class="form-control" style="height: 100%;">
+                                <p ng-if="!publicationsNotAssigned.length" style="width: 100%;"> Aucune publication !</p>
+                                <a id="modalBtn" ng-if="publicationsNotAssigned" class="btn btn-sm" ng-repeat="publicationNotAssigned in publicationsNotAssigned" style="/*border: solid 1px; */width: 100%;" ng-click="updatePublicationAdd(publicationNotAssigned, userObject._id);">
+                                    {{publicationNotAssigned.title}}
+                                </a>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>

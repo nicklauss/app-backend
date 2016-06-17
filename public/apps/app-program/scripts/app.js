@@ -180,8 +180,10 @@ angular
                 name:'programApp',
                 files:[
                 '/apps/app-program/scripts/controllers/expertsController.js',
+                '/apps/app-program/scripts/services/data-store-publication.js',
                 '/apps/app-program/scripts/services/data-store-user.js',
-                '/apps/app-program/styles/edit-modal.css'
+                '/apps/app-program/styles/edit-modal.css',
+                '/apps/app-program/styles/experts.css'
                 ]
             });
           }

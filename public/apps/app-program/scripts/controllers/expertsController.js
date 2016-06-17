@@ -5,20 +5,24 @@
         .module('programApp')
         .controller('expertsCtrl', expertsCtrl);
 
-    expertsCtrl.$inject = ['$scope', '$q', 'DataStoreUser'];
+    expertsCtrl.$inject = ['$scope', '$q', 'DataStoreUser', 'DataStorePublication'];
 
-    function expertsCtrl($scope, $q, DataStoreUser) {
+    function expertsCtrl($scope, $q, DataStoreUser, DataStorePublication) {
 
         $scope.testCongreId = "575159c18fdcdf4fbcba2271";
 
 
         $scope.experts = [];
+        $scope.publications = [];
         $scope.userObject = {};
         $scope.newExpert = newExpert;
         $scope.congresLoading = true;
         $scope.modalType = modalType;
         $scope.deleteExpert = deleteExpert;
         $scope.updateExpert = updateExpert;
+        $scope.getPublications = getPublications;
+        $scope.updatePublicationAdd = updatePublicationAdd;
+        $scope.updatePublicationMinus = updatePublicationMinus;
 
         function modalType(index, obj) {
             if(index == 0)
@@ -35,6 +39,66 @@
             var promises = [getExperts(congreId, role)];
             $q.all(promises).then(function() {
                 console.log('The experts are ready');
+            });
+        }
+
+        function getPublications(reviewer) {
+            $scope.userObject = reviewer;
+            getPublicationsByReviewer(reviewer._id);
+            getPublicationsNotAssigned();
+        }
+
+        function updatePublicationMinus(publicationObj, reviewerId) {
+            console.log(publicationObj.evaluation);
+            publicationObj.evaluation = {
+                "value": "NOTASSIGNED"
+            };
+            console.log(publicationObj.evaluation);
+            DataStorePublication.updatePublicationById(publicationObj)
+            .then(function(publication) {
+                getPublicationsByReviewer(reviewerId);
+                getPublicationsNotAssigned();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+
+        function updatePublicationAdd(publicationObj, reviewerId) {
+            console.log(publicationObj);
+            publicationObj.evaluation = {
+                "value" : "PENDING",
+                "reviewer_id" : reviewerId
+            };
+            console.log(publicationObj);
+            DataStorePublication.updatePublicationById(publicationObj)
+            .then(function(publication) {
+                getPublicationsByReviewer(reviewerId);
+                getPublicationsNotAssigned();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+
+        function getPublicationsByReviewer(reviewerId) {
+            DataStorePublication.getPublicationsByReviewer(reviewerId)
+            .then(function(publications) {
+                $scope.publications = publications.data;
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function getPublicationsNotAssigned() {
+            DataStorePublication.getPublicationsNotAssigned()
+            .then(function(publicationsNotAssigned) {
+                $scope.publicationsNotAssigned = publicationsNotAssigned.data;
+                console.log($scope.publicationsNotAssigned);
+            })
+            .catch(function(err) {
+                console.error(err);
             });
         }
 
