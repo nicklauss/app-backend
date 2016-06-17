@@ -64,6 +64,23 @@ exports.getPublications = (req, res, next) => {
     });
 };
 
+exports.getPublicationsNotAssigned = (req, res, next) => {
+    Publication.find({"deleted" : false, "evaluation.value" : "NOTASSIGNED"})
+        .populate('author')
+        .exec((err, publications) => {
+        if(err || !publications) {
+            return res.send({
+                ok: false,
+                message: 'Publications not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: publications
+        });
+    });
+};
+
 exports.getPublicationsCount = (req, res, next) => {
     Publication.find({"deleted" : false})
         .count()
@@ -148,13 +165,23 @@ exports.updatePublication = (req, res, next) => {
                 message: 'Publication not found'
             });
         }
+        console.log(req.body.evaluation);
         publication.title = req.body.title || publication.title;
-        if(req.body.evaluation) {
+        if(req.body.evaluation.value != "NOTASSIGNED") {
+            console.log("11111");
             publication.evaluation.value = req.body.evaluation.value || publication.evaluation.value;
             publication.evaluation.marks = req.body.evaluation.marks || publication.evaluation.marks;
+            publication.evaluation.reviewer_id = req.body.evaluation.reviewer_id || publication.evaluation.reviewer_id;
             publication.evaluation.evaluation_date = new Date();            
-        } else
+        } else if(req.body.evaluation.value == "NOTASSIGNED"){
+            publication.evaluation = req.body.evaluation;
+            console.log("22222");
+            console.log(publication.evaluation);
+        }
+          else {
+            console.log("33333");
             publication.evaluation = req.body.evaluation;           
+          }
 
         publication.numb_pages = req.body.numb_pages || publication.numb_pages;
         publication.abstract = req.body.abstract || publication.abstract;
