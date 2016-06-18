@@ -1,0 +1,74 @@
+/* 0 */
+{
+    "_id" : ObjectId("57515f248fdcdf4fbcba2281"),
+    "title" : "Session1",
+    "description" : "description session1",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [ 
+        {
+            "publication_id" : ObjectId("57515d8a8fdcdf4fbcba227d"),
+            "title" : "Session1_Presentation1",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515c018fdcdf4fbcba2278")
+        }, 
+        {
+            "publication_id" : ObjectId("57515d908fdcdf4fbcba227e"),
+            "title" : "Session1_Presentation2",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515bf88fdcdf4fbcba2277")
+        }
+    ],
+    "congre_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515f408fdcdf4fbcba2282"),
+    "title" : "Session2",
+    "description" : "description session2",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [ 
+        {
+            "publication_id" : ObjectId("57515da58fdcdf4fbcba227f"),
+            "title" : "Session2_Presentation1",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515bf88fdcdf4fbcba2277")
+        }, 
+        {
+            "publication_id" : ObjectId("57515db68fdcdf4fbcba2280"),
+            "title" : "Session2_Presentation2",
+            "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+            "speaker" : ObjectId("57515c018fdcdf4fbcba2278")
+        }
+    ],
+    "congre_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515f648fdcdf4fbcba2283"),
+    "title" : "Session3",
+    "description" : "description session3",
+    "thematique" : "JavaScript",
+    "start_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "end_date" : ISODate("2016-05-21T21:52:06.671Z"),
+    "presentations" : [],
+    "congre_id" : ObjectId("57515a168fdcdf4fbcba2272"),
+    "deleted" : false,
+    "created" : ISODate("2016-05-21T21:52:06.671Z"),
+    "updated" : ISODate("2016-05-21T21:52:06.671Z")
+}

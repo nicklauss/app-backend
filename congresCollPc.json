@@ -1,0 +1,139 @@
+/* 0 */
+{
+    "_id" : ObjectId("575159c18fdcdf4fbcba2271"),
+    "created" : ISODate("2016-03-30T00:00:00.000Z"),
+    "date_debut" : ISODate("2016-08-02T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-08-04T00:00:00.000Z"),
+    "deleted" : false,
+    "description" : "Conference par IBM",
+    "edition" : 2016,
+    "email" : "IBM.@gmail.com",
+    "evaluation" : {
+        "start" : ISODate("2016-05-01T00:00:00.000Z"),
+        "end" : ISODate("2016-05-10T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-05-12T00:00:00.000Z"),
+        "end" : ISODate("2016-05-20T00:00:00.000Z")
+    },
+    "location" : {
+        "address" : "avenue mohamed 5",
+        "country" : "maroc.",
+        "city" : "marrakech.",
+        "geo" : []
+    },
+    "nom" : "IBM Confy.",
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "phone" : "+212634152485",
+    "site" : "www.IBMs.com",
+    "soumission" : {
+        "start" : ISODate("2016-04-10T00:00:00.000Z"),
+        "end" : ISODate("2016-04-30T00:00:00.000Z")
+    },
+    "thematique" : "JavaScript.",
+    "updated" : ISODate("2016-06-08T13:24:57.629Z")
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("57515a168fdcdf4fbcba2272"),
+    "nom" : "TechnoConf",
+    "edition" : 2,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "location" : {
+        "address" : "rue rimy",
+        "country" : "france",
+        "city" : "paris",
+        "geo" : []
+    },
+    "description" : "congre des nouvelles technologies",
+    "date_debut" : ISODate("2016-06-01T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-06-05T00:00:00.000Z"),
+    "thematique" : "nouvelle technologies",
+    "site" : "www.technoConf.com",
+    "email" : "technoConf@gmail.com",
+    "phone" : "+32625312894",
+    "soumission" : {
+        "start" : ISODate("2016-03-01T00:00:00.000Z"),
+        "end" : ISODate("2016-03-31T00:00:00.000Z")
+    },
+    "evaluation" : {
+        "start" : ISODate("2016-04-01T00:00:00.000Z"),
+        "end" : ISODate("2016-04-15T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-04-16T00:00:00.000Z"),
+        "end" : ISODate("2016-05-10T00:00:00.000Z")
+    },
+    "created" : ISODate("2016-02-20T00:00:00.000Z"),
+    "updated" : ISODate("2016-02-20T00:00:00.000Z"),
+    "deleted" : false
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515a248fdcdf4fbcba2273"),
+    "nom" : "confy",
+    "edition" : 10,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "location" : {
+        "address" : "confy street",
+        "country" : "england",
+        "city" : "london",
+        "geo" : []
+    },
+    "description" : "congre Confy",
+    "date_debut" : ISODate("2016-07-03T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-07-06T00:00:00.000Z"),
+    "thematique" : "Linux",
+    "site" : "www.confy.com",
+    "email" : "confy@gmail.com",
+    "phone" : "+212524869576",
+    "soumission" : {
+        "start" : ISODate("2016-04-15T00:00:00.000Z"),
+        "end" : ISODate("2016-04-30T00:00:00.000Z")
+    },
+    "evaluation" : {
+        "start" : ISODate("2016-05-01T00:00:00.000Z"),
+        "end" : ISODate("2016-05-30T00:00:00.000Z")
+    },
+    "finalisation" : {
+        "start" : ISODate("2016-06-01T00:00:00.000Z"),
+        "end" : ISODate("2016-06-10T00:00:00.000Z")
+    },
+    "created" : ISODate("2016-04-12T00:00:00.000Z"),
+    "updated" : ISODate("2016-04-12T00:00:00.000Z"),
+    "deleted" : false
+}
+
+/* 3 */
+{
+    "nom" : "IBM Confy",
+    "edition" : 2016,
+    "organisateur_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "description" : "Conference par IBM",
+    "date_debut" : ISODate("2016-04-02T00:00:00.000Z"),
+    "date_fin" : ISODate("2016-04-04T00:00:00.000Z"),
+    "thematique" : "JavaScript",
+    "site" : "www.IBMs.com",
+    "email" : "IBM.@gmail.com",
+    "phone" : "+212634152485",
+    "_id" : ObjectId("575800ddee60e5cf13ec15c8"),
+    "deleted" : false,
+    "created" : ISODate("2016-06-08T11:26:21.404Z"),
+    "finalisation" : {
+        "start" : ISODate("2016-05-12T00:00:00.000Z"),
+        "end" : ISODate("2016-05-20T00:00:00.000Z")
+    },
+    "soumission" : {
+        "start" : ISODate("2016-04-10T00:00:00.000Z"),
+        "end" : ISODate("2016-06-30T00:00:00.000Z")
+    },
+    "location" : {
+        "address" : "avenue mohamed 5",
+        "city" : "marrakech",
+        "country" : "maroc",
+        "geo" : []
+    },
+    "__v" : 0
+}

@@ -1,0 +1,339 @@
+/* 0 */
+{
+    "_id" : ObjectId("575159068fdcdf4fbcba2270"),
+    "firstName" : "Anas",
+    "lastName" : "DEMNATI",
+    "email" : "anas.demnati2@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }, 
+        {
+            "congreId" : ObjectId("57515a168fdcdf4fbcba2272"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }, 
+        {
+            "congreId" : ObjectId("57515a248fdcdf4fbcba2273"),
+            "created" : ISODate("2016-01-02T11:52:46.794Z"),
+            "status" : "APPROVED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : true,
+    "role" : "organizer",
+    "__v" : 0
+}
+
+/* 1 */
+{
+    "__v" : 0,
+    "_id" : ObjectId("57515ba18fdcdf4fbcba2274"),
+    "active" : true,
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "deleted" : false,
+    "domaine" : "JavaScript.",
+    "email" : "konan@gmail.com",
+    "firstName" : "konan",
+    "gender" : "female",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "lastName" : "karin",
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "phone" : "+212634709955",
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "role" : "author",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "university" : "EMSI",
+    "updated" : ISODate("2016-06-09T17:58:41.046Z")
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("57515baf8fdcdf4fbcba2275"),
+    "firstName" : "tendo",
+    "lastName" : "chiyo",
+    "email" : "tendo@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "author",
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("57515bba8fdcdf4fbcba2276"),
+    "firstName" : "renbo",
+    "lastName" : "gakurei",
+    "email" : "renbo@gmail.com",
+    "gender" : "female",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : true,
+    "role" : "user",
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("57515bf88fdcdf4fbcba2277"),
+    "firstName" : "minato",
+    "lastName" : "yondaime",
+    "email" : "minato@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "speaker",
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("57515c018fdcdf4fbcba2278"),
+    "firstName" : "hiruzen",
+    "lastName" : "third",
+    "email" : "hiruzen@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "speaker",
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("57515c0a8fdcdf4fbcba2279"),
+    "firstName" : "hidan",
+    "lastName" : "hakurai",
+    "email" : "hidan@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "JavaScript",
+    "phone" : "+212634709954",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-02T12:43:53.107Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "PENDING"
+        }
+    ],
+    "location" : {
+        "address" : "rue rouidate",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "author",
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("57515c128fdcdf4fbcba227a"),
+    "firstName" : "kamal",
+    "lastName" : "BOUSKRAOUI",
+    "email" : "kamal.bouskraoui@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "domaine" : "Linux",
+    "phone" : "+212615426895",
+    "university" : "EMSI",
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "updated" : ISODate("2016-06-17T18:08:12.233Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "address" : "rue najed",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "reviewer",
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "__v" : 0,
+    "_id" : ObjectId("57515c348fdcdf4fbcba227c"),
+    "active" : true,
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "deleted" : false,
+    "domaine" : "Linux",
+    "email" : "shin@gmail.com",
+    "firstName" : "shin",
+    "gender" : "female",
+    "hashedPassword" : "Mw19QERj6LkaKQGa/qF8INwYBr9E5sD8tIgBLSGgH2Mxg/T2y7NE/UuaacjyV3Rb31M72tkHvEyefD19iEGl8A==",
+    "lastName" : "shino",
+    "location" : {
+        "address" : "rue najed",
+        "country" : "marrakech",
+        "city" : "maroc",
+        "geo" : []
+    },
+    "phone" : "+212615426895",
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "role" : "reviewer",
+    "salt" : "eVgyQkFjVCu/RRbwMyOQSA==",
+    "university" : "EMSI",
+    "updated" : ISODate("2016-06-10T01:32:40.339Z")
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("575b036fb241d4de1822b774"),
+    "__v" : 0,
+    "active" : true,
+    "created" : ISODate("2016-06-02T11:52:46.813Z"),
+    "deleted" : false,
+    "domaine" : "Linux",
+    "email" : "ouki@gmail.com",
+    "firstName" : "ouki",
+    "gender" : "female",
+    "hashedPassword" : "6ON7pZQjvMVVxW5ooWpVycDBmOXga0YGxUAvay1XQYtKGeL3ZG64/DbQ9JFPTqEG11/q3Qqy24en27wBhfKbAQ==",
+    "lastName" : "ousen",
+    "location" : {
+        "address" : "rue najed.",
+        "country" : "maroc.",
+        "city" : "marrakech.",
+        "geo" : []
+    },
+    "phone" : "+212615426894",
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-02T11:52:46.794Z"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "role" : "program",
+    "salt" : "Yn2j5mKWJjEVC5qb5h8Yeg==",
+    "university" : "EMSI.",
+    "updated" : ISODate("2016-06-09T02:11:04.976Z")
+}
