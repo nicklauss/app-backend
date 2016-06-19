@@ -1,6 +1,7 @@
 'use strict';
 
 const Session = require('../../../models/session');
+const User = require('../../../models/user');
 
 exports.validateSession = (req, res, next) => {
     req.checkBody('title', 'title is required').notEmpty();
@@ -130,7 +131,12 @@ exports.getSessionById = (req, res, next) => {
 exports.getSessionsByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
     
-    Session.find({"congre_id" : congreId})
+    Session.find({"congre_id" : congreId, "deleted" : false})
+        .populate("presentations.speaker")
+        .populate({
+            path: 'presentations.publication_id',
+            populate: { path: 'author' }
+          })
         .exec((err, sessions) => {
         if(err || !sessions) {
             return res.send({
