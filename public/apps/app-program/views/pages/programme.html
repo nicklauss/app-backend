@@ -13,178 +13,47 @@
 	</div>
 	<!-- /.row -->
 	<div id="wrap" class="row" ng-if="!congresLoading">
-		<div class="col-md-4 col-lg-4 games-schedule">
-        <div class="well">
-            <div class="games-schedule-title">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5>Todays Games</h5>
+		<div class="col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1 games-schedule" ng-repeat="session in sessions">
+            <div class="well chat-panel panel panel-default">
+                <div class="games-schedule-title">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="text-center" style="font-size: 20px;">{{session.title}}</h4>
+                            <center>
+                            <p class="games-dash" style="width: 100px;"></p>
+                            </center>
+                            <h5 style="font-size: 16px;">{{session.thematique}}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="games-schedule-items">
-                <div class="row games-team">
-                    <div class="col-md-5">
-                        <img src="http://placehold.it/115x67" alt="Bangladesh">
-                        <span>Bangladesh</span>
+                <div class="games-schedule-items panel-body" style="margin-right: -10px; margin-bottom: 0px; margin-top: 0px;">
+                <div class="" ng-repeat="presentation in session.presentations" style="margin-bottom: 0px; margin-top: 0px;">
+                    <div class="row games-team">
+                        <div class="col-md-12">
+                            <h4 style="border: 2px #BB3620 dashed;">{{presentation.title}}</h4>
+                            <h5 class="text-center">{{presentation.publication_id.title}} <small>By {{presentation.publication_id.author[0].lastName}}</small></h5>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <h4 class="img-circle">VS</h4>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="http://placehold.it/115x67" alt="Australia">
-                        <span>Australia</span>
-                    </div>
-                </div>
-                <div class="row games-info">
-                    <div class="col-md-12">
-                        <p><span class="glyphicon glyphicon-play-circle"></span> 19 March, 2014 (<small>15:30 local | 09:30 GMT</small>)</p>
-                        <p class="games-dash"></p>
-                        <p><small>Mirpur Internation Stadium, Dhaka</small></p>
+                    <div class="row games-info">
+                        <div class="col-md-12">
+                            <p><span class="glyphicon glyphicon-time"></span> {{presentation.start_date | date : "   h:mm:ss a"}} ~ {{presentation.end_date | date : "h:mm:ss a"}}</p>
+                            <p class="games-dash"></p>
+                            <p><small>By {{presentation.speaker.lastName}}</small></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="games-schedule-items">
-                <div class="row games-team">
-                    <div class="col-md-5">
-                        <img src="http://placehold.it/115x67" alt="Pakistan">
-                        <span>Pakistan</span>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="img-circle">VS</h4>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="http://placehold.it/115x67" alt="India">
-                        <span>India</span>
-                    </div>
+                    <hr style="margin-bottom: 0px;">
                 </div>
-                <div class="row games-info">
-                    <div class="col-md-12">
-                        <p><span class="glyphicon glyphicon-play-circle"></span> 19 March, 2014 (<small>19:30 local | 13:30 GMT</small>)</p>
-                        <p class="games-dash"></p>
-                        <p><small>Fahtullah Internation Stadium, Narayanganj</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="games-schedule-footer">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="text-left">19 March, 2014</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="text-right">&COPY; bootstrap.com</p>
+                <div class="games-schedule-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-center">{{session.start_date | date : "d MMM, y"}}</h5>
+                            <p class="text-center">{{session.start_date | date : "h:mm:ss a"}} ~ {{session.end_date | date : "h:mm:ss a"}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 	</div>
 	<!-- /.row -->
-	<div class="row" ng-if="congresLoading">
-		<div class="col-md-12 text-center">
-			<div class="spinner">
-				<div class="dot1"></div>
-				<div class="dot2"></div>
-			</div>
-		</div>
-	    <!-- /.col-lg-12 -->
-	</div>
-	<!-- /.row -->
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="container">
-            <div class="row" style="margin-top: 15px;">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                <div class="row">
-	                <div class="col-md-10 col-md-offset-1">
-                		<h3>Nouveau program</h3>
-	                </div>
-	                <div class="col-md-1">
-	                    <button type="button" ng-click="userObject = {};" class="close" data-dismiss="modal" aria-label="Close">
-	                      ×
-	                    </button>
-	                </div>
-                </div>
-                    <hr>
-                    <form role="form" style="padding-top: 20px;">
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                            	<input type="text" class="form-control" placeholder="Nom" ng-model="userObject.lastName">
-                        	</div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="Prenom" ng-model="userObject.firstName">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="userObject.gender" value="male" >Homme
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" ng-model="userObject.gender" value="female" >Femme
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="email" class="form-control" placeholder="email" ng-model="userObject.email">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="telephone" ng-model="userObject.phone">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="adresse" ng-model="userObject.location.address">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="ville" ng-model="userObject.location.city">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="pays" ng-model="userObject.location.country">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="Université" ng-model="userObject.university">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="labo" ng-model="userObject.labo">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-                                <input type="text" class="form-control" placeholder="domaine" ng-model="userObject.domaine">
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
-                    <div class="form-group" ng-show="modalTyper">
-                        <button ng-click="newProgram(userObject)" type="submit" class="btn btn-success btn-lg" data-dismiss="modal">
-                            Add
-                        </button>
-                    </div>
-                    <div class="form-group" ng-show="!modalTyper">
-                        <button ng-click="updateProgram(userObject)" type="submit" class="btn btn-warning btn-lg" data-dismiss="modal">
-                            Edit
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

@@ -253,6 +253,7 @@ angular
                 files:[
                 '/apps/app-program/scripts/controllers/programmeController.js',
                 '/apps/app-program/scripts/services/data-store-user.js',
+                '/apps/app-program/scripts/services/data-store-session.js',
                 '/apps/app-program/styles/edit-modal.css',
                 '/apps/app-program/styles/session.css'
                 ]
