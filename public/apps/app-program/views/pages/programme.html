@@ -13,66 +13,74 @@
 	</div>
 	<!-- /.row -->
 	<div id="wrap" class="row" ng-if="!congresLoading">
-	    <div class="col-md-12">
-	        <div class="panel panel-default">
-	            <div class="panel-heading">
-	            	<div class="row">
-	            	<div class="col-md-3 col-md-offset-9">
-                     	<button type="button" class="btn btn-success pull-right" ng-click="modalType(0, null);" data-toggle="modal" data-target="#myModal">
-	                		Nouveau	
-	                	</button>
-	            	</div>
-	                </div>
-	            </div>
-	            <!-- /.panel-heading -->
-	            <div class="panel-body">
-	                <div class="dataTable_wrapper">
-	                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-	                        <thead>
-	                            <tr>
-	                                <th>Nom</th>
-	                                <th>Prenom</th>
-	                                <th>Email</th>
-	                                <th>Status</th>
-	                                <th>Domaine</th>
-	                                <th>Actions</th>
-	                            </tr>
-	                        </thead>
-	                        <tbody>
-	                            <tr class="odd gradeX" ng-repeat="program in programs">
-	                                <td>{{program.firstName}}</td>
-	                                <td>{{program.lastName}}</td>
-	                                <td>{{program.email}}</td>
-	                                <td class="center" ng-if="program.status">Active</td>
-	                                <td class="center" ng-if="!program.status">Non active</td>
-	                                <td>{{program.domaine}}</td>
-	                                <td class="row" style="width: 110px;">
-	                                	<div class="col-md-2">
-	                                		<a ng-click="modalType(1,program);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
-                           						<span class="glyphicon glyphicon-edit">
-                            					</span>
-                    						</a>								
-										</div>
-	                                	<div class="col-md-2">
-	                                		<a ng-click="deleteProgram(program._id);" class="btn btn-sm btn-danger">
-			                            		<span class="glyphicon glyphicon-remove">
-			                            		</span>
-			                        		</a>								
-										</div>
-	                                </td>
-	                            </tr>
-	                        </tbody>
-	                    </table>
-	                </div>
-	                <!-- /.table-responsive -->
-	            </div>
-	            <!-- /.panel-body -->
-	        </div>
-	        <!-- /.panel -->
-	    </div>
+		<div class="col-md-4 col-lg-4 games-schedule">
+        <div class="well">
+            <div class="games-schedule-title">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Todays Games</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="games-schedule-items">
+                <div class="row games-team">
+                    <div class="col-md-5">
+                        <img src="http://placehold.it/115x67" alt="Bangladesh">
+                        <span>Bangladesh</span>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="img-circle">VS</h4>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="http://placehold.it/115x67" alt="Australia">
+                        <span>Australia</span>
+                    </div>
+                </div>
+                <div class="row games-info">
+                    <div class="col-md-12">
+                        <p><span class="glyphicon glyphicon-play-circle"></span> 19 March, 2014 (<small>15:30 local | 09:30 GMT</small>)</p>
+                        <p class="games-dash"></p>
+                        <p><small>Mirpur Internation Stadium, Dhaka</small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="games-schedule-items">
+                <div class="row games-team">
+                    <div class="col-md-5">
+                        <img src="http://placehold.it/115x67" alt="Pakistan">
+                        <span>Pakistan</span>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="img-circle">VS</h4>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="http://placehold.it/115x67" alt="India">
+                        <span>India</span>
+                    </div>
+                </div>
+                <div class="row games-info">
+                    <div class="col-md-12">
+                        <p><span class="glyphicon glyphicon-play-circle"></span> 19 March, 2014 (<small>19:30 local | 13:30 GMT</small>)</p>
+                        <p class="games-dash"></p>
+                        <p><small>Fahtullah Internation Stadium, Narayanganj</small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="games-schedule-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-left">19 March, 2014</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-right">&COPY; bootstrap.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	</div>
 	<!-- /.row -->
-	<div class="row" ng-if="congresLoading">	    
+	<div class="row" ng-if="congresLoading">
 		<div class="col-md-12 text-center">
 			<div class="spinner">
 				<div class="dot1"></div>
@@ -94,7 +102,7 @@
 	                <div class="col-md-1">
 	                    <button type="button" ng-click="userObject = {};" class="close" data-dismiss="modal" aria-label="Close">
 	                      ×
-	                    </button>	                	
+	                    </button>
 	                </div>
                 </div>
                     <hr>
@@ -152,17 +160,17 @@
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="Université" ng-model="userObject.university">
                             </div>
-                        </div>                            
+                        </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="labo" ng-model="userObject.labo">
                             </div>
-                        </div>                            
+                        </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="domaine" ng-model="userObject.domaine">
                             </div>
-                        </div>                                                     
+                        </div>
                     </form>
                     <hr>
                     <div class="form-group" ng-show="modalTyper">
