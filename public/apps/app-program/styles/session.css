@@ -1,3 +1,9 @@
+/* modal css */
+#modalBtn:hover {
+    background: #75A0C5;
+    color: #FBFBFB;
+}
+/* modal css */
 .games-schedule .well {
     background-color: #fafbfc;
     border: 1px #e7e7e7 solid;
