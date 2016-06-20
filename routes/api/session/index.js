@@ -5,7 +5,7 @@ const auth = require('../../core/auth/auth.service');
 const controller = require('./controller');
 
 route
-    .post('/', controller.newSession)
+    .post('/', controller.validateSession, controller.newSession)
     .put('/:sessionId', controller.updateSession)
     .delete('/:sessionId', controller.deleteSession)
     .get('/:sessionId', controller.getSessionById)

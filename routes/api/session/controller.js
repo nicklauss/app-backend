@@ -30,6 +30,7 @@ exports.newSession = (req, res, next) => {
         thematique: req.body.thematique,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
+        congre_id: req.body.congre_id,
         created: new Date()
     });
     
@@ -63,7 +64,7 @@ exports.updateSession = (req, res, next) => {
         session.thematique = req.body.thematique || session.thematique;
         session.start_date = req.body.start_date || session.start_date;
         session.end_date = req.body.end_date || session.end_date;
-        //TODO update presentation array!
+        session.presentations = req.body.presentations || session.presentations;
         session.updated = new Date();
         
         session.save((err) => {
@@ -92,19 +93,38 @@ exports.deleteSession = (req, res, next) => {
                 message: 'Session not found'
             });
         }
-        session.deleted = true;
-        session.updated = new Date();
-        
-        session.save((err) => {
-            if(err) {
+
+        Session.findById("5766edc5a743455e1e393bd7")
+            .exec((err, session2) => {
+            if(err || !session2) {
                 return res.send({
                     ok: false,
-                    message: 'Error while deleting'
+                    message: 'Session not found'
                 });
             }
-            return res.send({
-                ok: true,
-                data: session
+            console.log(session.presentations);
+            console.log(session2.presentations);
+            session2.presentations.push.apply(session2.presentations, session.presentations);
+            session2.updated = new Date();
+            console.log(session.presentations);
+            console.log(session2.presentations);
+            session2.save();
+
+            session.presentations = [];
+            session.deleted = true;
+            session.updated = new Date();
+            
+            session.save((err) => {
+                if(err) {
+                    return res.send({
+                        ok: false,
+                        message: 'Error while deleting'
+                    });
+                }
+                return res.send({
+                    ok: true,
+                    data: session
+                });
             });
         });
     });
@@ -131,7 +151,7 @@ exports.getSessionById = (req, res, next) => {
 exports.getSessionsByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
     
-    Session.find({"congre_id" : congreId, "deleted" : false})
+    Session.find({"congre_id" : congreId, "deleted" : false, "title" : {$ne : "general"}})
         .populate("presentations.speaker")
         .populate({
             path: 'presentations.publication_id',
