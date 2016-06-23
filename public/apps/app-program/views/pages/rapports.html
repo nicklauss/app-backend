@@ -39,7 +39,7 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            <tr class="odd gradeX" ng-repeat="publication in publications" ng-if="publication.evaluation.value != 'NOTASSIGNED'">
+	                            <tr class="odd gradeX" ng-repeat="publication in publications | filter: publication.evaluation.value != 'PENDING'" ng-if="publication.evaluation.value != 'NOTASSIGNED'">
 	                               <td>{{publication.evaluation.reviewer_id.lastName}}</td>
                                    <td><p ng-repeat="aut in publication.author">{{aut.lastName}} {{aut.firstName}}</p></td>
                                    <td>{{publication.title}}</td>
