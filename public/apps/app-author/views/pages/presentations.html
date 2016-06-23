@@ -1,0 +1,159 @@
+<div class="container-fluid" ng-controller="presentationsCtrl">
+	<div class="row" id="wrap">
+		<div class="col-lg-12">
+			<h2 class="page-header">
+	            Liste des présentations
+	            <small>
+	                <i class="ace-icon fa fa-angle-double-right"></i>
+	                Gerer vos présentations
+	            </small>
+	        </h2>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div id="wrap" class="row">
+	    <div class="col-md-12">
+				<div class="row">
+					<button type="button" class="btn btn-success pull-right" ng-click="" data-toggle="modal" data-target="#myModal">
+							Nouveau
+					</button>
+				</div>
+				<div class="row">
+					<div class="col-md-4" ng-repeat="presentation in sessions.presentations | filter: presentation.publication_id.author._id = userObjectId">
+								<div class="panel panel-primary">
+										<div class="panel-heading text-center">
+												{{presentation.title}}
+										</div>
+										<div class="panel-body row">
+												<div class="col-md-5">
+													<img src="/assets/avatars/avatar.png" style="width: 90%;">
+												</div>
+												<div class="col-md-6">
+													<h4 style="font-size: 20px;color: #337AB7;">
+														{{presentation.publication_id.title}}
+													</h4>
+													<h5 style="font-size: 14px;color: #337AB7;">
+														By :
+														{{presentation.speaker.lastName}}
+													</h5>
+
+												</div>
+												<div class="col-md-12">
+													<p class="text-center" style="margin-top: 8px;font-size: 13px;color: #337ab7;">
+														{{presentation.start_date | date : "d MMM y"}},
+														{{presentation.start_date | date : "   h:mm a"}} ~
+														{{presentation.end_date | date : "   h:mm a"}}
+													</p>
+												</div>
+										</div>
+										<div class="panel-footer">
+											<div class="row">
+												<div class="col-md-6 col-md-offset-3">
+													<a ng-click="modalType(1,presentation);" data-toggle="modal" data-target="#myModal2" class="btn btn-sm btn-primary" style="width: 100%;">
+													View
+											</a>
+								</div>
+											</div>
+										</div>
+								</div>
+					</div>
+				</div>
+	    </div>
+	</div>
+	<!-- /.row -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+					<div class="modal-content">
+							<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title text-center" id="myModalLabel" style="margin-bottom: 8px;font-size: 27px;">{{presObj.title}}</h4>
+									<p class="text-center" style="color: #337ab7;">
+										<u>Le <i>{{presObj.start_date | date : "d MMM y"}}</i> du <i>{{presObj.start_date | date : "   h:mm a"}}</i> à <i>{{presObj.end_date | date : "   h:mm a"}}</i></u>
+									</p>
+							</div>
+							<div class="modal-body">
+									<div class="row">
+										<div class="col-md-10 col-md-offset-1">
+											<p>
+												Présenté par : <span style="font-weight: 800;"> Mr {{presObj.speaker.lastName}}</span>
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-10 col-md-offset-1">
+											<p>
+												Cette présentation tourne autour de la publication <span style="font-weight: 800;">{{presObj.publication_id.title}}</span> publiée par <span style="font-weight: 800;" ng-if="presObj.publication_id.author[0].gender === 'male'">Mr</span> <span style="font-weight: 800;" ng-if="presObj.publication_id.author[0].gender === 'female'">Mme</span> <span style="font-weight: 800;">{{presObj.publication_id.author[0].lastName}}</span>
+											</p>
+										</div>
+								</div>
+							<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+					</div>
+					<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Creer une nouvelle session</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">Titre</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="presentationObj.title">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">
+                            Date
+                        </label>
+                        <div class="col-xs-12 col-sm-9 col-md-4">
+                            <input class="form-control" type="Date" ng-model="presentationObj.start_date"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-4">
+                            <input class="form-control" type="Date" ng-model="presentationObj.end_date"/>
+                        </div>
+                    </div>
+										<div class="row" style="margin-bottom: 10px;">
+												<label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">Publication</label>
+												<div class="col-xs-12 col-sm-9 col-md-4">
+													<select class="form-control" ng-model="presentationObj.publication_id">
+															<option ng-repeat="publication in publications | filter: publication.evaluation.value = 'ACCEPTED'" ng-value="publication._id">
+																{{publication.title}}
+															</option>
+													</select>
+												</div>
+										</div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">Orateur</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="user.lastName">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">Email orateur</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="user.email">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newPresentation(presentationObj, user);">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>

@@ -9,9 +9,9 @@ exports.validateSession = (req, res, next) => {
     req.checkBody('thematique', 'thematique is required').notEmpty();
     req.checkBody('start_date', 'start_date is required').notEmpty();
     req.checkBody('end_date', 'end_date is required').notEmpty();
-    
+
     let errors = req.validationErrors();
-    
+
     if(errors) {
         return res.send(500, {
             ok: false,
@@ -33,7 +33,7 @@ exports.newSession = (req, res, next) => {
         congre_id: req.body.congre_id,
         created: new Date()
     });
-    
+
     session.save((err) => {
         if(err) {
             return res.send({
@@ -50,7 +50,7 @@ exports.newSession = (req, res, next) => {
 
 exports.updateSession = (req, res, next) => {
     let sessionId = req.params.sessionId;
-    
+
     Session.findById(sessionId)
         .exec((err, session) => {
         if(err || !session) {
@@ -66,7 +66,7 @@ exports.updateSession = (req, res, next) => {
         session.end_date = req.body.end_date || session.end_date;
         session.presentations = req.body.presentations || session.presentations;
         session.updated = new Date();
-        
+
         session.save((err) => {
             if(err) {
                 return res.send({
@@ -84,7 +84,7 @@ exports.updateSession = (req, res, next) => {
 
 exports.deleteSession = (req, res, next) => {
     let sessionId = req.params.sessionId;
-    
+
     Session.findById(sessionId)
         .exec((err, session) => {
         if(err || !session) {
@@ -113,7 +113,7 @@ exports.deleteSession = (req, res, next) => {
             session.presentations = [];
             session.deleted = true;
             session.updated = new Date();
-            
+
             session.save((err) => {
                 if(err) {
                     return res.send({
@@ -132,8 +132,13 @@ exports.deleteSession = (req, res, next) => {
 
 exports.getSessionById = (req, res, next) => {
     let sessionId = req.params.sessionId;
-    
+
     Session.findById(sessionId)
+        .populate("presentations.speaker")
+        .populate({
+            path: 'presentations.publication_id',
+            populate: { path: 'author' }
+          })
         .exec((err, session) => {
         if(err || !session) {
             return res.send({
@@ -150,7 +155,7 @@ exports.getSessionById = (req, res, next) => {
 
 exports.getSessionsByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
-    
+
     Session.find({"congre_id" : congreId, "deleted" : false, "title" : {$ne : "general"}})
         .populate("presentations.speaker")
         .populate({
@@ -173,7 +178,7 @@ exports.getSessionsByCongre = (req, res, next) => {
 
 exports.getPresentationsBySession = (req, res, next) => {
     let sessionId = req.params.sessionId;
-    
+
     Session.findById(sessionId)
         .select("presentations")
         .exec((err, presentations) => {
@@ -189,42 +194,3 @@ exports.getPresentationsBySession = (req, res, next) => {
         });
     });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

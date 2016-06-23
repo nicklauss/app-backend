@@ -89,7 +89,7 @@ angular
               '/apps/app-author/scripts/directives/chat/chat.js',
               '/apps/app-author/scripts/directives/dashboard/stats/stats.js'
               ]
-            })
+            });
           }
         }
       })
@@ -111,10 +111,29 @@ angular
           }
         }
       })
-      .state('dashboard.session', {
+      .state('dashboard.presentations', {
+        templateUrl:'/apps/app-author/views/pages/presentations.html',
+        url:'/presentations',
+        controller:'presentationsCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'authorApp',
+                files:[
+                '/apps/app-author/scripts/controllers/presentationsController.js',
+                '/apps/app-author/scripts/services/data-store-publication.js',
+                '/apps/app-author/scripts/services/data-store-user.js',
+                '/apps/app-author/scripts/services/data-store-session.js',
+                '/apps/app-author/styles/edit-modal.css'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.sessions', {
         templateUrl:'/apps/app-author/views/pages/sessions.html',
         url:'/session',
-        controller:'sessionCtrl',
+        controller:'sessionsCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
@@ -122,7 +141,9 @@ angular
                 files:[
                 '/apps/app-author/scripts/controllers/sessionsController.js',
                 '/apps/app-author/scripts/services/data-store-session.js',
-                '/apps/app-author/styles/edit-modal.css'
+                '/apps/app-author/scripts/services/data-store-user.js',
+                '/apps/app-author/styles/edit-modal.css',
+                '/apps/app-author/styles/session.css'
                 ]
             });
           }

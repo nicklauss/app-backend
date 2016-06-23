@@ -1,0 +1,154 @@
+<div class="container-fluid" ng-controller="sessionsCtrl">
+	<div id="wrap" class="row" style="margin-bottom: 10px;">
+		<div class="col-lg-12">
+			<h2 class="page-header">
+	            Liste des programs
+	            <small>
+	                <i class="ace-icon fa fa-angle-double-right"></i>
+	                Gerer vos programs
+	            </small>
+	        </h2>
+		</div>
+		<!-- /.col-lg-12 -->
+        <!-- <button type="button" class="btn btn-success pull-right" ng-click="getGeneralSession();" data-toggle="modal" data-target="#myModal">
+            Nouveau
+        </button> -->
+	</div>
+	<!-- /.row -->
+	<div id="wrap" class="row" ng-if="!congresLoading">
+		<div class="col-md-5 col-lg-5 games-schedule" ng-repeat="session in sessions | orderBy : 'start_date'">
+            <div class="well chat-panel panel panel-default">
+                <div class="games-schedule-title">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <button type="button" class="btn btn-danger pull-right" ng-click="deleteSession(session._id);">
+                            </button>
+                            <button type="button" class="btn btn-warning pull-right" ng-click="UpdateModal(session);" data-toggle="modal" data-target="#myModal2">
+                            </button> -->
+                            <h4 class="text-center" style="font-size: 20px; margin-top: 14px;">{{session.title}}</h4>
+                            <center>
+                            <p class="games-dash" style="width: 100px;"></p>
+                            </center>
+                            <h5 style="font-size: 16px;">{{session.thematique}}</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="games-schedule-items panel-body" style="margin-right: -10px; margin-bottom: 0px; margin-top: 0px; height: 352px;">
+                <div class="" ng-repeat="presentation in session.presentations | orderBy : 'start_date'" style="margin-bottom: 0px; margin-top: 0px;">
+                    <div class="row games-team">
+                        <div class="col-md-12">
+                            <h4 style="border: 2px #BB3620 dashed;">{{presentation.title}}</h4>
+                            <h5 class="text-center">{{presentation.publication_id.title}} <small>By {{presentation.publication_id.author[0].lastName}}</small></h5>
+                        </div>
+                    </div>
+                    <div class="row games-info">
+                        <div class="col-md-12">
+                            <p><span class="glyphicon glyphicon-time"></span> {{presentation.start_date | date : "   h:mm:ss a"}} ~ {{presentation.end_date | date : "h:mm:ss a"}}</p>
+                            <p class="games-dash"></p>
+                            <p><small>By {{presentation.speaker.lastName}}</small></p>
+                        </div>
+                    </div>
+                    <hr style="margin-bottom: 0px;">
+                </div>
+                </div>
+                <div class="games-schedule-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-center">{{session.start_date | date : "d MMM, y"}}</h5>
+                            <p class="text-center">{{session.start_date | date : "h:mm:ss a"}} ~ {{session.end_date | date : "h:mm:ss a"}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<!-- /.row -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Creer une nouvelle session</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">Titre</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="sessionObject.title">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">description</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="sessionObject.description">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">thematique</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Enter text" ng-model="sessionObject.thematique">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-3 no-padding-right">
+                            Date
+                        </label>
+                        <div class="col-xs-12 col-sm-9 col-md-4">
+                            <input class="form-control" type="Date" ng-model="sessionObject.start_date"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-4">
+                            <input class="form-control" type="Date" ng-model="sessionObject.end_date"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newSession(sessionObject);">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Assigner les presentations à la session <i>{{assignedSession.title}}</i></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Presentations assignées</p>
+                            <div class="form-control" style="height: 100%;">
+                                <p ng-if="!assignedSession.length" style="width: 100%;"> Aucune presentation !</p>
+                                <a id="modalBtn" ng-if="assignedSession" class="btn btn-sm" ng-repeat="presentation in assignedSession.presentations" style="/*border: solid 1px; */width: 100%;" ng-click="updatePresentationMinus(presentation);">
+                                    {{presentation.title}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Presentations pas encore assignées</p>
+                            <div class="form-control" style="height: 100%;">
+                                <p ng-if="!presentationsNotAssigned.length" style="width: 100%;"> Aucune presentation !</p>
+                                <a id="modalBtn" ng-if="presentationsNotAssigned" class="btn btn-sm" ng-repeat="presentationNotAssigned in presentationsNotAssigned.presentations" style="/*border: solid 1px; */width: 100%;" ng-click="updatePresentationAdd(presentationNotAssigned);">
+                                    {{presentationNotAssigned.title}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="init();">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>

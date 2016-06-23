@@ -51,6 +51,7 @@ exports.create = (req, res, next) => {
             //TODO send activation email
             return res.send({
                 ok: true,
+                data: user,
                 message: 'You account has been succefully created!'
             });
         }
