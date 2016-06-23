@@ -79,6 +79,7 @@
                 DataStoreSession.updateSessionById($scope.sessions)
                 .then(function(presentation) {
                   console.log(presentation);
+                  getPublicationsByAuthor($scope.userObject._id);
                 })
                 .catch(function(err) {
                   console.error(err);
