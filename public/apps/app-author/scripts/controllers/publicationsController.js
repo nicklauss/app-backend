@@ -15,6 +15,8 @@
         $scope.modalType = modalType;
         $scope.deletePublication = deletePublication;
         $scope.updatePublication = updatePublication;
+        $scope.newPublication = newPublication;
+        $scope.removeAuthor = removeAuthor;
 
         function modalType(index, obj) {
             if(index == 0)
@@ -47,8 +49,33 @@
             });
         }
 
+        function newPublication(publicationObj) {
+            console.log(publicationObj);
+            publicationObj.author = [];
+            publicationObj.author.push($scope.userObject);
+            DataStorePublication.newPublication(publicationObj)
+            .then(function(publication) {
+              init();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+
         function deletePublication(publicationId) {
             DataStorePublication.deletePublicationById(publicationId)
+            .then(function(publication) {
+              init();
+            })
+            .catch(function(err) {
+              console.error(err);
+            });
+        }
+
+        function removeAuthor(authObj) {
+            let index = $scope.publicationObject.author.indexOf(authObj);
+            $scope.publicationObject.author.splice(index, 1);
+            DataStorePublication.updatePublicationById($scope.publicationObject)
             .then(function(publication) {
               init();
             })

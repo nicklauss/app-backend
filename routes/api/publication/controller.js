@@ -26,7 +26,11 @@ exports.newPublication = (req, res, next) => {
     let publication = new Publication({
         title: req.body.title,
         numb_pages: req.body.numb_pages,
+        author: req.body.author,
         abstract: req.body.abstract,
+        evaluation: {
+            value: "NOTASSIGNED"
+        },
         media: {
             initial_report: req.body.media.initial_report
         },
@@ -183,6 +187,7 @@ exports.updatePublication = (req, res, next) => {
             publication.evaluation = req.body.evaluation;           
           }
 
+        publication.author = req.body.author || publication.author;
         publication.numb_pages = req.body.numb_pages || publication.numb_pages;
         publication.abstract = req.body.abstract || publication.abstract;
         publication.media.initial_report = req.body.media.initial_report || publication.media.initial_report;

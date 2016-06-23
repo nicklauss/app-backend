@@ -135,31 +135,33 @@
                         </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
-																<!-- <input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper"> -->
-                                <label ng-repeat="aut in publicationObject.author" style="float: left;font-weight: 500;">
-																	<p>
-																		{{aut.lastName}} {{aut.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
-																	</p>
-
-																</label>
+                            <button type="button" class="btn btn-success pull-left" ng-click="" style="float: center;padding: 10px 0px 4px 14px;">
+                            </button>
+						<!-- <input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.lastName" ng-show="modalTyper"> -->
+                                <label ng-repeat="aut in publicationObject.author" style="float: center;font-weight: 500;">
+									<p>
+										{{aut.lastName}} {{aut.firstName}} <span ng-show="$index + 1">;&nbsp; </span>
+										<button type="button" class="btn btn-danger pull-right" ng-if="aut.lastName != userObject.lastName" ng-click="removeAuthor(aut);" style="padding: 0px 0px 5px 14px;">
+									</p>
+								</label>
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 10px;">
+                        <div class="row" style="margin-bottom: 10px;" ng-if="publicationObject.evaluation">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="expert" ng-model="publicationObject.evaluation.reviewer_id.firstName">
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 10px;">
+                        <div class="row" style="margin-bottom: 10px;" ng-if="publicationObject.evaluation">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="rapport" ng-model="publicationObject.evaluation.report">
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 10px;">
+                        <div class="row" style="margin-bottom: 10px;" ng-if="publicationObject.evaluation">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="status" ng-model="publicationObject.evaluation.value">
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 10px;">
+                        <div class="row" style="margin-bottom: 10px;" ng-if="publicationObject.evaluation">
                             <div class="col-xs-12 col-sm-9 col-md-8 col-md-offset-2">
                                 <input type="text" class="form-control" placeholder="date d'evaluation" ng-model="publicationObject.evaluation.evaluation_date">
                             </div>
@@ -167,7 +169,7 @@
                     </form>
                     <hr>
                     <div class="form-group" ng-show="modalTyper">
-                        <button ng-click="newPublication(publicationObject)" type="submit" class="btn btn-success btn-lg" data-dismiss="modal">
+                        <button ng-click="newPublication(publicationObject);" type="submit" class="btn btn-success btn-lg" data-dismiss="modal">
                             Add
                         </button>
                     </div>
@@ -180,4 +182,30 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Ajouter un auteur</h4>
+                </div>
+                <div class="modal-body">
+					<div class="row" style="margin-bottom: 10px;">
+                        <label class="control-label col-xs-12 col-sm-3 col-md-4 no-padding-right">Nouveau auteur</label>
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                            <input type="text" class="form-control" placeholder="Nom">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateUser(userObject);">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>
