@@ -7,14 +7,14 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        
-        <stats number="{{PublicationsCount}}" comments="Publications" colour="primary" type="comments" ng-click="panel='publications'"></stats>
+
+        <stats number="{{PublicationsCount}}" comments="Publications" colour="primary" type="file" ng-click="panel='publications'"></stats>
         <stats number="{{auteursCount}}" comments="Auteurs" colour="green" type="user" ng-click="panel='auteurs'"></stats>
-        <stats number="{{expertsCount}}" comments="Experts" colour="yellow" type="shopping-cart" ng-click="panel='experts'"></stats>
-        <stats number="24" comments="Support tickets!" colour="red" type="support"></stats>
+        <stats number="{{expertsCount}}" comments="Experts" colour="yellow" type="user" ng-click="panel='experts'"></stats>
+        <!-- <stats number="24" comments="Support tickets!" colour="red" type="support"></stats> -->
 
     </div>
-    
+
     <!-- /.panel -->
     <div class="row">
         <div class="col-lg-8">
@@ -30,7 +30,7 @@
                             <input type="checkbox" ng-model="filter[cat]" />
                             <span class="glyphicon glyphicon-ok"></span>
                         </label>
-                        </div>                 
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -40,7 +40,7 @@
                             <div class="offer" ng-class="{'offer-primary':publication.evaluation.value=='NOTASSIGNED', 'offer-default':publication.evaluation.value=='PENDING', 'offer-success':publication.evaluation.value=='ACCEPTED', 'offer-warning':publication.evaluation.value=='MAJACCEPTED', 'offer-danger':publication.evaluation.value=='REJECTED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
                                 <div class="shape">
                                     <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
-                                        {{publication.evaluation.value}}                             
+                                        {{publication.evaluation.value}}
                                     </div>
                                 </div>
                                 <div class="offer-content">
@@ -67,7 +67,7 @@
                             <input type="checkbox" ng-model="statusFilter[cat]" />
                             <span class="glyphicon glyphicon-ok"></span>
                         </label>
-                        </div>                 
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -77,12 +77,12 @@
                             <div class="offer" ng-class="{'offer-default':auteur.registrations[0].status=='PENDING', 'offer-success':auteur.registrations[0].status=='APPROVED', 'offer-primary':auteur.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(auteur);">
                                 <div class="shape">
                                     <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
-                                        {{auteur.registrations[0].status}}                             
+                                        {{auteur.registrations[0].status}}
                                     </div>
                                 </div>
                                 <div class="offer-content row">
                                     <div class="col-md-4 col-lg-4" align="center" style="padding-right: 5px;padding-left: 5px;">
-                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
                                     </div>
                                     <div class="col-md-8 col-lg-8" align="center">
                                     <h3 class="lead" style="margin-top: 0px;">
@@ -109,7 +109,7 @@
                             <input type="checkbox" ng-model="statusFilter[cat]" />
                             <span class="glyphicon glyphicon-ok"></span>
                         </label>
-                        </div>                 
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -119,12 +119,12 @@
                             <div class="offer" ng-class="{'offer-default':expert.registrations[0].status=='PENDING', 'offer-success':expert.registrations[0].status=='APPROVED', 'offer-primary':expert.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(expert);">
                                 <div class="shape">
                                     <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
-                                        {{expert.registrations[0].status}}                             
+                                        {{expert.registrations[0].status}}
                                     </div>
                                 </div>
                                 <div class="offer-content row">
                                     <div class="col-md-4 col-lg-4" align="center" style="padding-right: 5px;padding-left: 5px;">
-                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
                                     </div>
                                     <div class="col-md-8 col-lg-8" align="center">
                                     <h3 class="lead" style="margin-top: 0px;">
@@ -142,17 +142,17 @@
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-            <div class="panel panel-default">
+            <!-- <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bell fa-fw"></i> Notifications Panel
                 </div>
                 <!-- /.panel-heading -->
-                <notifications></notifications> 
+                <!-- <notifications></notifications>  -->
                 <!-- /.panel-body -->
-            </div>
+            <!-- </div> -->
             <!-- /.panel -->
 
-            <chat></chat>
+            <!-- <chat></chat> -->
              <!-- /.panel .chat-panel -->
         </div>
         <!-- /.col-lg-4 -->
@@ -170,13 +170,13 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                 </div>
-                    
-                    
+
+
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3 col-lg-3 " align="center">
-                            <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+                            <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
                         </div>
                         <!--
                         <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
@@ -192,7 +192,7 @@
                           </dl>
                         </div>
                         -->
-                        <div class=" col-md-9 col-lg-9 "> 
+                        <div class=" col-md-9 col-lg-9 ">
                           <table class="table table-user-information">
                             <tbody>
                               <tr>
@@ -268,10 +268,10 @@
                                     </div>
                                 </td>
                               </tr>
-                             
+
                             </tbody>
                           </table>
-                          
+
 <!--                          <a href="#" class="btn btn-primary">My Sales Performance</a>
                           <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
                         </div>
