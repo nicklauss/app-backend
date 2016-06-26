@@ -28,50 +28,120 @@
                         <div class="panel-body">
                             <!-- Nav tabs -->
                             <ul class="nav nav-pills">
+                                <li id="tabPills" class="" ng-class="{'active': tabPane=='settingPills'}"><a ng-click="tabPane='settingPills'" data-toggle="tab" style="border: 1px solid;">Comités</a>
+                                </li>
                                 <li id="tabPills" class="" ng-class="{'active': tabPane=='homePills'}"><a ng-click="tabPane='homePills'" data-toggle="tab" style="border: 1px solid;">Auteurs</a>
                                 </li>
-                                <li id="tabPills" class="" ng-class="{'active': tabPane=='profilePills'}"><a ng-click="tabPane='profilePills'" data-toggle="tab" style="border: 1px solid;">Profile</a>
+                                <li id="tabPills" class="" ng-class="{'active': tabPane=='profilePills'}"><a ng-click="tabPane='profilePills'" data-toggle="tab" style="border: 1px solid;">Experts</a>
                                 </li>
-                                <li id="tabPills" class="" ng-class="{'active': tabPane=='messagePills'}"><a ng-click="tabPane='messagePills'" data-toggle="tab" style="border: 1px solid;">Messages</a>
-                                </li>
-                                <li id="tabPills" class="" ng-class="{'active': tabPane=='settingPills'}"><a ng-click="tabPane='settingPills'" data-toggle="tab" style="border: 1px solid;">Settings</a>
+                                <li id="tabPills" class="" ng-class="{'active': tabPane=='messagePills'}"><a ng-click="tabPane='messagePills'" data-toggle="tab" style="border: 1px solid;">Participants</a>
                                 </li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
+                                <div class="tab-pane fade" id="home-pills" ng-class="{'in active': tabPane=='settingPills'}">
+									<div class="col-md-6" ng-repeat="org in organizer" popover="" popover-placement="bottom" popover-trigger="click">
+										<br>
+										<div class="business-card" style="height: 215px;">
+											<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">Bienvenue</p>
+											<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
+											<div class="media" style="height: 169px;">
+												<div class="media-left">
+													<img src="../../../assets/qr-code/{{org.firstName}}.png" alt='QR Code' style="height: 140px;"/>
+												</div>
+												<div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
+													<u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;font-size: 22px;">{{org.firstName}} {{org.lastName}}</h3></u>
+													<div class="job text-center" style="font-size: 18px;padding-bottom: 10px;">Comité d'organisation</div>
+													<div class="job" style="font-size: 15px;">{{org.domaine}}, {{org.university}}</div>
+													<div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{org.email}}</a> 
+													</div>
+							                    </div>
+							                </div>
+							            </div>
+									</div>
+									<div class="col-md-6" ng-repeat="prog in program" popover="" popover-placement="bottom" popover-trigger="click">
+										<br>
+										<div class="business-card" style="height: 215px;">
+											<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">Bienvenue</p>
+											<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
+											<div class="media" style="height: 169px;">
+												<div class="media-left">
+													<img src="../../../assets/qr-code/{{prog.firstName}}.png" alt='QR Code' style="height: 140px;"/>
+												</div>
+												<div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
+													<u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;font-size: 22px;">{{prog.firstName}} {{prog.lastName}}</h3></u>
+													<div class="job text-center" style="font-size: 18px;padding-bottom: 10px;">Comité de programme</div>
+													<div class="job" style="font-size: 15px;">{{prog.domaine}}, {{prog.university}}</div>
+													<div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{prog.email}}</a> 
+													</div>
+							                    </div>
+							                </div>
+							            </div>
+									</div>
+                                </div>
                                 <div class="tab-pane fade" id="home-pills" ng-class="{'in active': tabPane=='homePills'}">
-																		<div class="col-md-4" ng-repeat="auteur in auteurs" popover="" popover-placement="bottom" popover-trigger="click">
-																			<br>
-														            <div class="business-card" style="height: 150px;">
-																					<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">
-																						Bienvenue à Confy
-																					</p>
-																					<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
-														                <div class="media" style="height: 120px;">
-														                    <div class="media-left">
-														                        <img class="media-object img-circle profile-img" style="height: 60px;" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png">
-														                    </div>
-														                    <div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
-														                        <u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;">{{auteur.lastName}} {{auteur.firstName}}</h3></u>
-														                        <div class="job" style="font-size: 15px;">{{auteur.domaine}}, {{auteur.university}}</div>
-														                        <div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{auteur.email}}</a> </div>
-														                    </div>
-														                </div>
-														            </div>
-														        </div>
+									<div class="col-md-6" ng-repeat="auteur in auteurs" popover="" popover-placement="bottom" popover-trigger="click">
+										<br>
+										<div class="business-card" style="height: 215px;">
+											<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">Bienvenue</p>
+											<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
+											<div class="media" style="height: 169px;">
+												<div class="media-left">
+													<img src='../../../assets/qr-code/konan.png' alt='QR Code' style="height: 140px;"/>
+												</div>
+												<div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
+													<u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;font-size: 22px;">{{auteur.firstName}} {{auteur.lastName}}</h3></u>
+													<div class="job text-center" style="font-size: 18px;padding-bottom: 10px;">Auteur</div>
+													<div class="job" style="font-size: 15px;">{{auteur.domaine}}, {{auteur.university}}</div>
+													<div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{auteur.email}}</a> 
+													</div>
+							                    </div>
+							                </div>
+							            </div>
+									</div>
                                 </div>
                                 <div class="tab-pane fade" id="profile-pills" ng-class="{'in active': tabPane=='profilePills'}">
-                                    <h4>Profile Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<div class="col-md-6" ng-repeat="expert in experts" popover="" popover-placement="bottom" popover-trigger="click">
+										<br>
+										<div class="business-card" style="height: 215px;">
+											<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">Bienvenue</p>
+											<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
+											<div class="media" style="height: 169px;">
+												<div class="media-left">
+													<img src='../../../assets/qr-code/konan.png' alt='QR Code' style="height: 140px;"/>
+												</div>
+												<div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
+													<u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;font-size: 22px;">{{expert.firstName}} {{expert.lastName}}</h3></u>
+													<div class="job text-center" style="font-size: 18px;padding-bottom: 10px;">Expert</div>
+													<div class="job" style="font-size: 15px;">{{expert.domaine}}, {{expert.university}}</div>
+													<div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{expert.email}}</a> 
+													</div>
+							                    </div>
+							                </div>
+							            </div>
+									</div>
                                 </div>
                                 <div class="tab-pane fade" id="messages-pills" ng-class="{'in active': tabPane=='messagePills'}">
-                                    <h4>Messages Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                                <div class="tab-pane fade" id="settings-pills" ng-class="{'in active': tabPane=='settingPills'}">
-                                    <h4>Settings Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<div class="col-md-6" ng-repeat="participant in participants" popover="" popover-placement="bottom" popover-trigger="click">
+										<br>
+										<div class="business-card" style="height: 215px;">
+											<p class="text-center" style="font-size: 20px;margin-bottom: 5px;">Bienvenue</p>
+											<hr style="margin-top: 0px;margin-bottom: 0px;border-top-color: #337ab7;">
+											<div class="media" style="height: 169px;">
+												<div class="media-left">
+													<img src='../../../assets/qr-code/konan.png' alt='QR Code' style="height: 140px;"/>
+												</div>
+												<div class="media-body" style="padding-left: 8px;border-left: solid 1px;border-left-color: #337ab7;">
+													<u style="color: #337ab7;"><h3 class="media-heading text-center" style="margin-bottom: 15px;font-size: 22px;">{{participant.firstName}} {{participant.lastName}}</h3></u>
+													<div class="job text-center" style="font-size: 18px;padding-bottom: 10px;">Participant</div>
+													<div class="job" style="font-size: 15px;">{{participant.domaine}}, {{participant.university}}</div>
+													<div class="mail"><a href="mailto:daniel@bla.ch" style="font-size: 15px;">{{participant.email}}</a> 
+													</div>
+							                    </div>
+							                </div>
+							            </div>
+									</div>
                                 </div>
                             </div>
                         </div>

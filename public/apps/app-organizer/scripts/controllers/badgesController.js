@@ -51,6 +51,30 @@
                 init($scope.currentCongreId, "user");
                 getAuteurs($scope.currentCongreId, "author");
                 getExperts($scope.currentCongreId, "reviewer");
+                getOrganizer($scope.currentCongreId, "organizer");
+                getProgram($scope.currentCongreId, "program");
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function getOrganizer(congreId, role) {
+            DataStoreUser.getUsersByRoleAndCongre(congreId, role)
+            .then(function(organizer) {
+                $scope.organizer = organizer.data;
+                $scope.congresLoading = false;
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function getProgram(congreId, role) {
+            DataStoreUser.getUsersByRoleAndCongre(congreId, role)
+            .then(function(program) {
+                $scope.program = program.data;
+                $scope.congresLoading = false;
             })
             .catch(function(err) {
                 console.error(err);
