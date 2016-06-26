@@ -69,32 +69,46 @@
                 var soumission_end = new Date(congre.data[0].soumission.end);
                 var evaluation_end = new Date(congre.data[0].evaluation.end);
                 var finalisation_end = new Date(congre.data[0].finalisation.end);
+                // var congre_start = new Date(congre.data[0].date_debut);
 
                 console.log(now >= evaluation_start);
-                if(now > soumission_start) {
-                    $scope.soumissionUp = true;
-                    console.log('inside soumissionUp');
-                }
-                if(now > evaluation_start){
-                    $scope.evaluationUp = true;
-                    console.log('inside evaluationUp');                    
-                }
-                if(now > finalisation_start) {
-                    console.log('inside finalisationUp');
-                    $scope.finalisationUp = true;                    
-                }
+                // if(now > soumission_start) {
+                //     $scope.soumissionUp = true;
+                //     console.log('inside soumissionUp');
+                // }
+                // if(now > evaluation_start){
+                //     $scope.evaluationUp = true;
+                //     console.log('inside evaluationUp');                    
+                // }
+                // if(now > finalisation_start) {
+                //     console.log('inside finalisationUp');
+                //     $scope.finalisationUp = true;                    
+                // }
                 if(now > soumission_start && now < soumission_end) {
-                    $scope.soumission = true;
                     console.log('inside soumission');
+                    $scope.soumission = true;
+                    $scope.evaluation = false;
+                    $scope.finalisation = false;
                 }
                 if(now > evaluation_start && now < evaluation_end){
-                    $scope.evaluation = true;
                     console.log('inside evaluation');                    
+                    $scope.soumission = false;
+                    $scope.evaluation = true;
+                    $scope.finalisation = false;
                 }
-                if(now > finalisation_start && now < finalisation_end) {
+                // if(now > finalisation_start && now < finalisation_end) {
+                if(now > finalisation_start) {
                     console.log('inside finalisation');
+                    $scope.soumission = false;
+                    $scope.evaluation = false;
                     $scope.finalisation = true;                    
                 }
+                // if(now > date_debut) {
+                //     console.log('inside finalisation');
+                //     $scope.soumission = false;
+                //     $scope.evaluation = false;
+                //     $scope.finalisation = true;                    
+                // }
 
                 console.log($scope.soumission+' '+$scope.evaluation+' '+$scope.finalisation)
                 getPublications();
