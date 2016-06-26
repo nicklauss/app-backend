@@ -5,9 +5,9 @@
         .module('reviewerApp')
         .controller('publicationsCtrl', publicationsCtrl);
 
-    publicationsCtrl.$inject = ['$scope', '$q', 'DataStorePublication'];
+    publicationsCtrl.$inject = ['$scope', '$q', 'DataStorePublication', 'DataStoreUser'];
 
-    function publicationsCtrl($scope, $q, DataStorePublication) {
+    function publicationsCtrl($scope, $q, DataStorePublication, DataStoreUser) {
 
         $scope.publications = [];
         $scope.publicationsLoading = true;
@@ -27,10 +27,11 @@
                   $scope.evalpub = obj;
             }
         }
-        init();
-// Share authorId of logged in user
+        
+        getCurrentUser();
+        
         function init() {
-            var promises = [getPublicationsByReviewer("57515c128fdcdf4fbcba227a")];
+            var promises = [getPublicationsByReviewer($scope.userObject._id)];
             $q.all(promises).then(function() {
                 console.log('The publications are ready');
             });
@@ -64,6 +65,18 @@
             })
             .catch(function(err) {
               console.error(err);
+            });
+        }
+
+        function getCurrentUser() {
+            DataStoreUser.getCurrentUser()
+            .then(function(currentUser) {
+                $scope.userObject = currentUser.data;
+                console.log($scope.userObject);
+                init();
+            })
+            .catch(function(err) {
+                console.error(err);
             });
         }
 

@@ -8,39 +8,126 @@
     <!-- /.row -->
     <div class="row">
         
-        <stats number="6" comments="New comments!" colour="primary" type="comments"></stats>
-        <stats number="12" comments="New tasks!" colour="primary" type="user"></stats>
-        <stats number="18" comments="New orders!" colour="yellow" type="shopping-cart"></stats>
-        <stats number="24" comments="Support tickets!" colour="red" type="support"></stats>
+        <stats number="6" comments="Publications assignés" colour="primary" type="book" ng-click="panel='eval'"></stats>
+        <stats number="12" comments="Publications evalués" colour="primary" type="check" ng-click="panel='evalue'"></stats>
+        <stats number="18" comments="Publications non evalués" colour="yellow" type="refresh" ng-click="panel='nonEvalue'"></stats>
+<!--         <stats number="24" comments="Support tickets!" colour="red" type="support"></stats> -->
 
     </div>
     
     <!-- /.panel -->
     <div class="row">
         <div class="col-lg-8">
-            <div class="panel panel-default">
+            <div class="panel panel-info" ng-if="panel=='eval'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Publications
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="publication in publications">
+                            <div class="offer" ng-class="{'offer-primary':publication.evaluation.value=='NOTASSIGNED', 'offer-default':publication.evaluation.value=='PENDING', 'offer-success':publication.evaluation.value=='ACCEPTED', 'offer-warning':publication.evaluation.value=='MAJACCEPTED', 'offer-danger':publication.evaluation.value=='REJECTED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{publication.evaluation.value}}
+                                    </div>
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="lead">
+                                        {{publication.title}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+            <div class="panel panel-info" ng-if="panel=='evalue'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Auteurs
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="publication in otherPub">
+                            <div class="offer" ng-class="{'offer-primary':publication.evaluation.value=='NOTASSIGNED', 'offer-default':publication.evaluation.value=='PENDING', 'offer-success':publication.evaluation.value=='ACCEPTED', 'offer-warning':publication.evaluation.value=='MAJACCEPTED', 'offer-danger':publication.evaluation.value=='REJECTED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{publication.evaluation.value}}
+                                    </div>
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="lead">
+                                        {{publication.title}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+            <div class="panel panel-info" ng-if="panel=='nonEvalue'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Experts
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="publication in pendingPub">
+                            <div class="offer" ng-class="{'offer-primary':publication.evaluation.value=='NOTASSIGNED', 'offer-default':publication.evaluation.value=='PENDING', 'offer-success':publication.evaluation.value=='ACCEPTED', 'offer-warning':publication.evaluation.value=='MAJACCEPTED', 'offer-danger':publication.evaluation.value=='REJECTED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{publication.evaluation.value}}
+                                    </div>
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="lead">
+                                        {{publication.title}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+            <!-- <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-                </div>
+                </div> -->
                 <!-- /.panel-heading -->
-                <timeline></timeline>
+                <!-- <timeline></timeline> -->
                 <!-- /.panel-body -->
-            </div>
+            <!-- </div> -->
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-            <div class="panel panel-default">
+<!--             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                </div>
+                </div> -->
                 <!-- /.panel-heading -->
-                <notifications></notifications> 
+                <!-- <notifications></notifications>  -->
                 <!-- /.panel-body -->
-            </div>
+            <!-- </div> -->
             <!-- /.panel -->
 
-            <chat></chat>
+            <!-- <chat></chat> -->
              <!-- /.panel .chat-panel -->
         </div>
         <!-- /.col-lg-4 -->

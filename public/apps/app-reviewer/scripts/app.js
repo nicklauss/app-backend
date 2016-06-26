@@ -87,7 +87,10 @@ angular
               '/apps/app-reviewer/scripts/directives/timeline/timeline.js',
               '/apps/app-reviewer/scripts/directives/notifications/notifications.js',
               '/apps/app-reviewer/scripts/directives/chat/chat.js',
-              '/apps/app-reviewer/scripts/directives/dashboard/stats/stats.js'
+              '/apps/app-reviewer/scripts/directives/dashboard/stats/stats.js',
+              '/apps/app-reviewer/scripts/services/data-store-publication.js',
+              '/apps/app-reviewer/scripts/services/data-store-user.js',
+              '/apps/app-author/styles/badge.css'
               ]
             })
           }
@@ -103,7 +106,8 @@ angular
                 name:'reviewerApp',
                 files:[
                 '/apps/app-reviewer/scripts/controllers/publicationsController.js',
-                '/apps/app-reviewer/scripts/services/data-store-publication.js'
+                '/apps/app-reviewer/scripts/services/data-store-publication.js',
+                '/apps/app-reviewer/scripts/services/data-store-user.js'
                 ]
             });
           }
