@@ -8,42 +8,328 @@
     <!-- /.row -->
     <div class="row">
         
-        <stats number="6" comments="New comments!" colour="primary" type="comments"></stats>
-        <stats number="12" comments="New tasks!" colour="primary" type="user"></stats>
-        <stats number="18" comments="New orders!" colour="yellow" type="shopping-cart"></stats>
-        <stats number="24" comments="Support tickets!" colour="red" type="support"></stats>
+        <stats number="{{PublicationsCount}}" comments="Publications" colour="primary" type="file" ng-click="panel='publications'"></stats>
+        <stats number="{{auteursCount}}" comments="Auteurs" colour="green" type="user" ng-click="panel='auteurs'"></stats>
+        <stats number="{{expertsCount}}" comments="Experts" colour="yellow" type="user" ng-click="panel='experts'"></stats>
+        <stats number="{{participantsCount}}" comments="Participants" colour="red" type="user" ng-click="panel='participant'"></stats>
 
     </div>
     
     <!-- /.panel -->
     <div class="row">
         <div class="col-lg-8">
-            <div class="panel panel-default">
+            <div class="panel panel-info" ng-if="panel=='publications'">
                 <div class="panel-heading">
-                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Publications
+                    </div>
+                    <div class="col-md-10">
+                        <div class="btn-group" ng-click="filter[cat]=!filter[cat]" data-toggle="buttons" ng-repeat="cat in getEvaluations()" style="float: right;">
+                        <label class="btn" ng-class="{'btn-primary':cat=='NOTASSIGNED', 'btn-default':cat=='PENDING', 'btn-success':cat=='ACCEPTED', 'btn-warning':cat=='MAJACCEPTED', 'btn-danger':cat=='REJECTED'}" ng-model="filter[cat]" >{{cat | lowercase}}
+                            <input type="checkbox" ng-model="filter[cat]" />
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </label>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.panel-heading -->
-                <timeline></timeline>
-                <!-- /.panel-body -->
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="publication in filtered=(publications | filter:filterByEvaluations)">
+                            <div class="offer" ng-class="{'offer-primary':publication.evaluation.value=='NOTASSIGNED', 'offer-default':publication.evaluation.value=='PENDING', 'offer-success':publication.evaluation.value=='ACCEPTED', 'offer-warning':publication.evaluation.value=='MAJACCEPTED', 'offer-danger':publication.evaluation.value=='REJECTED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{publication.evaluation.value}}
+                                    </div>
+                                </div>
+                                <div class="offer-content">
+                                    <h3 class="lead">
+                                        {{publication.title}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
             </div>
-            <!-- /.panel -->
+            <div class="panel panel-info" ng-if="panel=='auteurs'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Auteurs
+                    </div>
+                    <div class="col-md-10">
+                        <div class="btn-group" ng-click="statusFilter[cat]=!statusFilter[cat]" data-toggle="buttons" ng-repeat="cat in getStatus()" style="float: right;">
+                        <label class="btn" ng-class="{'btn-default':cat=='PENDING', 'btn-success':cat=='APPROVED', 'btn-primary':cat=='REGISTERED'}" ng-model="statusFilter[cat]" >{{cat | lowercase}}
+                            <input type="checkbox" ng-model="statusFilter[cat]" />
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="auteur in filtered=(auteurs | filter:filterByStatus)">
+                            <div class="offer" ng-class="{'offer-default':auteur.registrations[0].status=='PENDING', 'offer-success':auteur.registrations[0].status=='APPROVED', 'offer-primary':auteur.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(auteur);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{auteur.registrations[0].status}}
+                                    </div>
+                                </div>
+                                <div class="offer-content row">
+                                    <div class="col-md-4 col-lg-4" align="center" style="padding-right: 5px;padding-left: 5px;">
+                            <img alt="User Pic" src="../../../assets/avatars/profile-pic.jpg" class="img-circle img-responsive" ng-if="auteur.gender== 'male'">
+                            <img alt="User Pic" src="../../../assets/avatars/avatar-300x300.png" class="img-circle img-responsive" ng-if="auteur.gender== 'female'">
+                                    </div>
+                                    <div class="col-md-8 col-lg-8" align="center">
+                                    <h3 class="lead" style="margin-top: 0px;">
+                                        {{auteur.firstName}} {{auteur.lastName}}
+                                    </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+            <div class="panel panel-info" ng-if="panel=='experts'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Experts
+                    </div>
+                    <div class="col-md-10">
+                        <div class="btn-group" ng-click="statusFilter[cat]=!statusFilter[cat]" data-toggle="buttons" ng-repeat="cat in getStatusE()" style="float: right;">
+                        <label class="btn" ng-class="{'btn-default':cat=='PENDING', 'btn-success':cat=='APPROVED', 'btn-primary':cat=='REGISTERED'}" ng-model="statusFilter[cat]" >{{cat | lowercase}}
+                            <input type="checkbox" ng-model="statusFilter[cat]" />
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="expert in filtered=(experts | filter:filterByStatusE)">
+                            <div class="offer" ng-class="{'offer-default':expert.registrations[0].status=='PENDING', 'offer-success':expert.registrations[0].status=='APPROVED', 'offer-primary':expert.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(expert);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{expert.registrations[0].status}}
+                                    </div>
+                                </div>
+                                <div class="offer-content row">
+                                    <div class="col-md-4 col-lg-4" align="center" style="padding-right: 5px;padding-left: 5px;">
+                            <img alt="User Pic" src="../../../assets/avatars/profile-pic.jpg" class="img-circle img-responsive" ng-if="expert.gender== 'male'">
+                            <img alt="User Pic" src="../../../assets/avatars/avatar-300x300.png" class="img-circle img-responsive" ng-if="expert.gender== 'female'">
+                                    </div>
+                                    <div class="col-md-8 col-lg-8" align="center">
+                                    <h3 class="lead" style="margin-top: 0px;">
+                                        {{expert.firstName}} {{expert.lastName}}
+                                    </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+            <div class="panel panel-info" ng-if="panel=='participant'">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2" style="font-size: 20px;line-height: 1;">
+                        Participants
+                    </div>
+                    <div class="col-md-10">
+                        <div class="btn-group" ng-click="statusFilter[cat]=!statusFilter[cat]" data-toggle="buttons" ng-repeat="cat in getStatusE()" style="float: right;">
+                        <label class="btn" ng-class="{'btn-default':cat=='PENDING', 'btn-success':cat=='APPROVED', 'btn-primary':cat=='REGISTERED'}" ng-model="statusFilter[cat]" >{{cat | lowercase}}
+                            <input type="checkbox" ng-model="statusFilter[cat]" />
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-repeat="participant in filtered=(participants | filter:filterByStatusE)">
+                            <div class="offer" ng-class="{'offer-default':participant.registrations[0].status=='PENDING', 'offer-success':participant.registrations[0].status=='APPROVED', 'offer-primary':participant.registrations[0].status=='REGISTERED'}" style="border-radius: 5px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#myModal" ng-click="toggleModal(participant);">
+                                <div class="shape">
+                                    <div class="shape-text" style="right: -22px;top: -2px;font-size: 10px;">
+                                        {{participant.registrations[0].status}}
+                                    </div>
+                                </div>
+                                <div class="offer-content row">
+                                    <div class="col-md-4 col-lg-4" align="center" style="padding-right: 5px;padding-left: 5px;">
+                            <img alt="User Pic" src="../../../assets/avatars/profile-pic.jpg" class="img-circle img-responsive" ng-if="participant.gender== 'male'">
+                            <img alt="User Pic" src="../../../assets/avatars/avatar-300x300.png" class="img-circle img-responsive" ng-if="participant.gender== 'female'">
+                                    </div>
+                                    <div class="col-md-8 col-lg-8" align="center">
+                                    <h3 class="lead" style="margin-top: 0px;">
+                                        {{participant.firstName}} {{participant.lastName}}
+                                    </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-            <div class="panel panel-default">
+            <!-- <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bell fa-fw"></i> Notifications Panel
                 </div>
                 <!-- /.panel-heading -->
-                <notifications></notifications> 
+                <!-- <notifications></notifications>  -->
                 <!-- /.panel-body -->
-            </div>
+            <!-- </div> -->
             <!-- /.panel -->
 
-            <chat></chat>
+            <!-- <chat></chat> -->
              <!-- /.panel .chat-panel -->
         </div>
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="panel-title" style="font-size: 20px;">{{modalObj.firstName}} {{modalObj.lastName}}</h3>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                </div>
+
+
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
+                        </div>
+                        <!--
+                        <div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                          <dl>
+                            <dt>DEPARTMENT:</dt>
+                            <dd>Administrator</dd>
+                            <dt>HIRE DATE</dt>
+                            <dd>11/12/2013</dd>
+                            <dt>DATE OF BIRTH</dt>
+                               <dd>11/12/2013</dd>
+                            <dt>GENDER</dt>
+                            <dd>Male</dd>
+                          </dl>
+                        </div>
+                        -->
+                        <div class=" col-md-9 col-lg-9 ">
+                          <table class="table table-user-information">
+                            <tbody>
+                              <tr>
+                                <td>Université:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.university" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Domaine:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.domaine" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Statut:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.registrations[0].status" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Gender:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="modalObj.gender" value="male"  ng-disabled="true">Homme
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="modalObj.gender" value="female"  ng-disabled="true">femme
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Email:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.email" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Phone:</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.phone" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Adresse</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.address" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Ville</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.city" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Pays</td>
+                                <td>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input type="text" class="form-control" placeholder="Enter text" ng-model="modalObj.location.country" ng-disabled="true">
+                                    </div>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+<!--                          <a href="#" class="btn btn-primary">My Sales Performance</a>
+                          <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+<!--                         <a type="button" class="btn btn-sm btn-warning" ng-click="disable=!disable;"><i class="glyphicon glyphicon-edit"></i></a>
+                       <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
+                    </span>
+                </div>
+            </div>
+      </div>
 </div>
+

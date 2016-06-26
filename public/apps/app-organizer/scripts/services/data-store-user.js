@@ -14,7 +14,10 @@
 			updateUser : updateUser,
 			deleteUser : deleteUser,
 			login : login,
-			getCurrentUser : getCurrentUser
+			getCurrentUser : getCurrentUser,
+			getAuteursCount : getAuteursCount,
+			getExpertsCount : getExpertsCount,
+			getParticipantsCount : getParticipantsCount
 		};
 
 		return services;
@@ -36,6 +39,45 @@
 			var deferred = $q.defer();
 
 			$http.get('api/v1/users/'+ role +'/congres/' + congreId )
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getParticipantsCount(role) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/users/role/'+ role)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getAuteursCount(role) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/users/role/'+ role)
+				.success(function(resp, status) {
+					deferred.resolve(resp);
+				})
+				.error(function(error, status) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function getExpertsCount(role) {
+			var deferred = $q.defer();
+
+			$http.get('api/v1/users/role/'+ role)
 				.success(function(resp, status) {
 					deferred.resolve(resp);
 				})

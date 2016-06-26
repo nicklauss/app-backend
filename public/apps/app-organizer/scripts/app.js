@@ -87,7 +87,11 @@ angular
               '/apps/app-organizer/scripts/directives/timeline/timeline.js',
               '/apps/app-organizer/scripts/directives/notifications/notifications.js',
               '/apps/app-organizer/scripts/directives/chat/chat.js',
-              '/apps/app-organizer/scripts/directives/dashboard/stats/stats.js'
+              '/apps/app-organizer/scripts/directives/dashboard/stats/stats.js',
+              '/apps/app-organizer/scripts/services/data-store-publication.js',
+              '/apps/app-organizer/scripts/services/data-store-user.js',
+              '/apps/app-program/styles/badge.css',
+              '/apps/app-program/styles/checkbox.css'
               ]
             })
           }
