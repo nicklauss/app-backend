@@ -34,7 +34,7 @@
             }
         }
 
-        init($scope.testCongreId, "reviewer");
+        getCurrentUser();
 // Share organizerId of logged in user
         function init(congreId, role) {
             var promises = [getExperts(congreId, role)];
@@ -43,10 +43,23 @@
             });
         }
 
+        function getCurrentUser() {
+            DataStoreUser.getCurrentUser()
+            .then(function(currentUser) {
+                $scope.currentUser = currentUser.data;
+                console.log(currentUser.data.registrations[0].congreId);
+                $scope.currentCongreId = currentUser.data.registrations[0].congreId;
+                init($scope.currentCongreId, "reviewer");
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
         function newExpert(userObject) {
             userObject.role = 'reviewer';
             userObject.password = "azerty";
-            var reg = {congreId: $scope.testCongreId, status: "REGISTERED", created: new Date()};
+            var reg = {congreId: $scope.currentCongreId, status: "REGISTERED", created: new Date()};
             userObject.registrations = [];
             userObject.registrations.push(reg);
             console.log(userObject);
@@ -55,7 +68,7 @@
 
                 console.log('Expert cree');
                 console.log(expert);
-                init($scope.testCongreId, "reviewer");
+                init($scope.currentCongreId, "reviewer");
 
             })
             .catch(function(err) {
@@ -79,7 +92,7 @@
             DataStoreUser.deleteUser(id)
             .then(function(expert) {
                 console.log(expert);
-                init($scope.testCongreId, "reviewer");
+                init($scope.currentCongreId, "reviewer");
             })
             .catch(function(err) {
                 console.error(err);
@@ -92,7 +105,7 @@
             .then(function(expert) {
                 console.log(expert);
                 $scope.userObject = {};
-                init($scope.testCongreId, "reviewer");
+                init($scope.currentCongreId, "reviewer");
             })
             .catch(function(err) {
                 console.error(err);

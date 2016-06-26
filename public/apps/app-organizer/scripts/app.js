@@ -90,6 +90,7 @@ angular
               '/apps/app-organizer/scripts/directives/dashboard/stats/stats.js',
               '/apps/app-organizer/scripts/services/data-store-publication.js',
               '/apps/app-organizer/scripts/services/data-store-user.js',
+              '/apps/app-organizer/scripts/services/data-store-congre.js',
               '/apps/app-program/styles/badge.css',
               '/apps/app-program/styles/checkbox.css'
               ]
@@ -248,6 +249,23 @@ angular
                 name:'sbAdminApp',
                 files:[
                 '/apps/app-organizer/scripts/controllers/participantsController.js',
+                '/apps/app-organizer/scripts/services/data-store-user.js',
+                '/apps/app-organizer/styles/edit-modal.css'
+                ]
+            });
+          }
+        }
+      })
+      .state('dashboard.badges', {
+        templateUrl:'/apps/app-organizer/views/pages/badges.html',
+        url:'/badges',
+        controller:'badgesCtrl',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name:'sbAdminApp',
+                files:[
+                '/apps/app-organizer/scripts/controllers/badgesController.js',
                 '/apps/app-organizer/scripts/services/data-store-user.js',
                 '/apps/app-organizer/styles/edit-modal.css'
                 ]

@@ -21,7 +21,7 @@
         $scope.updateParticipant = updateParticipant;
 
 // Share organizerId of logged in user
-        init($scope.testCongreId, "user");
+        getCurrentUser();
 
         function modalType(index, obj) {
             if(index == 0)
@@ -39,6 +39,19 @@
             var promises = [getParticipants(congreId, role)];
             $q.all(promises).then(function() {
                 console.log('The participant are ready');
+            });
+        }
+
+        function getCurrentUser() {
+            DataStoreUser.getCurrentUser()
+            .then(function(currentUser) {
+                $scope.currentUser = currentUser.data;
+                console.log(currentUser.data.registrations[0].congreId);
+                $scope.currentCongreId = currentUser.data.registrations[0].congreId;
+                init($scope.currentCongreId, "user");
+            })
+            .catch(function(err) {
+                console.error(err);
             });
         }
 
@@ -78,7 +91,7 @@
             DataStoreUser.deleteUser(id)
             .then(function(participant) {
                 console.log(participant);
-                init($scope.testCongreId, "user");
+                init($scope.currentCongreId, "user");
             })
             .catch(function(err) {
                 console.error(err);
@@ -91,7 +104,7 @@
             .then(function(participant) {
                 console.log(participant);
                 $scope.userObject = {};
-                init($scope.testCongreId, "user");
+                init($scope.currentCongreId, "user");
             })
             .catch(function(err) {
                 console.error(err);
