@@ -13,12 +13,12 @@
 
 
         $scope.participants = [];
+        $scope.auteurs = [];
+        $scope.experts = [];
         $scope.congresLoading = true;
         $scope.userObject = {};
         // $scope.newParticipant = newParticipant;
         $scope.modalType = modalType;
-        $scope.deleteParticipant = deleteParticipant;
-        $scope.updateParticipant = updateParticipant;
 
 // Share organizerId of logged in user
         getCurrentUser();
@@ -49,6 +49,30 @@
                 console.log(currentUser.data.registrations[0].congreId);
                 $scope.currentCongreId = currentUser.data.registrations[0].congreId;
                 init($scope.currentCongreId, "user");
+                getAuteurs($scope.currentCongreId, "author");
+                getExperts($scope.currentCongreId, "reviewer");
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function getAuteurs(congreId, role) {
+            DataStoreUser.getUsersByRoleAndCongre(congreId, role)
+            .then(function(auteurs) {
+                $scope.auteurs = auteurs.data;
+                $scope.congresLoading = false;
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+        }
+
+        function getExperts(congreId, role) {
+            DataStoreUser.getUsersByRoleAndCongre(congreId, role)
+            .then(function(experts) {
+                $scope.experts = experts.data;
+                $scope.congresLoading = false;
             })
             .catch(function(err) {
                 console.error(err);
@@ -85,34 +109,6 @@
         //         console.error(err);
         //     });
         // }
-
-        function deleteParticipant(id) {
-            console.log(id);
-            DataStoreUser.deleteUser(id)
-            .then(function(participant) {
-                console.log(participant);
-                init($scope.currentCongreId, "user");
-            })
-            .catch(function(err) {
-                console.error(err);
-            });
-        }
-
-        function updateParticipant(userObject) {
-            console.log(userObject);
-            DataStoreUser.updateUser(userObject)
-            .then(function(participant) {
-                console.log(participant);
-                $scope.userObject = {};
-                init($scope.currentCongreId, "user");
-            })
-            .catch(function(err) {
-                console.error(err);
-            });
-        }
-
-
-
 
     }
 

@@ -267,7 +267,8 @@ angular
                 files:[
                 '/apps/app-organizer/scripts/controllers/badgesController.js',
                 '/apps/app-organizer/scripts/services/data-store-user.js',
-                '/apps/app-organizer/styles/edit-modal.css'
+                '/apps/app-organizer/styles/edit-modal.css',
+                '/apps/app-organizer/styles/business-card.css'
                 ]
             });
           }
