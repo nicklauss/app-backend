@@ -1,44 +1,68 @@
 <div class="panel-body">
     <ul class="timeline">
-        <li>
+        <li ng-if="soumission || evaluation || finalisation || congreStart">
             <div class="timeline-badge"><i class="fa fa-check"></i>
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                    <h4 class="timeline-title">Phase de soumission</h4>
+                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>
+                     From <i>{{congreObject.soumission.start | date : "d MMM"}}</i>
+                     to <i>{{congreObject.soumission.end | date : "d MMM y"}}</i></small>
                     </p>
                 </div>
                 <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                    <p>Veuillez deposez vos publications avant la fin de cette phase.</p>
                 </div>
             </div>
         </li>
-        <li class="timeline-inverted">
+        <li class="timeline-inverted" ng-if="evaluation || finalisation || congreStart">
             <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                    <h4 class="timeline-title">Phase de selection</h4>
+                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>
+                     From <i>{{congreObject.evaluation.start | date : "d MMM"}}</i>
+                     to <i>{{congreObject.evaluation.end | date : "d MMM y"}}</i></small>
+                    </p>
                 </div>
                 <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                    <p>Veuillez patientez...</p>
+                    <br>
+                    <p>Nos experts sont entraint de faire la selection des publications comformes à nos consignes.</p>
                 </div>
             </div>
         </li>
-        <li>
+        <li class="timeline-inverted" ng-if="(finalisation || congreStart) && acceptedPub.length == 0">
+            <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+            </div>
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">Information!</h4>
+                </div>
+                <div class="timeline-body">
+                    <p>On regrette de vous informez qu'aucune de vos publications n'a etait acceptées.</p>
+                </div>
+            </div>
+        </li>
+        <li ng-if="finalisation || congreStart">
             <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                    <h4 class="timeline-title">Phase de finalisation</h4>
+                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>
+                     From <i>{{congreObject.finalisation.start | date : "d MMM"}}</i>
+                     to <i>{{congreObject.finalisation.end | date : "d MMM y"}}</i></small>
+                    </p>
                 </div>
                 <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                    <p>Veuillez deposer la version final de votre publication avant la fin de cette phase.</p>
                 </div>
             </div>
         </li>
+<!-- 
         <li class="timeline-inverted">
             <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -88,15 +112,22 @@
                 </div>
             </div>
         </li>
-        <li class="timeline-inverted">
+-->     
+        <li class="timeline-inverted" ng-if="congreStart">
             <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
             </div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                    <h4 class="timeline-title">Ouverture du congre</h4>
+                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>
+                     From <i>{{congreObject.date_debut | date : "d MMM"}}</i>
+                     to <i>{{congreObject.date_fin | date : "d MMM y"}}</i></small>
+                    </p>
                 </div>
                 <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
+                    <p>{{congreObject.nom}} ouvre ses portes!</p>
+                    <br>
+                    <p>Veuillez consulter le planning des sessions au niveau de la section Sessions.</p>
                 </div>
             </div>
         </li>

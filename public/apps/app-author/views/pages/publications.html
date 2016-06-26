@@ -18,7 +18,7 @@
 	            <div class="panel-heading">
 	            	<div class="row">
 	            	<div class="col-md-3 col-md-offset-9">
-                     	<button type="button" class="btn btn-success pull-right" ng-click="modalType(0, null);" data-toggle="modal" data-target="#myModal">
+                     	<button type="button" class="btn btn-success pull-right" ng-click="modalType(0, null);" data-toggle="modal" data-target="#myModal" ng-if="soumission">
 	                		Nouveau
 	                	</button>
 	            	</div>
@@ -46,28 +46,30 @@
 																	</td>
 	                                <td>{{publication.abstract.file}}</td>
 	                                <td>{{publication.media.initial_report}}</td>
-	                                <td>{{publication.evaluation.value}}</td>
+	                                <td ng-if="publication.evaluation.value == 'NOTASSIGNED' || publication.evaluation.value == 'PENDING'">En attente</td>
+	                                <td ng-if="publication.evaluation.value == 'ACCEPTED' || publication.evaluation.value == 'MAJACCEPTED'">Acceptée</td>
+	                                <td ng-if="publication.evaluation.value == 'REJECTED'">Refusée</td>
 	                                <td class="col-md-2" style="">
-																		<div class="row" style="margin-right: 0px;">
-																			<div class="col-md-4">
-		                                		<a ng-click="modalType(2,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-default">
-						                            		<span class="glyphicon glyphicon-search">
-						                            		</span>
-						                        		</a>
-																			</div>
-																			<div class="col-md-4">
-		                                		<a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning">
-	                           							<span class="glyphicon glyphicon-edit">
-	                            						</span>
-				                    						</a>
-																			</div>
-																			<div class="col-md-4">
-		                                		<a ng-click="deletePublication(publication._id);" class="btn btn-sm btn-danger">
-						                            		<span class="glyphicon glyphicon-remove">
-						                            		</span>
-						                        		</a>
-																			</div>
-																		</div>
+									<div class="row" style="margin-right: 0px;">
+									<div class="col-md-4" ng-class="{'col-md-offset-4': !soumission}">
+		                                <a ng-click="modalType(2,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-default">
+						                <span class="fa fa-search">
+						                </span>
+						                </a>
+									</div>
+									<div class="col-md-4">
+		                                <a ng-click="modalType(1,publication);" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-warning" ng-if="soumission">
+	                           			<span class="fa fa-edit">
+	                            		</span>
+				                    	</a>
+									</div>
+									<div class="col-md-4">
+		                                <a ng-click="deletePublication(publication._id);" class="btn btn-sm btn-danger" ng-if="soumission">
+						                <span class="fa fa-remove">
+						                </span>
+						                </a>
+									</div>
+									</div>
 	                                </td>
 	                            </tr>
 	                        </tbody>

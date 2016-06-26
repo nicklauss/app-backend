@@ -36,7 +36,10 @@ angular
                     '/apps/app-author/scripts/directives/header/header.js',
                     '/apps/app-author/scripts/directives/header/header-notification/header-notification.js',
                     '/apps/app-author/scripts/directives/sidebar/sidebar.js',
-                    '/apps/app-author/scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+                    '/apps/app-author/scripts/directives/sidebar/sidebar-search/sidebar-search.js',
+                    '/apps/app-author/scripts/services/data-store-publication.js',
+                    '/apps/app-author/scripts/services/data-store-user.js',
+                    '/apps/app-author/scripts/services/data-store-congre.js'
                     ]
                 }),
                 $ocLazyLoad.load(
@@ -87,7 +90,12 @@ angular
               '/apps/app-author/scripts/directives/timeline/timeline.js',
               '/apps/app-author/scripts/directives/notifications/notifications.js',
               '/apps/app-author/scripts/directives/chat/chat.js',
-              '/apps/app-author/scripts/directives/dashboard/stats/stats.js'
+              '/apps/app-author/scripts/directives/dashboard/stats/stats.js',
+              '/apps/app-author/scripts/services/data-store-publication.js',
+              '/apps/app-author/scripts/services/data-store-user.js',
+              '/apps/app-author/scripts/services/data-store-congre.js',
+              '/apps/app-author/styles/badge.css',
+              '/apps/app-author/styles/checkbox.css'
               ]
             });
           }
@@ -124,6 +132,7 @@ angular
                 '/apps/app-author/scripts/services/data-store-publication.js',
                 '/apps/app-author/scripts/services/data-store-user.js',
                 '/apps/app-author/scripts/services/data-store-session.js',
+                '/apps/app-author/scripts/services/data-store-congre.js',
                 '/apps/app-author/styles/edit-modal.css'
                 ]
             });
