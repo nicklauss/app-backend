@@ -90,6 +90,7 @@ angular
               '/apps/app-program/scripts/directives/dashboard/stats/stats.js',
               '/apps/app-program/scripts/services/data-store-publication.js',
               '/apps/app-program/scripts/services/data-store-user.js',
+              '/apps/app-program/scripts/services/data-store-congre.js',
               '/apps/app-program/styles/badge.css',
               '/apps/app-program/styles/checkbox.css'
               ]

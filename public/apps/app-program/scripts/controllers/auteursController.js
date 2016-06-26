@@ -21,7 +21,7 @@
 
 
 // Share organizerId of logged in user
-        init($scope.testCongreId, "author");
+        getCurrentUser();
 
 
         function modalType(index, obj) {
@@ -37,6 +37,19 @@
             var promises = [getAuteurs(congreId, role)];
             $q.all(promises).then(function() {
                 console.log('The author are ready');
+            });
+        }
+
+        function getCurrentUser() {
+            DataStoreUser.getCurrentUser()
+            .then(function(currentUser) {
+                $scope.currentUser = currentUser.data;
+                console.log(currentUser.data.registrations[0].congreId);
+                $scope.currentCongreId = currentUser.data.registrations[0].congreId;
+                init($scope.currentCongreId, "author");
+            })
+            .catch(function(err) {
+                console.error(err);
             });
         }
 
@@ -76,7 +89,7 @@
             DataStoreUser.deleteUser(id)
             .then(function(auteur) {
                 console.log(auteur);
-                init($scope.testCongreId, "author");
+                init($scope.currentCongreId, "author");
             })
             .catch(function(err) {
                 console.error(err);
@@ -89,7 +102,7 @@
             .then(function(auteur) {
                 console.log(auteur);
                 $scope.userObject = {};
-                init($scope.testCongreId, "author");
+                init($scope.currentCongreId, "author");
             })
             .catch(function(err) {
                 console.error(err);

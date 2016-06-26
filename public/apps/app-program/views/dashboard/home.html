@@ -18,6 +18,15 @@
     <!-- /.panel -->
     <div class="row">
         <div class="col-lg-8">
+            <div class="panel panel-default" ng-if="panel=='timeline'">
+                <div class="panel-heading">
+                    <i class="fa fa-clock-o fa-fw"></i> {{congreObject.nom}} timeline
+                </div>
+                <!-- /.panel-heading -->
+                <timeline></timeline>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
             <div class="panel panel-info" ng-if="panel=='publications'">
                 <div class="panel-heading">
                 <div class="row">
@@ -141,19 +150,15 @@
             </div>
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-            <!-- <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
+        <div class="col-md-2 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 5px;">
+                    <a class="btn btn-success" ng-click="panel='timeline'" style="width: 100%;">
+                        <span class="fa fa-calendar fa-2x">
+                        </span>
+                    </a>
                 </div>
-                <!-- /.panel-heading -->
-                <!-- <notifications></notifications>  -->
-                <!-- /.panel-body -->
-            <!-- </div> -->
-            <!-- /.panel -->
-
-            <!-- <chat></chat> -->
-             <!-- /.panel .chat-panel -->
+            </div>
         </div>
         <!-- /.col-lg-4 -->
     </div>
