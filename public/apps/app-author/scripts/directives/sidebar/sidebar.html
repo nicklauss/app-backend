@@ -4,18 +4,18 @@
             <sidebar-search></sidebar-search>
 
             <li ui-sref-active="active" ng-if="soumission || evaluation || finalisation || congreStart">
-                <a ui-sref="dashboard.publications"><i class="fa fa-dashboard fa-fw"></i>
+                <a ui-sref="dashboard.publications"><i class="fa fa-file fa-fw"></i>
                  Publications
                 </a>
             </li>
             <li ui-sref-active="active" ng-if="(finalisation || congreStart) && acceptedPub.length > 0">
-                <a ui-sref="dashboard.presentations"><i class="fa fa-dashboard fa-fw"></i>
+                <a ui-sref="dashboard.presentations"><i class="fa fa-play fa-fw"></i>
                  Presentations
                 </a>
             </li>
             <li ui-sref-active="active" ng-if="finalisation || congreStart">
 
-                <a ui-sref="dashboard.sessions"><i class="fa fa-bar-chart-o fa-fw"></i>
+                <a ui-sref="dashboard.sessions"><i class="fa fa-calendar fa-fw"></i>
                  Sessions
                 </a>
 
