@@ -1,7 +1,7 @@
 /* 0 */
 {
     "_id" : ObjectId("575159068fdcdf4fbcba2270"),
-    "firstName" : "Anas",
+    "firstName" : "anas",
     "lastName" : "DEMNATI",
     "email" : "anas.demnati2@gmail.com",
     "gender" : "male",
@@ -336,4 +336,32 @@
     "salt" : "Yn2j5mKWJjEVC5qb5h8Yeg==",
     "university" : "EMSI.",
     "updated" : ISODate("2016-06-09T02:11:04.976Z")
+}
+
+/* 10 */
+{
+    "firstName" : "Mr",
+    "lastName" : "Daario",
+    "email" : "daario@gmail.com",
+    "gender" : "male",
+    "hashedPassword" : "S9pPDU0fSMVEanfPFsw8MPc8IVEubwMdcUptBT1SmPbcf7vnYOc8HrInj14Nt9tWsEdlLSe0no8DliRDp3gAhw==",
+    "salt" : "yoOFJfUHLPqOdNvuOCbKPQ==",
+    "_id" : ObjectId("576c52ad6417a70f0b509d25"),
+    "created" : ISODate("2016-06-23T21:20:45.973Z"),
+    "updated" : ISODate("2016-06-23T21:20:46.051Z"),
+    "deleted" : false,
+    "registrations" : [ 
+        {
+            "congreId" : ObjectId("575159c18fdcdf4fbcba2271"),
+            "created" : ISODate("2016-06-23T21:20:45.963Z"),
+            "_id" : ObjectId("576c52ad6417a70f0b509d26"),
+            "status" : "REGISTERED"
+        }
+    ],
+    "location" : {
+        "geo" : []
+    },
+    "active" : false,
+    "role" : "speaker",
+    "__v" : 0
 }
