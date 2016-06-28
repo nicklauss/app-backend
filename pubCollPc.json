@@ -6,7 +6,7 @@
         "content" : "description of abstracts",
         "file" : "abstract filee"
     },
-    "author" : [ 
+    "author" : [
         ObjectId("57515ba18fdcdf4fbcba2274")
     ],
     "created" : ISODate("2016-05-21T21:52:06.671Z"),
@@ -34,7 +34,7 @@
     "deleted" : false,
     "created" : ISODate("2016-05-21T21:52:06.671Z"),
     "updated" : ISODate("2016-06-09T03:54:06.634Z"),
-    "author" : [ 
+    "author" : [
         ObjectId("57515c0a8fdcdf4fbcba2279")
     ],
     "media" : {
@@ -62,8 +62,8 @@
         "content" : "description of abstract.",
         "file" : "abstract file"
     },
-    "author" : [ 
-        ObjectId("57515ba18fdcdf4fbcba2274"), 
+    "author" : [
+        ObjectId("57515ba18fdcdf4fbcba2274"),
         ObjectId("57515baf8fdcdf4fbcba2275")
     ],
     "created" : ISODate("2016-05-21T21:52:06.671Z"),
@@ -88,7 +88,7 @@
         "content" : "description of abstract",
         "file" : "abstract file"
     },
-    "author" : [ 
+    "author" : [
         ObjectId("57515baf8fdcdf4fbcba2275")
     ],
     "created" : ISODate("2016-05-21T21:52:06.671Z"),
@@ -114,7 +114,7 @@
     "_id" : ObjectId("576b453c5e628e861222d23b"),
     "deleted" : false,
     "created" : ISODate("2016-06-23T02:11:08.757Z"),
-    "author" : [ 
+    "author" : [
         ObjectId("57515ba18fdcdf4fbcba2274")
     ],
     "evaluation" : {

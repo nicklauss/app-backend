@@ -22,7 +22,7 @@
     "deleted" : false,
     "description" : "qdqsdsqd",
     "end_date" : ISODate("2016-06-04T00:00:00.000Z"),
-    "presentations" : [ 
+    "presentations" : [
         {
             "title" : "Presentation 101",
             "start_date" : ISODate("2016-06-23T00:00:00.000Z"),
@@ -47,7 +47,7 @@
     "deleted" : false,
     "description" : "description session1",
     "end_date" : ISODate("2016-05-21T22:10:06.671Z"),
-    "presentations" : [ 
+    "presentations" : [
         {
             "publication_id" : ObjectId("57515d908fdcdf4fbcba227e"),
             "title" : "Session1_Presentation2",
@@ -55,7 +55,7 @@
             "end_date" : ISODate("2016-05-21T22:10:06.671Z"),
             "speaker" : ObjectId("57515bf88fdcdf4fbcba2277"),
             "_id" : ObjectId("57674b0aa29337a82a52f485")
-        }, 
+        },
         {
             "publication_id" : ObjectId("57515d8a8fdcdf4fbcba227d"),
             "title" : "Session1_Presentation1",
@@ -80,7 +80,7 @@
     "deleted" : false,
     "description" : "description session2",
     "end_date" : ISODate("2016-05-21T22:25:06.671Z"),
-    "presentations" : [ 
+    "presentations" : [
         {
             "publication_id" : ObjectId("57515da58fdcdf4fbcba227f"),
             "title" : "Session2_Presentation1",
@@ -88,7 +88,7 @@
             "end_date" : ISODate("2016-05-21T22:18:06.671Z"),
             "speaker" : ObjectId("57515bf88fdcdf4fbcba2277"),
             "_id" : ObjectId("576738ff2b6856e527bc18f8")
-        }, 
+        },
         {
             "publication_id" : ObjectId("57515db68fdcdf4fbcba2280"),
             "title" : "Session2_Presentation2",

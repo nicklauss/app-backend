@@ -125,7 +125,7 @@
                         <div class="col-md-6">
                             <p>Presentations assignées</p>
                             <div class="form-control" style="height: 100%;">
-                                <p ng-if="!assignedSession.length" style="width: 100%;"> Aucune presentation !</p>
+                                <p ng-if="!assignedSession.presentations.length" style="width: 100%;"> Aucune presentation !</p>
                                 <a id="modalBtn" ng-if="assignedSession" class="btn btn-sm" ng-repeat="presentation in assignedSession.presentations" style="/*border: solid 1px; */width: 100%;" ng-click="updatePresentationMinus(presentation);">
                                     {{presentation.title}}
                                 </a>
