@@ -9,12 +9,12 @@
 
     function loginCtrl($http, $q, DataStoreUser, $window) {
         var vm = this;
-        vm.authenticationCredentiels = {};
+        vm.authenticationCredentials = {};
         vm.message = {};
         vm.login = login;
 
         function login() {
-            DataStoreUser.login(vm.authenticationCredentiels)
+            DataStoreUser.login(vm.authenticationCredentials)
                 .then(function(resp) {
                     switch(resp.role) {
                       case 'organizer' :

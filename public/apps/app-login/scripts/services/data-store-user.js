@@ -70,9 +70,9 @@
             return deferred.promise;
         }
 
-        function login(authenticationCredentiels) {
+        function login(authenticationCredentials) {
             var deferred = $q.defer();
-            $http.post('/api/v1/auth', authenticationCredentiels)
+            $http.post('/api/v1/auth', authenticationCredentials)
                 .success(function(resp, status) {
                     deferred.resolve(resp);
                 })

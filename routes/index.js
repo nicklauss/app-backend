@@ -13,6 +13,7 @@ module.exports = (app) => {
         .use('/api/v1/auth', require('./core/auth'))
         .use('/api/v1/users', require('./api/user'))
         .use('/api/v1/congres', require('./api/congre'))
-        .use('/api/v1/publications', require('./api/publication'))
+        .use('/api/v1/requests', require('./api/request'))
+        .use('/api/v1/relances', require('./api/relance'))
         .use('/api/v1/sessions', require('./api/session'));
 };

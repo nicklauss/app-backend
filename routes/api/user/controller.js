@@ -30,14 +30,11 @@ exports.validateUser = (req, res, next) => {
 
 exports.create = (req, res, next) => {
     let user = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        firstName: req.body.firstName.toLowerCase(),
+        lastName: req.body.lastName.toLowerCase(),
         email: req.body.email,
         gender: req.body.gender,
         password: req.body.password,
-        role: req.body.role,
-        registrations: req.body.registrations,
-        domaine: req.body.domaine,
         created: new Date()
     });
     user.save((err) => {
@@ -171,6 +168,23 @@ exports.getUsersByCongre = (req, res, next) => {
     let congreId = req.params.congreId;
 
     User.find({"registrations.congreId" : congreId})
+        .exec((err, users) => {
+        if(err || !users) {
+            return res.send({
+                ok: false,
+                message: 'Users not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: users
+        });
+    });
+};
+
+exports.getUsers = (req, res, next) => {
+
+    User.find({})
         .exec((err, users) => {
         if(err || !users) {
             return res.send({

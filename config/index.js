@@ -19,7 +19,8 @@ var all = {
     root: path.normalize(__dirname + '/../'),
 
     // Server port
-    port: process.env.PORT || 3000,
+    // port: process.env.PORT || 3000,
+    port: process.env.PORT || 10597,
 
     // Should we populate the DB with sample data?
     seedDB: false,
@@ -30,7 +31,7 @@ var all = {
     },
 
     // List of user roles
-    userRoles: ['user', 'oganizer', 'program', 'reviewer', 'author', 'speaker'],
+    userRoles: ['user'],
 
     // MongoDB connection options
     mongo: {

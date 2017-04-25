@@ -11,12 +11,12 @@ var UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'oganizer', 'program', 'reviewer', 'author', 'speaker'],
+        enum: ['user'],
         default: 'user'
     },
     active: {
         type: Boolean,
-        default: false
+        default: true
     },
     hashedPassword: String,
     salt: String,
@@ -24,7 +24,8 @@ var UserSchema = new Schema({
     lastName: String,
     gender: {
         type: String,
-        enum: ['male', 'female']
+        enum: ['male', 'female'],
+        default: 'male'
     },
     location: {
         address: String,
@@ -34,21 +35,6 @@ var UserSchema = new Schema({
     },
     phone: String,
     avatar_url: String,
-    university : String,
-    labo: String,
-    domaine: String,
-    registrations: [{
-        congreId: {
-            type: Schema.Types.ObjectId,
-            ref: 'Congre'
-        },
-        status: {
-            type: String,
-            enum: ['REGISTERED', 'PENDING', 'APPROVED'],
-            default: 'REGISTERED'
-        },
-        created: Date
-    }],
     deleted: {
         type: Boolean,
         default: false
