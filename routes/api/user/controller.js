@@ -32,6 +32,7 @@ exports.create = (req, res, next) => {
     let user = new User({
         firstName: req.body.firstName.toLowerCase(),
         lastName: req.body.lastName.toLowerCase(),
+        entity: req.body.entity,
         email: req.body.email,
         gender: req.body.gender,
         password: req.body.password,
@@ -70,6 +71,7 @@ exports.update = (req, res, next) => {
         }
         user.firstName = req.body.firstName || user.firstName;
         user.lastName = req.body.lastName || user.lastName;
+        user.entity = req.body.entity || user.entity;
         user.email = req.body.email || user.email;
         user.gender = req.body.gender || user.gender;
         user.location = req.body.location || user.location;

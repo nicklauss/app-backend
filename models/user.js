@@ -22,6 +22,7 @@ var UserSchema = new Schema({
     salt: String,
     firstName: String,
     lastName: String,
+    entity: String,
     gender: {
         type: String,
         enum: ['male', 'female'],
