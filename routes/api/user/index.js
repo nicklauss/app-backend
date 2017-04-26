@@ -19,7 +19,7 @@ route
     // .delete('/:userId', auth.isAuthenticated(), controller.delete)
     // .get('/:role/congres/:congreId', controller.getUsersByRoleAndCongre)
     // .get('/role/:role', controller.getUsersCount)
-    // .get('/congres/:congreId', controller.getUsersByCongre)
+    .get('/:userId', controller.getUser)
     .get('/', controller.getUsers)
     .get('/me', auth.isAuthenticated(), controller.me);
     // .get('/publications/:evaluation', controller.getReviewersByEvaluation);

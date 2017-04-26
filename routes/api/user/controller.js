@@ -164,20 +164,20 @@ exports.getUsersCount = (req, res, next) => {
     });
 };
 
-exports.getUsersByCongre = (req, res, next) => {
-    let congreId = req.params.congreId;
-
-    User.find({"registrations.congreId" : congreId})
-        .exec((err, users) => {
-        if(err || !users) {
+exports.getUser = (req, res, next) => {
+    let userId = req.params.userId;
+    console.log("userId getUser", userId);
+    User.find({"_id" : userId})
+        .exec((err, user) => {
+        if(err || !user) {
             return res.send({
                 ok: false,
-                message: 'Users not found'
+                message: 'User not found'
             });
         }
         return res.send({
             ok: true,
-            data: users
+            data: user
         });
     });
 };
