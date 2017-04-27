@@ -15,10 +15,10 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-      uri: 'mongodb://nicklauss:Hamza123@ds117931.mlab.com:17931/structis'
+    //   uri: 'mongodb://nicklauss:Hamza123@ds117931.mlab.com:17931/structis'
     // uri:    process.env.MONGOLAB_URI ||
     //         process.env.MONGOHQ_URL ||
     //         process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-    //         'mongodb://localhost/structis'
+        uri: 'mongodb://localhost/structis'
   }
 };

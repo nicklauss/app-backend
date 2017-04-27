@@ -233,7 +233,8 @@ exports.getReviewersByEvaluation = (req, res, next) => {
 exports.me = (req, res, next) => {
     console.log('me ctrl');
     const currentUserId = req.user._id;
-    console.log('req id');
+    console.log('req idddd ', req.user);
+    console.log('req id', currentUserId);
     User.findById(currentUserId)
       .select('-hashedPassword -salt -deleted')
       .exec((err, user) => {

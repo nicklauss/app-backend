@@ -162,7 +162,7 @@ exports.getRequests = (req, res, next) => {
 exports.getRequestsForUser = (req, res, next) => {
     let userId = req.params.userId;
     console.log("userId", userId);
-    Request.find({"deleted" : false, "request_for" : userId})
+    Request.find({"deleted" : false})
         // .populate('author')
         .exec((err, requests) => {
             console.log("err", err);
