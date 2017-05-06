@@ -15,6 +15,7 @@ route
     .post('/', auth.hasRole('user'), controller.newRequest)
     .get('/users/:userId', controller.getRequestsForUser)
     .get('/', controller.getRequests)
+    .get('/:requestId', controller.getRequestById)
     // .get('/NotAssigned', controller.getPublicationsNotAssigned)
     // .get('/count', controller.getPublicationsCount)
     // .get('/:publicationId', controller.getPublicationById)

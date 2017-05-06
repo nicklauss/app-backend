@@ -14,7 +14,7 @@ route
     })
     .post('/', auth.hasRole('user'), controller.newRelance)
     // .get('/users/:userId', controller.getRequestsForUser)
-    .get('/', controller.getRelances)
+    .get('/requests/:requestId', controller.getRelances)
     // .get('/NotAssigned', controller.getPublicationsNotAssigned)
     .get('/count/:requestId', controller.getrelancesCount);
     // .get('/:publicationId', controller.getPublicationById)

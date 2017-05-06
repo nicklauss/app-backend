@@ -51,17 +51,17 @@ exports.getRelances = (req, res, next) => {
 
     Relance.find({"deleted" : false, "requestId" : requestId})
         // .populate('author')
-        .exec((err, requests) => {
-        if(err || !requests) {
+        .exec((err, relances) => {
+            if(err || !relances) {
+                return res.send({
+                    ok: false,
+                    message: 'Relances not found'
+                });
+            }
             return res.send({
-                ok: false,
-                message: 'Requests not found'
+                ok: true,
+                data: relances
             });
-        }
-        return res.send({
-            ok: true,
-            data: requests
-        });
     });
 };
 //

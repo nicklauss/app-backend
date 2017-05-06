@@ -161,8 +161,29 @@ exports.getRequests = (req, res, next) => {
 
 exports.getRequestsForUser = (req, res, next) => {
     let userId = req.params.userId;
-    console.log("userId", userId);
-    Request.find({"deleted" : false})
+
+    Request.find({"deleted" : false, "request_by" : userId})
+        // .populate('author')
+        .exec((err, requests) => {
+            console.log("err", err);
+            console.log("requests", requests);
+        if(err || !requests) {
+            return res.send({
+                ok: false,
+                message: 'Requests not found'
+            });
+        }
+        return res.send({
+            ok: true,
+            data: requests
+        });
+    });
+};
+
+exports.getRequestById = (req, res, next) => {
+    let requestId = req.params.requestId;
+
+    Request.find({"deleted" : false, "_id" : requestId})
         // .populate('author')
         .exec((err, requests) => {
             console.log("err", err);
